@@ -74,7 +74,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
             .addGap(0, 338, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 280, 340));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
 
         jLabel2.setText("Información de las Plazas");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(228, 18, 18)));
