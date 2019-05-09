@@ -74,9 +74,10 @@ public class ZonaClientes extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Información de las Plazas");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(228, 18, 18)));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jButton1.setText("Retirar Abonados");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 120, 60));

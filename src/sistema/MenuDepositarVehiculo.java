@@ -80,9 +80,10 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Información de las Plazas");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(228, 18, 18)));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 0));
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
