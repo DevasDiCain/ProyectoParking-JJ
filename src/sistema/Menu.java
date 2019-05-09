@@ -27,17 +27,64 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel28.setText("jLabel1");
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel29.setText("jLabel1");
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 9, 0));
         jLabel24.setText("                    BIENVENIDO A APARKA");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 510, 120));
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 820, 120));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaAdmin.jpeg"))); // NOI18N
         jButton1.setText("ZONA ADMIN");
@@ -46,7 +93,7 @@ public class Menu extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 290, 130));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 290, 130));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaClientes.jpeg"))); // NOI18N
         jButton2.setText("ZONA CLIENTE");
@@ -55,11 +102,168 @@ public class Menu extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 280, 180));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 280, 180));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/parking.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 160, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel1");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 160, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel4.setText("jLabel1");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 160, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel5.setText("jLabel1");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 160, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel6.setText("jLabel1");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 160, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel7.setText("jLabel1");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel8.setText("jLabel1");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 160, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel9.setText("jLabel1");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 160, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel10.setText("jLabel1");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 160, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel11.setText("jLabel1");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 160, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel12.setText("jLabel1");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 160, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel13.setText("jLabel1");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 160, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel14.setText("jLabel1");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 160, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel15.setText("jLabel1");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 160, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel16.setText("jLabel1");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 160, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel17.setText("jLabel1");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 160, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel18.setText("jLabel1");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 160, -1));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel19.setText("jLabel1");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 160, -1));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel20.setText("jLabel1");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 160, -1));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel21.setText("jLabel1");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 160, -1));
+
+        jLabel22.setBackground(new java.awt.Color(250, 13, 31));
+        jLabel22.setForeground(new java.awt.Color(243, 249, 5));
+        jLabel22.setText("By... Devas & Kanche");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel23.setText("jLabel1");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 160, -1));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel25.setText("jLabel1");
+        add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 160, -1));
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel26.setText("jLabel1");
+        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 160, -1));
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel27.setText("jLabel1");
+        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 160, -1));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel30.setText("jLabel1");
+        add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, -1));
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel31.setText("jLabel1");
+        add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 160, -1));
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel32.setText("jLabel1");
+        add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 160, -1));
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel33.setText("jLabel1");
+        add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 160, -1));
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel34.setText("jLabel1");
+        add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 160, -1));
+
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel35.setText("jLabel1");
+        add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 160, -1));
+
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel36.setText("jLabel1");
+        add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 160, -1));
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel37.setText("jLabel1");
+        add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 160, -1));
+
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel38.setText("jLabel1");
+        add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 160, -1));
+
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel39.setText("jLabel1");
+        add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 160, -1));
+
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel40.setText("jLabel1");
+        add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 160, -1));
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel41.setText("jLabel1");
+        add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, 160, -1));
+
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel42.setText("jLabel1");
+        add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 160, -1));
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel43.setText("jLabel1");
+        add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -74,7 +278,48 @@ public class Menu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
