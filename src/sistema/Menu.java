@@ -84,7 +84,7 @@ public class Menu extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 9, 0));
         jLabel24.setText("                    BIENVENIDO A APARKA");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 820, 120));
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 820, 120));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaAdmin.jpeg"))); // NOI18N
         jButton1.setText("ZONA ADMIN");
