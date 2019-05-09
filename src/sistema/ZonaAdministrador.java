@@ -136,7 +136,7 @@ public class ZonaAdministrador extends javax.swing.JPanel {
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel15.setText("jLabel1");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 160, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 160, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel16.setText("jLabel1");
