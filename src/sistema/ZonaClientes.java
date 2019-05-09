@@ -33,6 +33,7 @@ public class ZonaClientes extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -43,11 +44,11 @@ public class ZonaClientes extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 278, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 338, Short.MAX_VALUE)
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
@@ -57,7 +58,7 @@ public class ZonaClientes extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jButton1.setText("Retirar Abonados");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
 
         jButton2.setText("Retirar Vehículo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +66,7 @@ public class ZonaClientes extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, 60));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, 60));
 
         jButton3.setText("Depositar Vehículo");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,10 +74,16 @@ public class ZonaClientes extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
 
         jButton4.setText("Depositar Abonados");
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 0));
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 5, 11));
+        jLabel2.setText("Zona Clientes");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -94,6 +101,7 @@ public class ZonaClientes extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
