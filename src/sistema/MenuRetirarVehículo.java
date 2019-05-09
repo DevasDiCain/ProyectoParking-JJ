@@ -32,6 +32,8 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        mostrarPrecio = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -55,7 +57,14 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText(" Introduzca Su Pin Asociado:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 10));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 10));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Total a Pagar");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+
+        mostrarPrecio.setText("jLabel6");
+        add(mostrarPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -64,6 +73,8 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel mostrarPrecio;
     // End of variables declaration//GEN-END:variables
 }
