@@ -31,7 +31,7 @@ public class ZonaClientes extends javax.swing.JFrame {
                 contador++;
                 if (contador < 15) {
                     botonPlaza tmp = new botonPlaza(1);
-                 
+              
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
@@ -78,7 +78,7 @@ public class ZonaClientes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        menuDepositarVehiculo = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -139,14 +139,14 @@ public class ZonaClientes extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 60));
 
-        jButton3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jButton3.setText("Depositar Vehículo");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        menuDepositarVehiculo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        menuDepositarVehiculo.setText("Depositar Vehículo");
+        menuDepositarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                menuDepositarVehiculoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 120, 60));
+        getContentPane().add(menuDepositarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 120, 60));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton4.setText("Depositar Abonados");
@@ -254,9 +254,10 @@ public class ZonaClientes extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void menuDepositarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDepositarVehiculoActionPerformed
+        new MenuDepositarVehiculo().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuDepositarVehiculoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -276,7 +277,6 @@ public class ZonaClientes extends javax.swing.JFrame {
     private javax.swing.JButton atras;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -299,6 +299,7 @@ public class ZonaClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton menuDepositarVehiculo;
     private javax.swing.JPanel panel;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ/src/sistema/ZonaClientes.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ/src/sistema/Menu.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ/src/sistema/botonPlaza.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ/src/sistema/MenuDepositarVehiculo.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ/src/sistema/graficoPlazas.java</file>
+        </group>
     </open-files>
 </project-private>

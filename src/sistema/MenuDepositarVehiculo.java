@@ -16,6 +16,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
      */
     public MenuDepositarVehiculo() {
         initComponents();
+         this.setSize(565, 462);
     }
 
     /**
@@ -46,7 +47,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -56,10 +56,14 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        atras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -160,10 +164,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel13.setText("jLabel1");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 160, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
-        jLabel15.setText("jLabel1");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 160, -1));
-
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel16.setText("jLabel1");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 160, -1));
@@ -204,13 +204,13 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel24.setText("jLabel1");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 160, -1));
 
-        jButton6.setText("Atrás");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        atras.setText("Atrás");
+        atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                atrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, -1));
+        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, -1));
 
         jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +228,22 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel18.setText("jLabel5");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
 
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel25.setText("jLabel1");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 160, -1));
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel26.setText("jLabel1");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 160, -1));
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel27.setText("jLabel1");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 160, -1));
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
+        jLabel28.setText("jLabel1");
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 160, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,9 +259,10 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        this.setVisible(false);
+        new ZonaClientes().setVisible(true);
+    }//GEN-LAST:event_atrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -287,17 +304,16 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton atras;
     private javax.swing.JLabel caravanasLibres;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -308,6 +324,10 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
