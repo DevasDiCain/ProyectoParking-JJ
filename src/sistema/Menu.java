@@ -283,6 +283,7 @@ public class Menu extends javax.swing.JFrame {
     private void botonZonaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaClienteActionPerformed
        ZonaClientes zonaCliente = new ZonaClientes();
        zonaCliente.setVisible(true);
+       this.setVisible(false);
       
     }//GEN-LAST:event_botonZonaClienteActionPerformed
 
