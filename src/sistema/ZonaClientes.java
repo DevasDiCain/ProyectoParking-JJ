@@ -17,14 +17,14 @@ import javax.swing.border.LineBorder;
  */
 public class ZonaClientes extends javax.swing.JFrame {
 
-    private graficoPlazas plazas;
+    public static  graficoPlazas PLAZAS;
     private int contador;
 
     public ZonaClientes() {
         initComponents();
         this.setSize(562, 462);
         panel.setLayout(new GridLayout(8, 8));
-        plazas = new graficoPlazas(8);
+        PLAZAS = new graficoPlazas(8);
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -33,22 +33,22 @@ public class ZonaClientes extends javax.swing.JFrame {
                     botonPlaza tmp = new botonPlaza(1);
               
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
+                    PLAZAS.ponerPlaza(i, j, tmp);
+                    panel.add(PLAZAS.getPlaza(i, j));
 
                 }
                 if (contador > 15 && contador < 30) {
                     botonPlaza tmp = new botonPlaza(2);
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
+                    PLAZAS.ponerPlaza(i, j, tmp);
+                    panel.add(PLAZAS.getPlaza(i, j));
 
                 }
                 if (contador > 30 && contador < 51) {
                     botonPlaza tmp = new botonPlaza(3);
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
+                    PLAZAS.ponerPlaza(i, j, tmp);
+                    panel.add(PLAZAS.getPlaza(i, j));
                 }
             }
         }
