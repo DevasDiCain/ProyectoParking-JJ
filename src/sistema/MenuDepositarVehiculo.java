@@ -75,7 +75,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
@@ -108,17 +108,17 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
 
         turismosLibres.setText("jLabel7");
-        getContentPane().add(turismosLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+        getContentPane().add(turismosLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         motosLibres.setText("jLabel8");
-        getContentPane().add(motosLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        getContentPane().add(motosLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Caravanas:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, -1));
 
         caravanasLibres.setText("jLabel10");
-        getContentPane().add(caravanasLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+        getContentPane().add(caravanasLibres, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Depositar Un Vehículo");
@@ -138,7 +138,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 130, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 190, -1));
 
         jTextField2.setText("Introduzca El Tipo De Vehículo");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel11.setText("jLabel1");
@@ -182,7 +182,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel21.setText("jLabel1");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 160, -1));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 160, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel22.setText("jLabel1");
