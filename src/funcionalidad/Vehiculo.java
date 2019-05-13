@@ -11,10 +11,35 @@ package funcionalidad;
  */
 public class Vehiculo {
     private String matricula;
-    private TipoVehiculo tipo;
+    private TipoVehiculo tipoDeVehiculo;
     enum TipoVehiculo{
         TURISMO,
         MOTOCICLETA,
         CARAVANA
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public TipoVehiculo getTipoDeVehiculo() {
+        return tipoDeVehiculo;
+    }
+
+    public void setTipoDeVehiculo(TipoVehiculo tipo) {
+        this.tipoDeVehiculo = tipo;
+    }
+
+    public Vehiculo(String matricula, TipoVehiculo tipo) {
+        this.matricula = matricula;
+        this.tipoDeVehiculo = tipo;
+    }
+    
+    public Vehiculo() {
+        this.matricula = "123456789";
     }
 }
