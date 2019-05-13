@@ -14,7 +14,7 @@ public class Plaza {
     private boolean ocupado;
     private boolean reservado;
     private TipoPlaza tipo;
-    private enum TipoPlaza {
+    public enum TipoPlaza {
         TURISMO,
         MOTOCICLETA,
         CARAVANA

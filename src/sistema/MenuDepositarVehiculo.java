@@ -14,16 +14,31 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     /**
      * Creates new form MenuDepositarVehiculo
      */
+    private int contadorCaravanas;
+    private int contadorTurismos;
+    private int contadorMotocicletas;
+
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(565, 462);
-        
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                panel.add(ZonaClientes.PLAZAS.getPlaza(i, j));
-                
+                panel.add(ZonaClientes.plazas.getPlaza(i, j));
+                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
+                    contadorCaravanas++;
+                }
+                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
+                    contadorMotocicletas++;
+                }
+                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
+                      contadorTurismos++;
+                }
             }
         }
+        turismosLibres.setText(String.valueOf(contadorTurismos));
+        motosLibres.setText(String.valueOf( contadorMotocicletas));
+        caravanasLibres.setText(String.valueOf(contadorCaravanas));
     }
 
     /**

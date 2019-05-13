@@ -5,6 +5,7 @@
  */
 package sistema;
 
+import funcionalidad.Plaza;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.Border;
@@ -16,122 +17,141 @@ import javax.swing.border.LineBorder;
  */
 public class botonPlaza extends JButton {
 
-    private boolean ocupada;
-    private boolean reservada;
 
+    private Plaza plaza;
+
+    public Plaza getPlaza() {
+        return plaza;
+    }
     private final Border reservado = new LineBorder(Color.red);
     private final Border noReservado = new LineBorder(Color.black);
-    public botonPlaza(int tipo) {//1- caravansa
+
+    public botonPlaza(int x) {//1- caravansa
         //2 -turismos
         //3-motos
-        this.ocupada = false;
-        switch (tipo) {
+        switch (x) {
             case 1:
+                plaza = new Plaza(false, false, Plaza.TipoPlaza.CARAVANA);
+                break;
+            case 2:
+                plaza = new Plaza(false, false, Plaza.TipoPlaza.TURISMO);
+                break;
+            case 3:
+                plaza = new Plaza(false, false, Plaza.TipoPlaza.MOTOCICLETA);
+                break;
+        }
+
+        switch (plaza.getTipo()) {
+            case CARAVANA:
                 this.setBackground(Color.white);
 
                 break;
-            case 2:
+            case TURISMO:
                 this.setBackground(Color.yellow);
                 break;
 
-            case 3:
+            case MOTOCICLETA:
                 this.setBackground(Color.blue);
                 break;
         }
 
-        if (ocupada) {
+        if (plaza.isOcupado()) {
             this.setText("X");
         }
-        if (!ocupada) {
+        if (!plaza.isOcupado()) {
             this.setText("O");
         }
-        if (reservada) {
+        if (plaza.isReservado()) {
             this.setBorder(reservado);
         }
 
     }
 
     public void ocupar() {
-        if (ocupada) {
+        if (plaza.isOcupado()) {
             System.out.println("La plaza ya está ocupada");
         } else {
-            this.ocupada = true;
+            plaza.setOcupado(true);
             this.setText("X");
         }
     }
 
     public void vaciar() {
-        if (!ocupada) {
+        if (!plaza.isOcupado()) {
             System.out.println("La plaza ya está vacía");
         } else {
-            this.ocupada = false;
+            plaza.setOcupado(false);
             this.setText("O");
         }
     }
 
     public void reservar() {
-        if(reservada){System.out.println("Esta plaza ya está reservada");}
-        else{
-            this.reservada=true;
+        if (plaza.isReservado()) {
+            System.out.println("Esta plaza ya está reservada");
+        } else {
+            plaza.setReservado(true);
             this.setBorder(reservado);
         }
     }
 
     public void quitarReserva() {
-        if(!reservada){System.out.println("Esta plaza no está reservada");}
-        else{
-                this.reservada=false;
-                this.setBorder(noReservado);
+        if (plaza.isReservado()) {
+            System.out.println("Esta plaza no está reservada");
+        } else {
+            plaza.setReservado(false);
+            this.setBorder(noReservado);
         }
     }
 
     public boolean estaOcupada() {
-        return ocupada;
+        return plaza.isOcupado();
     }
 
     public void setOcupada(boolean ocupada) {
-        this.ocupada = ocupada;
+        plaza.setOcupado(ocupada);
     }
 
     public boolean estaReservada() {
-        return reservada;
+        return plaza.isReservado();
     }
 
     public void setReservada(boolean reservada) {
-        this.reservada = reservada;
+        plaza.setReservado(reservada);
     }
 
-    public void ocupar(int i , int j,botonPlaza boton) {
-        if (boton.ocupada) {
+    public void ocupar(int i, int j, botonPlaza boton) {
+        if (plaza.isOcupado()) {
             System.out.println("La plaza ya está ocupada");
         } else {
-            boton.ocupada = true;
+            plaza.setOcupado(true);
             boton.setText("X");
         }
     }
 
-    public void vaciar(int i, int j ,botonPlaza boton) {
-        if (!boton.ocupada) {
+    public void vaciar(int i, int j, botonPlaza boton) {
+        if (!plaza.isOcupado()) {
             System.out.println("La plaza ya está vacía");
         } else {
-            boton.ocupada = false;
+            plaza.setOcupado(false);
             boton.setText("O");
         }
     }
 
-    public void reservar(int i , int j, botonPlaza boton) {
-        if(boton.reservada){System.out.println("Esta plaza ya está reservada");}
-        else{
-            boton.reservada=true;
+    public void reservar(int i, int j, botonPlaza boton) {
+        if (plaza.isReservado()) {
+            System.out.println("Esta plaza ya está reservada");
+        } else {
+            plaza.setOcupado(true);
             boton.setBorder(reservado);
         }
     }
 
-    public void quitarReserva(int i , int j, botonPlaza boton) {
-        if(!boton.reservada){System.out.println("Esta plaza no está reservada");}
-        else{
-                boton.reservada=false;
-                boton.setBorder(noReservado);
+    public void quitarReserva(int i, int j, botonPlaza boton) {
+        if (!plaza.isReservado()) {
+            System.out.println("Esta plaza no está reservada");
+        } else {
+            plaza.setOcupado(false);
+            boton.setBorder(noReservado);
         }
     }
 
