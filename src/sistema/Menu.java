@@ -9,15 +9,25 @@ package sistema;
  *
  * @author jose
  */
-public class Menu extends javax.swing.JPanel {
+public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        this.setSize(814, 554);
     }
 
+    public static void main(String[] args) {
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Menu().setVisible(true);
+
+            }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -271,7 +281,9 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_botonZonaAdminActionPerformed
 
     private void botonZonaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaClienteActionPerformed
-        // TODO add your handling code here:
+       ZonaClientes zonaCliente = new ZonaClientes();
+       zonaCliente.setVisible(true);
+      
     }//GEN-LAST:event_botonZonaClienteActionPerformed
 
 
