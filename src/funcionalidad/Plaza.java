@@ -10,6 +10,7 @@ package funcionalidad;
  * @author Usuario
  */
 public class Plaza {
+    // Atributos
     private boolean ocupado;
     private boolean reservado;
     private TipoPlaza tipo;
@@ -19,7 +20,8 @@ public class Plaza {
         CARAVANA
     }
 
-    public boolean isOcupado() {
+    // GETTERS y SETTERS 
+   public boolean isOcupado() {
         return ocupado;
     }
 
