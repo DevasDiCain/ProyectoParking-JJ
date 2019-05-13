@@ -17,35 +17,38 @@ import javax.swing.border.LineBorder;
  */
 public class botonPlaza extends JButton {
 
-
+    // Atributo
     private Plaza plaza;
 
     public Plaza getPlaza() {
         return plaza;
     }
+
     private final Border reservado = new LineBorder(Color.red);
     private final Border noReservado = new LineBorder(Color.black);
 
-    public botonPlaza(int x) {//1- caravansa
-        //2 -turismos
-        //3-motos
+    // Dibujará cada uno de los botones
+    public botonPlaza(int x) {
+        //1 - Turismo
+        //2 - Motocicleta
+        //3 - Caravana
         switch (x) {
             case 1:
-                plaza = new Plaza(false, false, Plaza.TipoPlaza.CARAVANA);
-                break;
-            case 2:
                 plaza = new Plaza(false, false, Plaza.TipoPlaza.TURISMO);
                 break;
-            case 3:
+            case 2:
                 plaza = new Plaza(false, false, Plaza.TipoPlaza.MOTOCICLETA);
                 break;
+            case 3:
+                plaza = new Plaza(false, false, Plaza.TipoPlaza.CARAVANA);
+                break;
         }
-
+        
         switch (plaza.getTipo()) {
             case CARAVANA:
                 this.setBackground(Color.white);
-
                 break;
+
             case TURISMO:
                 this.setBackground(Color.yellow);
                 break;
@@ -54,19 +57,17 @@ public class botonPlaza extends JButton {
                 this.setBackground(Color.blue);
                 break;
         }
-
+        
         if (plaza.isOcupado()) {
             this.setText("X");
-        }
-        if (!plaza.isOcupado()) {
-            this.setText("O");
-        }
+        } else this.setText("O");
+        
         if (plaza.isReservado()) {
             this.setBorder(reservado);
         }
-
     }
 
+    // Hará que el estado de una plaza cambie a ocupado (a no ser que ya esté ocupado)
     public void ocupar() {
         if (plaza.isOcupado()) {
             System.out.println("La plaza ya está ocupada");
@@ -76,6 +77,7 @@ public class botonPlaza extends JButton {
         }
     }
 
+    // Hará que el estado de una plaza cambie a vacío (a no ser que ya esté vacío)
     public void vaciar() {
         if (!plaza.isOcupado()) {
             System.out.println("La plaza ya está vacía");
@@ -85,6 +87,7 @@ public class botonPlaza extends JButton {
         }
     }
 
+    // Reservará plaza, si no lo está ya
     public void reservar() {
         if (plaza.isReservado()) {
             System.out.println("Esta plaza ya está reservada");
@@ -94,8 +97,9 @@ public class botonPlaza extends JButton {
         }
     }
 
+    // Quitará una reserva, si es que hay
     public void quitarReserva() {
-        if (plaza.isReservado()) {
+        if (!plaza.isReservado()) {
             System.out.println("Esta plaza no está reservada");
         } else {
             plaza.setReservado(false);
@@ -103,6 +107,7 @@ public class botonPlaza extends JButton {
         }
     }
 
+    // Getters y Setters
     public boolean estaOcupada() {
         return plaza.isOcupado();
     }

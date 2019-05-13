@@ -11,8 +11,7 @@ package funcionalidad;
  */
 public class Plaza {
     // Atributos
-    private boolean ocupado;
-    private boolean reservado;
+    private boolean ocupado, reservado;
     private TipoPlaza tipo;
     public enum TipoPlaza {
         TURISMO,
@@ -20,7 +19,7 @@ public class Plaza {
         CARAVANA
     }
 
-    // GETTERS y SETTERS 
+    // Getters y Setters
    public boolean isOcupado() {
         return ocupado;
     }
@@ -45,6 +44,7 @@ public class Plaza {
         this.tipo = tipo;
     }
 
+    // Constructor parametrizado
     public Plaza(boolean ocupado, boolean reservado, TipoPlaza tipo) {
         this.ocupado = ocupado;
         this.reservado = reservado;

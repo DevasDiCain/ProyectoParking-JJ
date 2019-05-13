@@ -10,10 +10,8 @@ package funcionalidad;
  * @author Usuario
  */
 public class Abonado {
-    private String dni;
-    private String nombre;
-    private String apellidos;
-    private String email;
+    // Atributos
+    private String dni,nombre,apellidos,email;
     private int numTarjeta;
     private TipoAbono tipoDeAbono;
     private enum TipoAbono {
@@ -23,6 +21,7 @@ public class Abonado {
         ANUAL
     }
 
+    // Getters y Setters
     public String getDni() {
         return dni;
     }
@@ -71,6 +70,7 @@ public class Abonado {
         this.tipoDeAbono = tipoDeAbono;
     }
     
+    // Constructor por defecto
     public Abonado(){
         dni = "1234567";
         nombre = "nombredefault";
@@ -79,6 +79,7 @@ public class Abonado {
         email = "email@default.com";
     }
 
+    // Constructor parametrizado
     public Abonado(String dni, String nombre, String apellidos, int numTarjeta, TipoAbono tipoDeAbono, String email) {
         this.dni = dni;
         this.nombre = nombre;

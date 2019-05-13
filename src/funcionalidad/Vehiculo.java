@@ -10,6 +10,7 @@ package funcionalidad;
  * @author Usuario
  */
 public class Vehiculo {
+    // Atributos
     private String matricula;
     private TipoVehiculo tipoDeVehiculo;
     enum TipoVehiculo{
@@ -18,6 +19,7 @@ public class Vehiculo {
         CARAVANA
     }
 
+    // Getters y Setters
     public String getMatricula() {
         return matricula;
     }
@@ -39,6 +41,7 @@ public class Vehiculo {
         this.tipoDeVehiculo = tipo;
     }
     
+    // Constructor
     public Vehiculo() {
         this.matricula = "123456789";
     }

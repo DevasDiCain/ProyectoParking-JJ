@@ -11,25 +11,26 @@ package sistema;
  */
 public class graficoPlazas {
 
+    // Atributos
     private botonPlaza[][] matriz;
     private int contador;
 
+    // Método para dibujar las plazas
     public graficoPlazas(int plazas) {
         matriz = new botonPlaza[plazas][plazas];
-
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {      
+            for (int j = 0; j < matriz.length; j++) {
                 botonPlaza tmp = new botonPlaza(1);
                 ponerPlaza(i, j, tmp);
             }
         }
-
     }
+
     public void ponerPlaza(int i, int j, botonPlaza tmp) {
         matriz[i][j] = tmp;
     }
-    
-     public botonPlaza[][] getMatriz() {
+
+    public botonPlaza[][] getMatriz() {
         return matriz;
     }
 
@@ -40,8 +41,8 @@ public class graficoPlazas {
     public void setPlaza(int i, int j, botonPlaza plazas) {
         this.matriz[i][j] = plazas;
     }
+
     public botonPlaza getPlaza(int i, int j) {
         return matriz[i][j];
     }
-   
 }
