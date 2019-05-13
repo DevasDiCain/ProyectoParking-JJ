@@ -13,15 +13,15 @@ public class Abonado {
     private String dni;
     private String nombre;
     private String apellidos;
+    private String email;
     private int numTarjeta;
-    private TipoAbono tipo;
+    private TipoAbono tipoDeAbono;
     private enum TipoAbono {
         MENSUAL,
         TRIMESTRAL,
         SEMETRAL,
         ANUAL
     }
-    private String email;
 
     public String getDni() {
         return dni;
@@ -62,6 +62,14 @@ public class Abonado {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public TipoAbono getTipoDeAbono() {
+        return tipoDeAbono;
+    }
+
+    public void setTipoDeAbono(TipoAbono tipoDeAbono) {
+        this.tipoDeAbono = tipoDeAbono;
+    }
     
     public Abonado(){
         dni = "1234567";
@@ -69,5 +77,14 @@ public class Abonado {
         apellidos = "apellidosdefault";
         numTarjeta = 1111111;
         email = "email@default.com";
+    }
+
+    public Abonado(String dni, String nombre, String apellidos, int numTarjeta, TipoAbono tipoDeAbono, String email) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.numTarjeta = numTarjeta;
+        this.tipoDeAbono = tipoDeAbono;
+        this.email = email;
     }
 }
