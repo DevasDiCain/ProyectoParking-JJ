@@ -18,4 +18,34 @@ public class Plaza {
         MOTOCICLETA,
         CARAVANA
     }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
+
+    public boolean isReservado() {
+        return reservado;
+    }
+
+    public void setReservado(boolean reservado) {
+        this.reservado = reservado;
+    }
+
+    public TipoPlaza getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoPlaza tipo) {
+        this.tipo = tipo;
+    }
+
+    public Plaza(boolean ocupado, boolean reservado, TipoPlaza tipo) {
+        this.ocupado = ocupado;
+        this.reservado = reservado;
+        this.tipo = tipo;
+    }
 }
