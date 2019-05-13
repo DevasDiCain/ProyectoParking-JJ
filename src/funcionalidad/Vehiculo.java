@@ -9,11 +9,10 @@ package funcionalidad;
  *
  * @author Usuario
  */
-public class Plaza {
-    private boolean ocupado;
-    private boolean reservado;
-    private TipoPlaza tipo;
-    private enum TipoPlaza {
+public class Vehiculo {
+    private String matricula;
+    private TipoVehiculo tipo;
+    enum TipoVehiculo{
         TURISMO,
         MOTOCICLETA,
         CARAVANA
