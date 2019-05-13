@@ -14,7 +14,8 @@ public class Abonado {
     private String nombre;
     private String apellidos;
     private int numTarjeta;
-    private enum tipoAbono {
+    private TipoAbono tipo;
+    private enum TipoAbono {
         MENSUAL,
         TRIMESTRAL,
         SEMETRAL,
@@ -69,5 +70,4 @@ public class Abonado {
         numTarjeta = 1111111;
         email = "email@default.com";
     }
-    
 }
