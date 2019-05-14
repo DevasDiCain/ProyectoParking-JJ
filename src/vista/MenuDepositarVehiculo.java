@@ -7,6 +7,7 @@ package vista;
 
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
+import java.awt.Color;
 
 /**
  *
@@ -24,7 +25,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
     public MenuDepositarVehiculo() {
         initComponents();
-        this.setSize(565, 462);
+        this.setSize(575, 462);
 
         for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
             for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
@@ -43,8 +44,14 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         }
         
         turismosLibres.setText(String.valueOf(contadorTurismos));
+        turismosLibres.setForeground(Color.yellow);
+        
         motosLibres.setText(String.valueOf( contadorMotocicletas));
+        motosLibres.setForeground(Color.blue);
+        
         caravanasLibres.setText(String.valueOf(contadorCaravanas));
+        caravanasLibres.setForeground(Color.white);
+        
     }
 
     /**
