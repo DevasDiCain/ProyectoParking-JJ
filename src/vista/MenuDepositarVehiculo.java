@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema;
+package vista;
+
+import funcionalidad.Plaza;
 
 /**
  *
@@ -27,6 +29,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 panel.add(ZonaClientes.plazas.getPlaza(i, j));
                 if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
                     contadorCaravanas++;
+                    
                 }
                 if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
                     contadorMotocicletas++;
@@ -36,6 +39,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 }
             }
         }
+        
         turismosLibres.setText(String.valueOf(contadorTurismos));
         motosLibres.setText(String.valueOf( contadorMotocicletas));
         caravanasLibres.setText(String.valueOf(contadorCaravanas));
@@ -76,7 +80,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         atras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -214,13 +218,13 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel23.setText("jLabel1");
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 160, -1));
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel24.setText("jLabel1");
@@ -277,9 +281,9 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+            System.exit(1);
+    }//GEN-LAST:event_salirActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         this.setVisible(false);
@@ -328,7 +332,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
     private javax.swing.JLabel caravanasLibres;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -361,6 +364,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel motosLibres;
     private javax.swing.JPanel panel;
+    private javax.swing.JButton salir;
     private javax.swing.JLabel turismosLibres;
     // End of variables declaration//GEN-END:variables
 }

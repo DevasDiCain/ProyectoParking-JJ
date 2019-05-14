@@ -14,6 +14,7 @@ public class Abonado {
     private String dni,nombre,apellidos,email;
     private int numTarjeta;
     private TipoAbono tipoDeAbono;
+    
     private enum TipoAbono {
         MENSUAL,
         TRIMESTRAL,

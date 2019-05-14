@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package funcionalidad;
+package modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +11,11 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Usuario
+ * @author jose
  */
 public class Conexion {
-
-    private static final String SERVIDOR = "jdbc:mysql://192.168.1.127/";
-    private static final String NOMBRE_BASE_DATOS = "prueba";
+     private static final String SERVIDOR = "jdbc:mysql://192.168.56.101/";
+    private static final String NOMBRE_BASE_DATOS = "Aparka";
     private static final String USER = "root";
     private static final String PASS = "123456";
 
