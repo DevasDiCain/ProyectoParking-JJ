@@ -22,12 +22,12 @@ public class ZonaClientes extends javax.swing.JFrame {
 
     public ZonaClientes() {
         initComponents();
-        this.setSize(562, 462);
+        this.setSize(578, 462);
         panel.setLayout(new GridLayout(8, 8));
-        plazas = new graficoPlazas(8);
+        plazas = new graficoPlazas(7);
 
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 0; i < plazas.getMatriz().length; i++) {
+            for (int j = 0; j < plazas.getMatriz().length; j++) {
                 contador++;
                 if (contador < 15) {
                     botonPlaza tmp = new botonPlaza(1);
@@ -264,7 +264,7 @@ public class ZonaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-            this.setVisible(false);
+            System.exit(1);
     }//GEN-LAST:event_salirActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed

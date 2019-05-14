@@ -38,7 +38,7 @@ public class EnviarDatos {
             System.out.println("Persona con primary key 1: ");
             System.out.println(daoAbonado.findByPk(1));
             System.out.println("-----------------------------------------");
-            
+       
             nuevaLista = daoAbonado.getAll();
             System.out.println("-------- Lista con datos recogidos desde la B.D despues de borrar una persona -------------");
             nuevaLista.forEach(System.out::println);

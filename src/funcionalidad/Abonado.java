@@ -5,14 +5,18 @@
  */
 package funcionalidad;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Usuario
  */
 public class Abonado {
     // Atributos
+    private int pk;//Será la clave primaria
+    private LocalDate FechaNacimiento;
     private String dni,nombre,apellidos,email;
-    private int numTarjeta;
+    private int numTarjeta;//Dnd se realizará el cobro
     private TipoAbono tipoDeAbono;
     
     private enum TipoAbono {

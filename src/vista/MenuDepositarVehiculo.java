@@ -6,6 +6,7 @@
 package vista;
 
 import funcionalidad.Plaza;
+import funcionalidad.Vehiculo;
 
 /**
  *
@@ -16,6 +17,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     /**
      * Creates new form MenuDepositarVehiculo
      */
+    private Vehiculo vehiculo;
     private int contadorCaravanas;
     private int contadorTurismos;
     private int contadorMotocicletas;
@@ -24,8 +26,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         initComponents();
         this.setSize(565, 462);
 
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
+            for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
                 panel.add(ZonaClientes.plazas.getPlaza(i, j));
                 if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
                     contadorCaravanas++;
@@ -274,11 +276,11 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        vehiculo.setMatricula(jTextField1.getText());// Recogemos la matricula del coche 
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+        vehiculo.setTipoDeVehiculo(Vehiculo.conversion(jTextField2.getText()));//Método que convierte el tipo introducido (string) en el tipo de vehiculo, tiene encuenta mayusculas y minusculas
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -291,7 +293,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // AQUÍ  MANDAREMOS LA INFO AL MODELO
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
