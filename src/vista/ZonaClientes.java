@@ -77,7 +77,7 @@ public class ZonaClientes extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonRetirarVehiculo = new javax.swing.JButton();
         menuDepositarVehiculo = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -130,14 +130,14 @@ public class ZonaClientes extends javax.swing.JFrame {
         jButton1.setText("Retirar Abonados");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 120, 60));
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jButton2.setText("Retirar Vehículo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonRetirarVehiculo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        botonRetirarVehiculo.setText("Retirar Vehículo");
+        botonRetirarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonRetirarVehiculoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 60));
+        getContentPane().add(botonRetirarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 60));
 
         menuDepositarVehiculo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         menuDepositarVehiculo.setText("Depositar Vehículo");
@@ -259,9 +259,10 @@ public class ZonaClientes extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_menuDepositarVehiculoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void botonRetirarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetirarVehiculoActionPerformed
+        this.setVisible(false);
+        new MenuRetirarVehículo().setVisible(true);
+    }//GEN-LAST:event_botonRetirarVehiculoActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
             System.exit(1);
@@ -275,8 +276,8 @@ public class ZonaClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
+    private javax.swing.JButton botonRetirarVehiculo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

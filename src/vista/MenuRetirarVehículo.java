@@ -9,13 +9,14 @@ package vista;
  *
  * @author José
  */
-public class MenuRetirarVehículo extends javax.swing.JPanel {
+public class MenuRetirarVehículo extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuRetirarVehículo
      */
     public MenuRetirarVehículo() {
         initComponents();
+        this.setSize(556, 418);
     }
 
     /**
@@ -39,7 +40,7 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        retirar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -114,6 +115,11 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
         add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 220, -1));
 
         jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
 
         jButton2.setText("Salir");
@@ -124,8 +130,13 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
 
-        jButton3.setText("Retirar");
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 320, 80, 50));
+        retirar.setText("Retirar");
+        retirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retirarActionPerformed(evt);
+            }
+        });
+        add(retirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 320, 80, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -225,14 +236,22 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        System.exit(1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        new ZonaClientes().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_retirarActionPerformed
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -265,5 +284,6 @@ public class MenuRetirarVehículo extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel mostrarPrecio;
+    private javax.swing.JButton retirar;
     // End of variables declaration//GEN-END:variables
 }
