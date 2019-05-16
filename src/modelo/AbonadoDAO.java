@@ -23,7 +23,7 @@ public class AbonadoDAO implements IAbonado {
 
     private Connection con = null;
 
-    public AbonadoDAO(){
+    public AbonadoDAO() {
         con = Conexion.getInstance();
     }
 
@@ -52,7 +52,6 @@ public class AbonadoDAO implements IAbonado {
         return lista;
     }
 
-   
     @Override
     public AbonadoVO findByPk(int pk) throws SQLException {
 
@@ -195,7 +194,7 @@ public class AbonadoDAO implements IAbonado {
             call.setString(2, oldName);
             // Ejecutamos el procedimiento
             res = call.executeUpdate();
-            
+
         }
         return res;
     }

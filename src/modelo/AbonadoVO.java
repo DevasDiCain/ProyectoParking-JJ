@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 public class AbonadoVO {
 
+    // Atributos
     private int pk;
     private LocalDate FechaNacimiento;
     private String dni, nombre, apellidos, email;
@@ -30,6 +31,7 @@ public class AbonadoVO {
     public AbonadoVO() {
     }
 
+    // Constructores
     public AbonadoVO(String dni, String nombre, String apellidos, String email, int numTarjeta, TipoAbono tipoDeAbono) {
         this.dni = dni;
         this.nombre = nombre;
@@ -38,11 +40,13 @@ public class AbonadoVO {
         this.numTarjeta = numTarjeta;
         this.tipoDeAbono = tipoDeAbono;
     }
-    public AbonadoVO(int pk, String nombre, LocalDate FechaNacimiento){
-        this.pk= pk;
+
+    public AbonadoVO(int pk, String nombre, LocalDate FechaNacimiento) {
+        this.pk = pk;
         this.nombre = nombre;
         this.FechaNacimiento = FechaNacimiento;
     }
+
     // Getters y Setters
     public String getDni() {
         return dni;
@@ -63,7 +67,8 @@ public class AbonadoVO {
     public String getNombre() {
         return nombre;
     }
-     public int getPk() {
+
+    public int getPk() {
         return pk;
     }
 
@@ -154,7 +159,7 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
+        return "AbonadoVO{" + "dni=" + dni + "\nNombre=" + nombre + "\nApellidos=" + apellidos + "\nEmail=" + email + "\nNumTarjeta=" + numTarjeta + "\nTipoDeAbono=" + tipoDeAbono + '}';
     }
 
 }
