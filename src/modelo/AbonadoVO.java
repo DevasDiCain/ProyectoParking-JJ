@@ -14,14 +14,15 @@ import java.util.Objects;
  */
 public class AbonadoVO {
 
-    // Atributos
     private int pk;
     private LocalDate FechaNacimiento;
     private String dni, nombre, apellidos, email;
     private int numTarjeta;
     private TipoAbono tipoDeAbono;
+    private LocalDate feciniabo;
+    private LocalDate fecfinabo;
 
-    private enum TipoAbono {
+    public enum TipoAbono {
         MENSUAL,
         TRIMESTRAL,
         SEMETRAL,
@@ -31,22 +32,25 @@ public class AbonadoVO {
     public AbonadoVO() {
     }
 
-    // Constructores
-    public AbonadoVO(String dni, String nombre, String apellidos, String email, int numTarjeta, TipoAbono tipoDeAbono) {
+    public AbonadoVO(int pk,String nombre,TipoAbono tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, int numTarjeta) {
+        this.pk = pk;
+        this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.numTarjeta = numTarjeta;
         this.tipoDeAbono = tipoDeAbono;
+        this.feciniabo = feciniabo;
+        this.fecfinabo = fecfinabo;
     }
 
-    public AbonadoVO(int pk, String nombre, LocalDate FechaNacimiento) {
-        this.pk = pk;
+   
+    public AbonadoVO(int pk, String nombre, LocalDate FechaNacimiento){
+        this.pk= pk;
         this.nombre = nombre;
         this.FechaNacimiento = FechaNacimiento;
     }
-
     // Getters y Setters
     public String getDni() {
         return dni;
@@ -54,6 +58,22 @@ public class AbonadoVO {
 
     public LocalDate getFechaNacimiento() {
         return FechaNacimiento;
+    }
+
+    public LocalDate getFeciniabo() {
+        return feciniabo;
+    }
+
+    public void setFeciniabo(LocalDate feciniabo) {
+        this.feciniabo = feciniabo;
+    }
+
+    public LocalDate getFecfinabo() {
+        return fecfinabo;
+    }
+
+    public void setFecfinabo(LocalDate fecfinabo) {
+        this.fecfinabo = fecfinabo;
     }
 
     public void setFechaNacimiento(LocalDate FechaNacimiento) {
@@ -67,8 +87,7 @@ public class AbonadoVO {
     public String getNombre() {
         return nombre;
     }
-
-    public int getPk() {
+     public int getPk() {
         return pk;
     }
 

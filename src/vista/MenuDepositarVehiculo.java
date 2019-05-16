@@ -301,6 +301,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
+      
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

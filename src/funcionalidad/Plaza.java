@@ -10,11 +10,9 @@ package funcionalidad;
  * @author Usuario
  */
 public class Plaza {
-
     // Atributos
     private boolean ocupado, reservado;
     private TipoPlaza tipo;
-
     public enum TipoPlaza {
         TURISMO,
         MOTOCICLETA,
@@ -22,7 +20,7 @@ public class Plaza {
     }
 
     // Getters y Setters
-    public boolean isOcupado() {
+   public boolean isOcupado() {
         return ocupado;
     }
 

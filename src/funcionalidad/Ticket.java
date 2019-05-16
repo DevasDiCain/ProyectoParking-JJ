@@ -10,5 +10,5 @@ package funcionalidad;
  * @author Usuario
  */
 public class Ticket {
-
+    
 }
