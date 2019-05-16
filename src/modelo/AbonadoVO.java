@@ -159,7 +159,7 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return "AbonadoVO{" + "dni=" + dni + "\nNombre=" + nombre + "\nApellidos=" + apellidos + "\nEmail=" + email + "\nNumTarjeta=" + numTarjeta + "\nTipoDeAbono=" + tipoDeAbono + '}';
+        return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
     }
 
 }
