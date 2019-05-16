@@ -112,7 +112,7 @@ public class Menu extends javax.swing.JFrame {
                 botonZonaClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 280, 180));
+        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 280, 180));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/parking.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -277,12 +277,15 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonZonaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaAdminActionPerformed
-        // TODO add your handling code here:
+        // Zona Administrador
+        new ZonaAdministrador().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonZonaAdminActionPerformed
 
     private void botonZonaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaClienteActionPerformed
-       ZonaClientes zonaCliente = new ZonaClientes();
-       zonaCliente.setVisible(true);
+       //Zona Clientes
+        new ZonaClientes().setVisible(true);
+       
        this.setVisible(false);
       
     }//GEN-LAST:event_botonZonaClienteActionPerformed

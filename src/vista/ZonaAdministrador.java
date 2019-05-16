@@ -5,17 +5,50 @@
  */
 package vista;
 
+import java.awt.GridLayout;
+import static vista.ZonaClientes.plazas;
+
 /**
  *
  * @author José
  */
-public class ZonaAdministrador extends javax.swing.JPanel {
+public class ZonaAdministrador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ZonaAdministrador
-     */
+       public static  graficoPlazas plazas;
+       private int contador;
+       
     public ZonaAdministrador() {
         initComponents();
+         this.setSize(578, 462);
+        jPanel1.setLayout(new GridLayout(8, 8));
+        plazas = new graficoPlazas(7);
+
+        for (int i = 0; i < plazas.getMatriz().length; i++) {
+            for (int j = 0; j < plazas.getMatriz().length; j++) {
+                contador++;
+                if (contador < 15) {
+                    botonPlaza tmp = new botonPlaza(1);
+              
+                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    plazas.ponerPlaza(i, j, tmp);
+                    jPanel1.add(plazas.getPlaza(i, j));
+
+                }
+                if (contador > 15 && contador < 30) {
+                    botonPlaza tmp = new botonPlaza(2);
+                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    plazas.ponerPlaza(i, j, tmp);
+                    jPanel1.add(plazas.getPlaza(i, j));
+
+                }
+                if (contador > 30 && contador < 51) {
+                    botonPlaza tmp = new botonPlaza(3);
+                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    plazas.ponerPlaza(i, j, tmp);
+                    jPanel1.add(plazas.getPlaza(i, j));
+                }
+            }
+        }
     }
 
     /**
@@ -208,11 +241,14 @@ public class ZonaAdministrador extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        //Salir:
+        System.exit(1);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // Atras
+        new Menu().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
 
