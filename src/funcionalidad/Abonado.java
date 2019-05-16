@@ -12,18 +12,31 @@ import java.time.LocalDate;
  * @author Usuario
  */
 public class Abonado {
+
     // Atributos
     private int pk;//Será la clave primaria
     private LocalDate FechaNacimiento;
-    private String dni,nombre,apellidos,email;
+    private String dni, nombre, apellidos, email;
     private int numTarjeta;//Dnd se realizará el cobro
     private TipoAbono tipoDeAbono;
-    
+
     private enum TipoAbono {
         MENSUAL,
         TRIMESTRAL,
         SEMETRAL,
         ANUAL
+    }
+
+    public static String generarPin(String matricula, String dni) {
+        String pin;
+        pin = String.valueOf(matricula.charAt(0));
+        pin = pin + String.valueOf(matricula.charAt(1));
+        pin = pin + String.valueOf(matricula.charAt(2));
+        pin = pin + String.valueOf(dni.charAt(0));
+        pin = pin + String.valueOf(dni.charAt(1));
+        pin = pin + String.valueOf(dni.charAt(2));
+       
+        return pin.toUpperCase();
     }
 
     // Getters y Setters
@@ -74,9 +87,9 @@ public class Abonado {
     public void setTipoDeAbono(TipoAbono tipoDeAbono) {
         this.tipoDeAbono = tipoDeAbono;
     }
-    
+
     // Constructor por defecto
-    public Abonado(){
+    public Abonado() {
         dni = "1234567";
         nombre = "nombredefault";
         apellidos = "apellidosdefault";
