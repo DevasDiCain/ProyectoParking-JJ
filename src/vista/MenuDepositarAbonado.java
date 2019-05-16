@@ -5,6 +5,8 @@
  */
 package vista;
 
+import funcionalidad.Abonado;
+
 /**
  *
  * @author José
@@ -228,7 +230,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // TODO add your handling code here:
-        
+        jLabel7.setText(Abonado.generarPin(jTextField1.getText(), jTextField2.getText()));
         
     }//GEN-LAST:event_retirarActionPerformed
 
