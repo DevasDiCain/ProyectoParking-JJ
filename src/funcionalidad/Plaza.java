@@ -11,6 +11,7 @@ package funcionalidad;
  */
 public class Plaza {
     // Atributos
+    private int id;
     private boolean ocupado, reservado;
     private TipoPlaza tipo;
     public enum TipoPlaza {

@@ -150,6 +150,11 @@ public class ZonaClientes extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton4.setText("Depositar Abonados");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 120, 60));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 0));
@@ -272,6 +277,13 @@ public class ZonaClientes extends javax.swing.JFrame {
         new Menu().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // DepositarAbonado
+        new MenuDepositarAbonado().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
