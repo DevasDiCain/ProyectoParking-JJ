@@ -18,21 +18,16 @@ public class AbonadoVO {
     private LocalDate FechaNacimiento;
     private String dni, nombre, apellidos, email;
     private String numTarjeta;
-    private TipoAbono tipoDeAbono;
+    private String tipoDeAbono;
     private LocalDate feciniabo;
     private LocalDate fecfinabo;
 
-    public enum TipoAbono {
-        MENSUAL,
-        TRIMESTRAL,
-        SEMETRAL,
-        ANUAL
-    }
+  
 
     public AbonadoVO() {
     }
 
-    public AbonadoVO(int pk,String nombre,TipoAbono tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo) {
+    public AbonadoVO(int pk,String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo) {
         this.pk = pk;
         this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
@@ -123,11 +118,11 @@ public class AbonadoVO {
         this.email = email;
     }
 
-    public TipoAbono getTipoDeAbono() {
+    public String getTipoDeAbono() {
         return tipoDeAbono;
     }
 
-    public void setTipoDeAbono(TipoAbono tipoDeAbono) {
+    public void setTipoDeAbono(String tipoDeAbono) {
         this.tipoDeAbono = tipoDeAbono;
     }
 

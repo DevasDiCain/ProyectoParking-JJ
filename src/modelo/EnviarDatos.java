@@ -17,60 +17,66 @@ import java.util.List;
  */
 public class EnviarDatos {
 
-     public static void main(String[] args) {
-        
-    
-        AbonadoDAO daoAbonado = new AbonadoDAO();
-        List<AbonadoVO> listaAbonados = new ArrayList<>();
-
-         listaAbonados.add(new AbonadoVO(1,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
-         listaAbonados.add(new AbonadoVO(2,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
-         listaAbonados.add(new AbonadoVO(3,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
-         listaAbonados.add(new AbonadoVO(4,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
-         listaAbonados.add(new AbonadoVO(5,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
-      
-        
+    public static void insertarAbonado(AbonadoDAO abonado, List<AbonadoVO> abonados) {
         try {
-            
-            System.out.println("Nº personas insertadas " + daoAbonado.insertPersona(listaAbonados));
-            System.out.println("-----------------------------------------");
-            System.out.println("Comprobamos en una nueva lista que se recogen los datos desde la tabla.");
-            List<AbonadoVO> nuevaLista = daoAbonado.getAll();
-            System.out.println("-------- Lista con datos recogidos desde la B.D -------------");
-            nuevaLista.forEach(System.out::println);
-            System.out.println("-----------------------------------------");
-            System.out.println("Persona con primary key 1: ");
-            System.out.println(daoAbonado.findByPk(1));
-            System.out.println("-----------------------------------------");
-       
-            nuevaLista = daoAbonado.getAll();
-            System.out.println("-------- Lista con datos recogidos desde la B.D despues de borrar una persona -------------");
-            nuevaLista.forEach(System.out::println);
-            System.out.println("-----------------------------------------");
-            System.out.println("Modificación de la persona con pk 5");
-            System.out.println("Nº Personas modificadas " + 
-                    daoAbonado.updatePersona(5, new AbonadoVO(7,"NuevoNombre", LocalDate.of(2019, 6, 5))));
-            System.out.println("-----------------------------------------");
-            nuevaLista = daoAbonado.getAll();
-            System.out.println("-------- Lista con datos recogidos desde la B.D despues de modificar una persona -------------");
-            nuevaLista.forEach(System.out::println);
-            System.out.println("-----------------------------------------");
-            System.out.println("Ejecución del procedimiento almacenado");
-            System.out.println("Se cambia María Weston por Felipe Román");
-            System.out.println("Nombres cambiados " + daoAbonado.cambiarNombres("María Weston", "Felipe Román"));
-            System.out.println("-----------------------------------------");
-            nuevaLista = daoAbonado.getAll();
-            System.out.println("-------- Lista con datos recogidos desde la B.D despues de ejecutar proced. -------------");
-            nuevaLista.forEach(System.out::println);
-            System.out.println("-----------------------------------------");
-            
-           
+            abonado.insertPersona(abonados);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido realizar la operación:");
             System.out.println(sqle.getMessage());
         }
-        System.out.println();
-        listaAbonados.forEach(System.out::println);
+    }
 
+    public static AbonadoVO obtenerAbonadoSegunPk(int pk) {
+        AbonadoDAO abonado = new AbonadoDAO();
+        AbonadoVO obtenido = new AbonadoVO();
+        try {
+
+            return obtenido = abonado.findByPk(pk);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido realizar la operación:");
+            System.out.println(sqle.getMessage());
+        }
+        return obtenido;
+    }
+
+    public static List<AbonadoVO> obtenerAbonados() {
+        List<AbonadoVO> listado = new ArrayList();
+        try {
+
+            return listado = new AbonadoDAO().getAll();
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido realizar la operación:");
+            System.out.println(sqle.getMessage());
+        }
+        return listado;
+    }
+
+    public static void borrarTabla() {
+        try {
+
+            new AbonadoDAO().deletePersona();
+
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido realizar la operación:");
+            System.out.println(sqle.getMessage());
+        }
+
+    }
+
+    public static void borrarAbonado(AbonadoVO abonado) {
+
+        try {
+
+            new AbonadoDAO().deletePersona(abonado);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido realizar la operación:");
+            System.out.println(sqle.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        List<AbonadoVO> listado = new ArrayList();
+        listado = EnviarDatos.obtenerAbonados();
+        System.out.println(listado.toString());
     }
 }
