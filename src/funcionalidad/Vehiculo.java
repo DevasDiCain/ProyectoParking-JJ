@@ -11,6 +11,7 @@ package funcionalidad;
  */
 public class Vehiculo {
     // Atributos
+    private int id;
     private String matricula;
     private TipoVehiculo tipoDeVehiculo;
     

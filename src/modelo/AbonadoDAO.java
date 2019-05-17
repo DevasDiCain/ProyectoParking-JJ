@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.AbonadoVO.TipoAbono;
@@ -36,15 +37,20 @@ public class AbonadoDAO implements IAbonado {
         // ya que no necesitamos parametrizar la sentencia SQL
         try (Statement st = con.createStatement()) {
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            ResultSet res = st.executeQuery("select * from Abonados");
+            ResultSet res = st.executeQuery("select * from Abonado");
             // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
             while (res.next()) {
                 AbonadoVO p = new AbonadoVO();
                 // Recogemos los datos de la persona, guardamos en un objeto
                 p.setPk(res.getInt("pk"));
                 p.setNombre(res.getString("nombre"));
+                p.setTipoDeAbono((TipoAbono)res.getObject(2));
+                p.setFeciniabo(res.getDate("feciniabo").toLocalDate());
+                p.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
                 p.setFechaNacimiento(res.getDate("fecha_nac").toLocalDate());
-               
+                p.setDni(res.getString("dni"));
+                p.setEmail(res.getString("email"));
+                p.setNumTarjeta(res.getString("numTarjeta"));
 
                 //Añadimos el objeto a la lista
                 lista.add(p);
@@ -61,7 +67,7 @@ public class AbonadoDAO implements IAbonado {
         ResultSet res = null;
         AbonadoVO abonado = new AbonadoVO();
 
-        String sql = "select * from Abonados where pk=?";
+        String sql = "select * from Abonado where pk=?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
@@ -77,20 +83,12 @@ public class AbonadoDAO implements IAbonado {
                 abonado.setPk(res.getInt("pk"));
                 abonado.setNombre(res.getString("nombre"));
                 abonado.setTipoDeAbono((TipoAbono)res.getObject(2));
-          
-                          abonado.setFechaNacimiento(res.getDate("fecha_nac").toLocalDate());
-                
-                
-                
-                            
-               
-                prest.setObject(3, abonado.getTipoDeAbono());
-                prest.setDate(4, Date.valueOf(abonado.getFeciniabo()));
-                prest.setDate(5, Date.valueOf(abonado.getFecfinabo()));
-                prest.setDate(6, Date.valueOf(abonado.getFechaNacimiento()));
-                prest.setString(7, abonado.getDni());
-                prest.setString(8, abonado.getEmail());
-                prest.setInt(9, abonado.getNumTarjeta());
+                abonado.setFeciniabo(res.getDate("feciniabo").toLocalDate());
+                abonado.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
+                abonado.setFechaNacimiento(res.getDate("fecha_nac").toLocalDate());
+                abonado.setDni(res.getString("dni"));
+                abonado.setEmail(res.getString("email"));
+                abonado.setNumTarjeta(res.getString("numTarjeta"));
                 return abonado;
             }
 
@@ -102,7 +100,7 @@ public class AbonadoDAO implements IAbonado {
     public int insertPersona(AbonadoVO abonado) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Abonados values (?,?,?)";
+        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(abonado.getPk()) != null) {
             // Existe un registro con esa pk
@@ -117,13 +115,13 @@ public class AbonadoDAO implements IAbonado {
           
                 prest.setInt(1, abonado.getPk());
                 prest.setString(2, abonado.getNombre());
-                prest.setObject(3, abonado.getTipoDeAbono());
+                prest.setString(3, String.valueOf(abonado.getTipoDeAbono()));
                 prest.setDate(4, Date.valueOf(abonado.getFeciniabo()));
                 prest.setDate(5, Date.valueOf(abonado.getFecfinabo()));
                 prest.setDate(6, Date.valueOf(abonado.getFechaNacimiento()));
                 prest.setString(7, abonado.getDni());
                 prest.setString(8, abonado.getEmail());
-                prest.setInt(9, abonado.getNumTarjeta());
+                prest.setString(9, abonado.getNumTarjeta());
         
 
                 numFilas = prest.executeUpdate();
@@ -147,7 +145,7 @@ public class AbonadoDAO implements IAbonado {
     @Override
     public int deletePersona() throws SQLException {
 
-        String sql = "delete from Abonados";
+        String sql = "delete from Abonado";
 
         int nfilas = 0;
 

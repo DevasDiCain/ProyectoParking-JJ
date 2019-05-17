@@ -23,11 +23,11 @@ public class EnviarDatos {
         AbonadoDAO daoAbonado = new AbonadoDAO();
         List<AbonadoVO> listaAbonados = new ArrayList<>();
 
-         listaAbonados.add(new AbonadoVO(1,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"","",012));
-         listaAbonados.add(new AbonadoVO(2,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"","",012));
-         listaAbonados.add(new AbonadoVO(3,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"","",012));
-         listaAbonados.add(new AbonadoVO(4,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"","",012));
-         listaAbonados.add(new AbonadoVO(5,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"","",012));
+         listaAbonados.add(new AbonadoVO(1,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
+         listaAbonados.add(new AbonadoVO(2,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
+         listaAbonados.add(new AbonadoVO(3,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
+         listaAbonados.add(new AbonadoVO(4,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
+         listaAbonados.add(new AbonadoVO(5,"Hugo Weston",AbonadoVO.TipoAbono.MENSUAL,LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(1997, 6, 6),"12","12","012",LocalDate.of(1995, Month.MARCH, 12)));
       
         
         try {

@@ -17,7 +17,7 @@ public class AbonadoVO {
     private int pk;
     private LocalDate FechaNacimiento;
     private String dni, nombre, apellidos, email;
-    private int numTarjeta;
+    private String numTarjeta;
     private TipoAbono tipoDeAbono;
     private LocalDate feciniabo;
     private LocalDate fecfinabo;
@@ -32,7 +32,7 @@ public class AbonadoVO {
     public AbonadoVO() {
     }
 
-    public AbonadoVO(int pk,String nombre,TipoAbono tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, int numTarjeta) {
+    public AbonadoVO(int pk,String nombre,TipoAbono tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo) {
         this.pk = pk;
         this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
@@ -107,11 +107,11 @@ public class AbonadoVO {
         this.apellidos = apellidos;
     }
 
-    public int getNumTarjeta() {
+    public String getNumTarjeta() {
         return numTarjeta;
     }
 
-    public void setNumTarjeta(int numTarjeta) {
+    public void setNumTarjeta(String numTarjeta) {
         this.numTarjeta = numTarjeta;
     }
 
@@ -138,7 +138,7 @@ public class AbonadoVO {
         hash = 47 * hash + Objects.hashCode(this.nombre);
         hash = 47 * hash + Objects.hashCode(this.apellidos);
         hash = 47 * hash + Objects.hashCode(this.email);
-        hash = 47 * hash + this.numTarjeta;
+        hash = 47 * hash + Integer.parseInt(this.numTarjeta);
         hash = 47 * hash + Objects.hashCode(this.tipoDeAbono);
         return hash;
     }
