@@ -56,7 +56,6 @@ public class MenuControlPlazas extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -169,15 +168,7 @@ public class MenuControlPlazas extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 30, 30));
-
-        jTextField2.setText("   1");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 30, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 50, 30));
 
         jLabel7.setText("OCUPADA");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, -1));
@@ -253,7 +244,7 @@ public class MenuControlPlazas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-        new ZonaClientes().setVisible(true);
+        new ZonaAdministrador().setVisible(true);
         this.setVisible(false);
 
     }//GEN-LAST:event_atrasActionPerformed
@@ -263,25 +254,33 @@ public class MenuControlPlazas extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // Marcador plaza 1
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  BUSCAREMOS LA PLAZA 
 
         ArrayList<String> aparcamientos = new ArrayList();
 
-        for (int i = 0; i <  8; i++) {
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 6; j++) {
-                aparcamientos.add(String.valueOf(i)+"-"+String.valueOf(j));
-               
+                aparcamientos.add(String.valueOf(i) + "-" + String.valueOf(j));
+
             }
         }
-        JOptionPane.showInputDialog(new JFrame(), "Elija una plaza", "Plazas", JOptionPane.QUESTION_MESSAGE, null, aparcamientos.toArray(), "Titan");
+
+        JOptionPane x = new JOptionPane();
+        String y = String.valueOf(x.showInputDialog(new JFrame(), "Elija una plaza", "Plazas", JOptionPane.QUESTION_MESSAGE, null, aparcamientos.toArray(), "Titan"));
+        jTextField1.setText(y);
+       //TEMPORAL
+        if (ZonaAdministrador.plazas.getPlaza(y.charAt(0), y.charAt(2)).estaOcupada()) {
+            jLabel7.setText("Está ocupada");
+        }else{jLabel7.setText("Está vacía");}
+        if (ZonaAdministrador.plazas.getPlaza(y.charAt(0), y.charAt(2)).estaReservada()){
+            jLabel8.setText("Está reservada");
+        }else{jLabel8.setText("No está reservada");}
+     // FIN TEMPORAL
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -350,7 +349,6 @@ public class MenuControlPlazas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel motosLibres;
     private javax.swing.JPanel panel;
     private javax.swing.JButton salir;
