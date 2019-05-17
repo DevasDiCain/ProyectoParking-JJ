@@ -26,7 +26,7 @@ public class AbonadoVO {
 
     public AbonadoVO() {
     }
-
+        
     public AbonadoVO(int pk,String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo) {
         this.pk = pk;
         this.FechaNacimiento = FechaNacimiento;

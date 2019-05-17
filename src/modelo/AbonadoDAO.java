@@ -182,7 +182,7 @@ public class AbonadoDAO implements IAbonado {
     public int updatePersona(int pk, AbonadoVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Abonado set nombre = ?, fecha_nac = ? where codabonado=?";
+        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? where codabonado=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe
@@ -193,9 +193,16 @@ public class AbonadoDAO implements IAbonado {
             try (PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setString(1, nuevosDatos.getNombre());
-                prest.setDate(2, Date.valueOf(nuevosDatos.getFechaNacimiento()));
-                prest.setInt(3, pk);
+               
+                prest.setInt(1, nuevosDatos.getPk());
+                prest.setString(2, nuevosDatos.getNombre());
+                prest.setString(3, nuevosDatos.getTipoDeAbono());
+                prest.setDate(4, Date.valueOf(nuevosDatos.getFeciniabo()));
+                prest.setDate(5, Date.valueOf(nuevosDatos.getFecfinabo()));
+                prest.setDate(6, Date.valueOf(nuevosDatos.getFechaNacimiento()));
+                prest.setString(7, nuevosDatos.getDni());
+                prest.setString(8, nuevosDatos.getEmail());
+                prest.setString(9, nuevosDatos.getNumTarjeta());
 
                 numFilas = prest.executeUpdate();
             }

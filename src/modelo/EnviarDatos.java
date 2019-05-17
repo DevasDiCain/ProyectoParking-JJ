@@ -74,9 +74,19 @@ public class EnviarDatos {
         }
     }
 
+    public static void cambiarAbonado(int pk, AbonadoVO nuevosDatos) {
+        try {
+
+            new AbonadoDAO().updatePersona(pk, nuevosDatos);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido realizar la operación:");
+            System.out.println(sqle.getMessage());
+        }
+
+    }
+
     public static void main(String[] args) {
-        List<AbonadoVO> listado = new ArrayList();
-        listado = EnviarDatos.obtenerAbonados();
-        System.out.println(listado.toString());
+       AbonadoVO x = new AbonadoVO(1,"Prueba 1","ANUAL",LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(2010, Month.MARCH, 1),"dni","email","tarjeta",LocalDate.of(2010, Month.MARCH, 1));
+       EnviarDatos.cambiarAbonado(1, x);
     }
 }

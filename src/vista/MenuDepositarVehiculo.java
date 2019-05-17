@@ -8,6 +8,7 @@ package vista;
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
 import java.awt.Color;
+import modelo.EnviarDatos;
 
 /**
  *
@@ -301,7 +302,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
-      
+    
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
