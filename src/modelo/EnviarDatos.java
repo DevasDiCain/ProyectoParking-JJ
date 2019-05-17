@@ -21,7 +21,7 @@ public class EnviarDatos {
         try {
             abonado.insertPersona(abonados);
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido introducir al abonado:");
             System.out.println(sqle.getMessage());
         }
     }
@@ -33,7 +33,7 @@ public class EnviarDatos {
 
             return obtenido = abonado.findByPk(pk);
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido obtener al abonado según la pk");
             System.out.println(sqle.getMessage());
         }
         return obtenido;
@@ -45,7 +45,7 @@ public class EnviarDatos {
 
             return listado = new AbonadoDAO().getAll();
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido obtener la lista de Abonados");
             System.out.println(sqle.getMessage());
         }
         return listado;
@@ -57,7 +57,7 @@ public class EnviarDatos {
             new AbonadoDAO().deletePersona();
 
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido borrar la tabla:");
             System.out.println(sqle.getMessage());
         }
 
@@ -69,7 +69,7 @@ public class EnviarDatos {
 
             new AbonadoDAO().deletePersona(abonado);
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido borrar al abonado:");
             System.out.println(sqle.getMessage());
         }
     }
@@ -79,7 +79,7 @@ public class EnviarDatos {
 
             new AbonadoDAO().updatePersona(pk, nuevosDatos);
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido realizar la operación:");
+            System.out.println("No se ha podido modificar al abonado:");
             System.out.println(sqle.getMessage());
         }
 
