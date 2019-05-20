@@ -25,53 +25,45 @@ public class PlazaDAO implements IPlaza {
 
     private Connection con = null;
 
-    public AbonadoDAO(){
+    public PlazaDAO(){
         con = Conexion.getInstance();
     }
 
     @Override
-    public List<AbonadoVO> getAll() throws SQLException {
-        List<AbonadoVO> lista = new ArrayList<>();
+    public List<PlazaVO> getAll() throws SQLException {
+        List<PlazaVO> lista = new ArrayList<>();
 
         // Preparamos la consulta de datos mediante un objeto Statement
         // ya que no necesitamos parametrizar la sentencia SQL
         try (Statement st = con.createStatement()) {
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            ResultSet res = st.executeQuery("select * from Abonado");
+            ResultSet res = st.executeQuery("select * from Plaza");
             // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
             while (res.next()) {
-                AbonadoVO p = new AbonadoVO();
+                PlazaVO p = new PlazaVO();
                 // Recogemos los datos de la persona, guardamos en un objeto
-                p.setPk(res.getInt("codabonado"));
-                p.setNombre(res.getString("nombre"));
-                p.setTipoDeAbono((res.getString(2)));
-                p.setFeciniabo(res.getDate("feciniabo").toLocalDate());
-                p.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
-                p.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
-                p.setDni(res.getString("dni"));
-                p.setEmail(res.getString("email"));
-                p.setNumTarjeta(res.getString("numTarjeta"));
-
+                p.setCodPlaza(res.getInt("codplaza"));
+                p.setOcupado(res.getBoolean("ocupado"));
+                p.setReservado(res.getBoolean("reservado"));
                 //Añadimos el objeto a la lista
                 lista.add(p);
             }
         }
-
         return lista;
     }
 
    
     @Override
-    public AbonadoVO findByPk(int pk) throws SQLException {
+    public PlazaVO findByPk(int codPlaza) throws SQLException {
 
         ResultSet res = null;
-        AbonadoVO abonado = new AbonadoVO();
+        PlazaVO plaza = new PlazaVO();
 
-        String sql = "select * from Abonado where codabonado=?";
+        String sql = "select * from Plaza where codplaza=?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
-            prest.setInt(1, pk);
+            prest.setInt(1, codPlaza);
 
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
@@ -80,16 +72,10 @@ public class PlazaDAO implements IPlaza {
             // si existe esa pk
             if (res.first()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
-                abonado.setPk(res.getInt("codabonado"));
-                abonado.setNombre(res.getString("nombre"));
-                abonado.setTipoDeAbono(res.getString(2));
-                abonado.setFeciniabo(res.getDate("feciniabo").toLocalDate());
-                abonado.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
-                abonado.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
-                abonado.setDni(res.getString("dni"));
-                abonado.setEmail(res.getString("email"));
-                abonado.setNumTarjeta(res.getString("numTarjeta"));
-                return abonado;
+                plaza.setCodPlaza(res.getInt("codplaza"));
+                plaza.setOcupado(res.getBoolean("ocupado"));
+                plaza.setReservado(res.getBoolean("reservado"));
+                return plaza;
             }
 
             return null;
@@ -97,12 +83,12 @@ public class PlazaDAO implements IPlaza {
     }
 
     @Override
-    public int insertPersona(AbonadoVO abonado) throws SQLException {
+    public int insertPlaza(PlazaVO plaza) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?)";
 
-        if (findByPk(abonado.getPk()) != null) {
+        if (findByPk(plaza.getCodPlaza()) != null) {
             // Existe un registro con esa pk
             // No se hace la inserción
             return numFilas;
@@ -113,39 +99,31 @@ public class PlazaDAO implements IPlaza {
 
                 // Establecemos los parámetros de la sentencia
           
-                prest.setInt(1, abonado.getPk());
-                prest.setString(2, abonado.getNombre());
-                prest.setString(3, abonado.getTipoDeAbono());
-                prest.setDate(4, Date.valueOf(abonado.getFeciniabo()));
-                prest.setDate(5, Date.valueOf(abonado.getFecfinabo()));
-                prest.setDate(6, Date.valueOf(abonado.getFechaNacimiento()));
-                prest.setString(7, abonado.getDni());
-                prest.setString(8, abonado.getEmail());
-                prest.setString(9, abonado.getNumTarjeta());
-        
+                prest.setInt(1, plaza.getCodPlaza());
+                prest.setBoolean(2, plaza.isOcupado());
+                prest.setBoolean(3, plaza.isReservado());
 
                 numFilas = prest.executeUpdate();
             }
             return numFilas;
         }
-
     }
 
     @Override
-    public int insertPersona(List<AbonadoVO> lista) throws SQLException {
+    public int insertPlaza(List<PlazaVO> lista) throws SQLException {
         int numFilas = 0;
 
-        for (AbonadoVO tmp : lista) {
-            numFilas += insertPersona(tmp);
+        for (PlazaVO tmp : lista) {
+            numFilas += insertPlaza(tmp);
         }
 
         return numFilas;
     }
 
     @Override
-    public int deletePersona() throws SQLException {
+    public int deletePlaza() throws SQLException {
 
-        String sql = "delete from Abonado";
+        String sql = "delete from Plaza";
 
         int nfilas = 0;
 
@@ -162,16 +140,16 @@ public class PlazaDAO implements IPlaza {
     }
 
     @Override
-    public int deletePersona(AbonadoVO abonado) throws SQLException {
+    public int deletePlaza(PlazaVO plaza) throws SQLException {
         int numFilas = 0;
 
-        String sql = "delete from Abonado where codabonado = ?";
+        String sql = "delete from Plaza where codplaza = ?";
 
         // Sentencia parametrizada
         try (PreparedStatement prest = con.prepareStatement(sql)) {
 
             // Establecemos los parámetros de la sentencia
-            prest.setInt(1, abonado.getPk());
+            prest.setInt(1, plaza.getCodPlaza());
             // Ejecutamos la sentencia
             numFilas = prest.executeUpdate();
         }
@@ -179,12 +157,12 @@ public class PlazaDAO implements IPlaza {
     }
 
     @Override
-    public int updatePersona(int pk, AbonadoVO nuevosDatos) throws SQLException {
+    public int updatePlaza(int codPlaza, PlazaVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? where codabonado=?";
+        String sql = "update Plaza set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ? where codplaza=?";
 
-        if (findByPk(pk) == null) {
+        if (findByPk(codPlaza) == null) {
             // La persona a actualizar no existe
             return numFilas;
         } else {
@@ -194,15 +172,9 @@ public class PlazaDAO implements IPlaza {
 
                 // Establecemos los parámetros de la sentencia
                
-                prest.setInt(1, nuevosDatos.getPk());
-                prest.setString(2, nuevosDatos.getNombre());
-                prest.setString(3, nuevosDatos.getTipoDeAbono());
-                prest.setDate(4, Date.valueOf(nuevosDatos.getFeciniabo()));
-                prest.setDate(5, Date.valueOf(nuevosDatos.getFecfinabo()));
-                prest.setDate(6, Date.valueOf(nuevosDatos.getFechaNacimiento()));
-                prest.setString(7, nuevosDatos.getDni());
-                prest.setString(8, nuevosDatos.getEmail());
-                prest.setString(9, nuevosDatos.getNumTarjeta());
+                prest.setInt(1, nuevosDatos.getCodPlaza());
+                prest.setBoolean(2, nuevosDatos.isOcupado());
+                prest.setBoolean(3, nuevosDatos.isReservado());
 
                 numFilas = prest.executeUpdate();
             }
@@ -230,3 +202,4 @@ public class PlazaDAO implements IPlaza {
     }
 
 }
+
