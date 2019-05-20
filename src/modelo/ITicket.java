@@ -8,6 +8,7 @@ package modelo;
 import java.sql.SQLException;
 import java.util.List;
 
+
 /**
  *
  * @author jose
@@ -26,12 +27,12 @@ public interface ITicket {
     int insertTicket (List<TicketVO> lista) throws SQLException;
     
     // Método para borrar una persona
-    int deletePersona (TicketVO ticket) throws SQLException;
+    int deleteTicket (TicketVO ticket) throws SQLException;
     
     // Método para borrar toda la tabla
-    int deletePersona() throws SQLException;
+    int deleteTicket() throws SQLException;
     
     // Método para modificar un ticket. Se modifica al ticket que tenga esa 'pk'
     // con los nuevos datos que traiga el ticket 'nuevosDatos'
-    int updatePersona (int codticket, TicketVO nuevosDatos) throws SQLException;
+    int updateTicket (int codTicket, TicketVO nuevosDatos) throws SQLException;
 }

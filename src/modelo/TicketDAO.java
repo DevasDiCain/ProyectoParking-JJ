@@ -5,10 +5,227 @@
  */
 package modelo;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
  *
- * @author juan
+ * @author jose
  */
-public class TicketDAO {
-    
+public class TicketDAO implements ITicket {
+
+    private Connection con = null;
+
+    public TicketDAO(){
+        con = Conexion.getInstance();
+    }
+
+    @Override
+    public List<TicketVO> getAll() throws SQLException {
+        List<TicketVO> lista = new ArrayList<>();
+
+        // Preparamos la consulta de datos mediante un objeto Statement
+        // ya que no necesitamos parametrizar la sentencia SQL
+        try (Statement st = con.createStatement()) {
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            ResultSet res = st.executeQuery("select * from Abonado");
+            // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
+            while (res.next()) {
+                TicketVO p = new TicketVO();
+                // Recogemos los datos de la persona, guardamos en un objeto
+                p.setCodTicket(res.getInt("codticket"));
+                p.setCodPlaza(res.getInt("codplaza"));
+                p.setMatricula(res.getString("matricula"));
+                p.setFecha(res.getDate("fecha").toLocalDate());
+                p.setImporte(res.getInt("importe"));
+                p.setPin(res.getString("pin"));
+
+                //Añadimos el objeto a la lista
+                lista.add(p);
+            }
+        }
+
+        return lista;
+    }
+
+   
+    @Override
+    public AbonadoVO findByPk(int pk) throws SQLException {
+
+        ResultSet res = null;
+        AbonadoVO abonado = new AbonadoVO();
+
+        String sql = "select * from Abonado where codabonado=?";
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+            prest.setInt(1, pk);
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+            // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
+            // si existe esa pk
+            if (res.first()) {
+                // Recogemos los datos de la persona, guardamos en un objeto
+                abonado.setPk(res.getInt("codabonado"));
+                abonado.setNombre(res.getString("nombre"));
+                abonado.setTipoDeAbono(res.getString(2));
+                abonado.setFeciniabo(res.getDate("feciniabo").toLocalDate());
+                abonado.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
+                abonado.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
+                abonado.setDni(res.getString("dni"));
+                abonado.setEmail(res.getString("email"));
+                abonado.setNumTarjeta(res.getString("numTarjeta"));
+                return abonado;
+            }
+
+            return null;
+        }
+    }
+
+    @Override
+    public int insertPersona(AbonadoVO abonado) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?)";
+
+        if (findByPk(abonado.getPk()) != null) {
+            // Existe un registro con esa pk
+            // No se hace la inserción
+            return numFilas;
+        } else {
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+          
+                prest.setInt(1, abonado.getPk());
+                prest.setString(2, abonado.getNombre());
+                prest.setString(3, abonado.getTipoDeAbono());
+                prest.setDate(4, Date.valueOf(abonado.getFeciniabo()));
+                prest.setDate(5, Date.valueOf(abonado.getFecfinabo()));
+                prest.setDate(6, Date.valueOf(abonado.getFechaNacimiento()));
+                prest.setString(7, abonado.getDni());
+                prest.setString(8, abonado.getEmail());
+                prest.setString(9, abonado.getNumTarjeta());
+                prest.setString(10, abonado.getMatricula());
+        
+
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        }
+
+    }
+
+    @Override
+    public int insertPersona(List<AbonadoVO> lista) throws SQLException {
+        int numFilas = 0;
+
+        for (AbonadoVO tmp : lista) {
+            numFilas += insertPersona(tmp);
+        }
+
+        return numFilas;
+    }
+
+    @Override
+    public int deletePersona() throws SQLException {
+
+        String sql = "delete from Abonado";
+
+        int nfilas = 0;
+
+        // Preparamos el borrado de datos  mediante un Statement
+        // No hay parámetros en la sentencia SQL
+        try (Statement st = con.createStatement()) {
+            // Ejecución de la sentencia
+            nfilas = st.executeUpdate(sql);
+        }
+
+        // El borrado se realizó con éxito, devolvemos filas afectadas
+        return nfilas;
+
+    }
+
+    @Override
+    public int deletePersona(AbonadoVO abonado) throws SQLException {
+        int numFilas = 0;
+
+        String sql = "delete from Abonado where codabonado = ?";
+
+        // Sentencia parametrizada
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+            // Establecemos los parámetros de la sentencia
+            prest.setInt(1, abonado.getPk());
+            // Ejecutamos la sentencia
+            numFilas = prest.executeUpdate();
+        }
+        return numFilas;
+    }
+
+    @Override
+    public int updatePersona(int pk, AbonadoVO nuevosDatos) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ? where codabonado=?";
+
+        if (findByPk(pk) == null) {
+            // La persona a actualizar no existe
+            return numFilas;
+        } else {
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+               
+                prest.setInt(1, nuevosDatos.getPk());
+                prest.setString(2, nuevosDatos.getNombre());
+                prest.setString(3, nuevosDatos.getTipoDeAbono());
+                prest.setDate(4, Date.valueOf(nuevosDatos.getFeciniabo()));
+                prest.setDate(5, Date.valueOf(nuevosDatos.getFecfinabo()));
+                prest.setDate(6, Date.valueOf(nuevosDatos.getFechaNacimiento()));
+                prest.setString(7, nuevosDatos.getDni());
+                prest.setString(8, nuevosDatos.getEmail());
+                prest.setString(9, nuevosDatos.getNumTarjeta());
+                prest.setString(10, nuevosDatos.getMatricula());
+
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        }
+    }
+
+    public int cambiarNombres(String newName, String oldName) throws SQLException {
+
+        int res = 0;
+        // Dos ?, uno para newName y otro para oldName
+
+        String sql = "{call cambiar_nombres (?,?)}";
+
+        // Preparamos la llamada al procedimiento almacenado
+        try (CallableStatement call = con.prepareCall(sql)) {
+            // Establecemos parámetros a pasar al procedimiento
+            call.setString(1, newName);
+            call.setString(2, oldName);
+            // Ejecutamos el procedimiento
+            res = call.executeUpdate();
+            
+        }
+        return res;
+    }
+
 }
