@@ -41,11 +41,10 @@ public class Menu extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         botonZonaAdmin = new javax.swing.JButton();
         botonZonaCliente = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        letreroAparka = new javax.swing.JLabel();
-        iconoParking = new javax.swing.JLabel();
-        fondo = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel28.setText("jLabel1");
@@ -55,43 +54,42 @@ public class Menu extends javax.swing.JFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonZonaAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaAdmin.jpeg"))); // NOI18N
-        botonZonaAdmin.setText("ZONA ADMIN");
+        botonZonaAdmin.setOpaque(false);
+        botonZonaAdmin.setContentAreaFilled(false);
+        botonZonaAdmin.setBorderPainted(false);
+        botonZonaAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaAdmin.png"))); // NOI18N
         botonZonaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonZonaAdminActionPerformed(evt);
             }
         });
-        getContentPane().add(botonZonaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 290, 130));
+        getContentPane().add(botonZonaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 200, 280));
 
-        botonZonaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaClientes.jpeg"))); // NOI18N
-        botonZonaCliente.setText("ZONA CLIENTE");
+        botonZonaCliente.setOpaque(false);
+        botonZonaCliente.setContentAreaFilled(false);
+        botonZonaCliente.setBorderPainted(false);
+        botonZonaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/zonaClientes.png"))); // NOI18N
         botonZonaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonZonaClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 280, 180));
+        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 200, 280));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
-        jLabel20.setText("jLabel1");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 160, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Parking icono.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, -1));
 
         jLabel22.setBackground(new java.awt.Color(250, 13, 31));
-        jLabel22.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel22.setForeground(new java.awt.Color(243, 249, 5));
         jLabel22.setText("By... Devas & Kanche");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
 
-        letreroAparka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Aparka.png"))); // NOI18N
-        getContentPane().add(letreroAparka, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Aparka.png"))); // NOI18N
+        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
 
-        iconoParking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Parking icono.png"))); // NOI18N
-        getContentPane().add(iconoParking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        fondo.setToolTipText("");
-        fondo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -20, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonZonaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaAdminActionPerformed
@@ -112,12 +110,11 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonZonaAdmin;
     private javax.swing.JButton botonZonaCliente;
-    private javax.swing.JLabel fondo;
-    private javax.swing.JLabel iconoParking;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel letreroAparka;
+    private javax.swing.JLabel jLabel44;
     // End of variables declaration//GEN-END:variables
 }
