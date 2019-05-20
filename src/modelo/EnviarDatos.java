@@ -17,9 +17,10 @@ import java.util.List;
  */
 public class EnviarDatos {
 
-    public static void insertarAbonado(AbonadoDAO abonado, List<AbonadoVO> abonados) {
+    public static void insertarAbonado(AbonadoVO abonado) {
+        AbonadoDAO estandar = new AbonadoDAO();
         try {
-            abonado.insertPersona(abonados);
+            estandar.insertPersona(abonado);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido introducir al abonado:");
             System.out.println(sqle.getMessage());
@@ -86,7 +87,7 @@ public class EnviarDatos {
     }
 
     public static void main(String[] args) {
-       AbonadoVO x = new AbonadoVO(1,"Prueba 1","ANUAL",LocalDate.of(2010, Month.MARCH, 1),LocalDate.of(2010, Month.MARCH, 1),"dni","email","tarjeta",LocalDate.of(2010, Month.MARCH, 1));
-       EnviarDatos.cambiarAbonado(1, x);
+        AbonadoVO x = new AbonadoVO(1, "Prueba 1", "ANUAL", LocalDate.of(2010, Month.MARCH, 1), LocalDate.of(2010, Month.MARCH, 1), "dni", "email", "tarjeta", LocalDate.of(2010, Month.MARCH, 1));
+        EnviarDatos.cambiarAbonado(1, x);
     }
 }
