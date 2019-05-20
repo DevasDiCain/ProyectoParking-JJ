@@ -9,6 +9,6 @@ package modelo;
  *
  * @author juan
  */
-public class ITicket {
+public interface ITicket {
     
 }
