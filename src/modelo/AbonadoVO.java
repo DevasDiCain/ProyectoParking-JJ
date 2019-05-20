@@ -16,28 +16,29 @@ public class AbonadoVO {
 
     private int pk;
     private LocalDate FechaNacimiento;
-    private String dni, nombre, apellidos, email;
+    private String dni, nombre, email;
     private String numTarjeta;
     private String tipoDeAbono;
     private LocalDate feciniabo;
     private LocalDate fecfinabo;
+    private String matricula;
 
   
 
     public AbonadoVO() {
     }
         
-    public AbonadoVO(int pk,String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo) {
+    public AbonadoVO(int pk,String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula) {
         this.pk = pk;
         this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
         this.nombre = nombre;
-        this.apellidos = apellidos;
         this.email = email;
         this.numTarjeta = numTarjeta;
         this.tipoDeAbono = tipoDeAbono;
         this.feciniabo = feciniabo;
         this.fecfinabo = fecfinabo;
+        this.matricula = matricula;
     }
 
    
@@ -49,6 +50,14 @@ public class AbonadoVO {
     // Getters y Setters
     public String getDni() {
         return dni;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -94,13 +103,6 @@ public class AbonadoVO {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
 
     public String getNumTarjeta() {
         return numTarjeta;
@@ -131,7 +133,6 @@ public class AbonadoVO {
         int hash = 3;
         hash = 47 * hash + Objects.hashCode(this.dni);
         hash = 47 * hash + Objects.hashCode(this.nombre);
-        hash = 47 * hash + Objects.hashCode(this.apellidos);
         hash = 47 * hash + Objects.hashCode(this.email);
         hash = 47 * hash + Integer.parseInt(this.numTarjeta);
         hash = 47 * hash + Objects.hashCode(this.tipoDeAbono);
@@ -159,9 +160,7 @@ public class AbonadoVO {
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.apellidos, other.apellidos)) {
-            return false;
-        }
+     
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
@@ -173,7 +172,7 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
+        return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
     }
 
 }

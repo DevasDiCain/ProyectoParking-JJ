@@ -86,8 +86,5 @@ public class EnviarDatos {
 
     }
 
-    public static void main(String[] args) {
-        AbonadoVO x = new AbonadoVO(1, "Prueba 1", "ANUAL", LocalDate.of(2010, Month.MARCH, 1), LocalDate.of(2010, Month.MARCH, 1), "dni", "email", "tarjeta", LocalDate.of(2010, Month.MARCH, 1));
-        EnviarDatos.cambiarAbonado(1, x);
-    }
+  
 }

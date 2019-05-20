@@ -95,7 +95,7 @@ public class ZonaAdministrador extends javax.swing.JFrame {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel25.setText("jLabel1");
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(1, 1, 1));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(254, 6, 6)));
@@ -111,22 +111,22 @@ public class ZonaAdministrador extends javax.swing.JFrame {
             .addGap(0, 338, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Información de las Plazas");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(228, 18, 18)));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 0));
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 5, 11));
         jLabel3.setText("Administración");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton1.setText("Copia de seguridad");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 120, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 120, 60));
 
         jButton2.setText("Facturación");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class ZonaAdministrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 60));
 
         jButton3.setText("Control Plazas");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -142,58 +142,63 @@ public class ZonaAdministrador extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 120, 60));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 120, 60));
 
         jButton4.setText("Abonos ");
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 120, 60));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 120, 60));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("By... Devas & Kanche");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel10.setText("jLabel1");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 160, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 160, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel11.setText("jLabel1");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 160, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 160, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel12.setText("jLabel1");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel13.setText("jLabel1");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 160, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 160, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel14.setText("jLabel1");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 160, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 160, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel18.setText("jLabel1");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 160, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 160, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel19.setText("jLabel1");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 160, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 160, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel20.setText("jLabel1");
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 160, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 160, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel21.setText("jLabel1");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 160, -1));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 160, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel23.setText("jLabel1");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 160, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 160, -1));
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel26.setText("jLabel1");
-        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 160, -1));
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 160, -1));
 
         jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -201,11 +206,11 @@ public class ZonaAdministrador extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
 
         jButton6.setText("Atrás");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -213,23 +218,23 @@ public class ZonaAdministrador extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel6.setText("jLabel5");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel7.setText("jLabel5");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo.jpeg"))); // NOI18N
         jLabel8.setText("jLabel5");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -252,6 +257,12 @@ public class ZonaAdministrador extends javax.swing.JFrame {
         new Menu().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // MENU ABONO
+        new MenuAbonos().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

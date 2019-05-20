@@ -100,7 +100,7 @@ public class AbonadoDAO implements IAbonado {
     public int insertPersona(AbonadoVO abonado) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(abonado.getPk()) != null) {
             // Existe un registro con esa pk
@@ -122,6 +122,7 @@ public class AbonadoDAO implements IAbonado {
                 prest.setString(7, abonado.getDni());
                 prest.setString(8, abonado.getEmail());
                 prest.setString(9, abonado.getNumTarjeta());
+                prest.setString(10, abonado.getMatricula());
         
 
                 numFilas = prest.executeUpdate();
@@ -182,7 +183,7 @@ public class AbonadoDAO implements IAbonado {
     public int updatePersona(int pk, AbonadoVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? where codabonado=?";
+        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ? where codabonado=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe
@@ -203,6 +204,7 @@ public class AbonadoDAO implements IAbonado {
                 prest.setString(7, nuevosDatos.getDni());
                 prest.setString(8, nuevosDatos.getEmail());
                 prest.setString(9, nuevosDatos.getNumTarjeta());
+                prest.setString(10, nuevosDatos.getMatricula());
 
                 numFilas = prest.executeUpdate();
             }
