@@ -63,7 +63,7 @@ public class Menu extends javax.swing.JFrame {
                 botonZonaAdminActionPerformed(evt);
             }
         });
-        getContentPane().add(botonZonaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 200, 280));
+        getContentPane().add(botonZonaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 200, 280));
 
         botonZonaCliente.setOpaque(false);
         botonZonaCliente.setContentAreaFilled(false);
