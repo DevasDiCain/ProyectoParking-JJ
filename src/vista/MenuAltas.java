@@ -21,7 +21,7 @@ public class MenuAltas extends javax.swing.JFrame {
      */
     public MenuAltas() {
         initComponents();
-         this.setSize(600, 482);
+         this.setSize(610, 492);
     }
 
     /**
@@ -54,6 +54,8 @@ public class MenuAltas extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         Tmatricula = new javax.swing.JLabel();
         Tabono = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,11 +88,11 @@ public class MenuAltas extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel4.setText("Nombre:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel1.setText("TipoAbono:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 90, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 90, 20));
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setText("Fecha Inicio:");
@@ -98,27 +100,27 @@ public class MenuAltas extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel6.setText("Fecha Nacimiento:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setText("DNI:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel8.setText("Email:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel9.setText("NºTarjetaBancaria:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 20));
-        getContentPane().add(tMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 420, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 20));
+        getContentPane().add(tMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 420, -1));
 
         Tnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(Tnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 420, 30));
+        getContentPane().add(Tnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 420, 30));
         getContentPane().add(Tfecini, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 410, -1));
 
         Tfecnac.setText("Formato-> xxxx/xx/xx");
@@ -127,10 +129,10 @@ public class MenuAltas extends javax.swing.JFrame {
                 TfecnacActionPerformed(evt);
             }
         });
-        getContentPane().add(Tfecnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 370, -1));
-        getContentPane().add(Temail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 450, -1));
-        getContentPane().add(Ttarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 370, -1));
-        getContentPane().add(Tdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 450, -1));
+        getContentPane().add(Tfecnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 370, -1));
+        getContentPane().add(Temail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 450, -1));
+        getContentPane().add(Ttarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 370, -1));
+        getContentPane().add(Tdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 450, -1));
 
         jButton2.setText("ALTA");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -138,11 +140,11 @@ public class MenuAltas extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 130, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 130, 40));
 
         Tmatricula.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         Tmatricula.setText("Matricula:");
-        getContentPane().add(Tmatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 90, 20));
+        getContentPane().add(Tmatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 90, 20));
 
         Tabono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MENSUAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL" }));
         Tabono.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +152,15 @@ public class MenuAltas extends javax.swing.JFrame {
                 TabonoActionPerformed(evt);
             }
         });
-        getContentPane().add(Tabono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+        getContentPane().add(Tabono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel10.setText("By... Devas & Kanche");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, 20));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, -40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,7 +185,7 @@ public class MenuAltas extends javax.swing.JFrame {
     }//GEN-LAST:event_TnombreActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // dAR DE ALTA
+        // DAR DE ALTA
         AbonadoVO registrado = new AbonadoVO();
         registrado.setNombre(Tnombre.getText());
         registrado.setFeciniabo(LocalDate.parse(Tfecini.getText()));
@@ -242,6 +252,8 @@ public class MenuAltas extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

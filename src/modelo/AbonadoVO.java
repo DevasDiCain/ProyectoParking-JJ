@@ -42,11 +42,6 @@ public class AbonadoVO {
     }
 
    
-    public AbonadoVO(int pk, String nombre, LocalDate FechaNacimiento){
-        this.pk= pk;
-        this.nombre = nombre;
-        this.FechaNacimiento = FechaNacimiento;
-    }
     // Getters y Setters
     public String getDni() {
         return dni;
