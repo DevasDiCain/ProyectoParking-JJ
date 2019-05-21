@@ -7,6 +7,7 @@ package vista;
 
 import funcionalidad.Abonado;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
 
@@ -21,7 +22,7 @@ public class MenuAltas extends javax.swing.JFrame {
      */
     public MenuAltas() {
         initComponents();
-         this.setSize(610, 492);
+         this.setSize(610, 500);
     }
 
     /**
@@ -129,7 +130,7 @@ public class MenuAltas extends javax.swing.JFrame {
                 TfecnacActionPerformed(evt);
             }
         });
-        getContentPane().add(Tfecnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 370, -1));
+        getContentPane().add(Tfecnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 370, -1));
         getContentPane().add(Temail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 450, -1));
         getContentPane().add(Ttarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 370, -1));
         getContentPane().add(Tdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 450, -1));
@@ -186,10 +187,15 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE ALTA
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/mm/dd");
+        
+        
+      
+        
         AbonadoVO registrado = new AbonadoVO();
         registrado.setNombre(Tnombre.getText());
-        registrado.setFeciniabo(LocalDate.parse(Tfecini.getText()));
-        registrado.setFechaNacimiento(LocalDate.parse(Tfecnac.getText()));
+        registrado.setFeciniabo(LocalDate.parse(Tfecini.getText(),formatter).atStartOfDay().toLocalDate());
+        registrado.setFechaNacimiento(LocalDate.parse(Tfecnac.getText(),formatter));
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());
