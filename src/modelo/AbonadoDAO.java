@@ -113,7 +113,7 @@ public class AbonadoDAO implements IAbonado {
 
                 // Establecemos los parámetros de la sentencia
           
-                prest.setString(1, String.valueOf(abonado.getPk()));
+                prest.setInt(1, abonado.getPk());
                 prest.setString(2, abonado.getNombre());
                 prest.setString(3, abonado.getTipoDeAbono());
                 prest.setDate(4, Date.valueOf(abonado.getFeciniabo()));

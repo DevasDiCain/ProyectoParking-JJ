@@ -13,18 +13,13 @@ import java.util.Objects;
  */
 public class VehiculoVO {
     private String matricula;
-    private TipoVehiculo tipoVehiculo;
+    private String tipoVehiculo;
     private int codPlaza;
-    private enum TipoVehiculo {
-        TURISMO,
-        MOTOCICLETA,
-        CARAVANA
-    }
-    
+ 
     public VehiculoVO(){
     }
 
-    public VehiculoVO(String matricula, TipoVehiculo tipoVehiculo, int codPlaza) {
+    public VehiculoVO(String matricula, String tipoVehiculo, int codPlaza) {
         this.matricula = matricula;
         this.tipoVehiculo = tipoVehiculo;
         this.codPlaza = codPlaza;
@@ -38,11 +33,11 @@ public class VehiculoVO {
         this.matricula = matricula;
     }
 
-    public TipoVehiculo getTipoVehiculo() {
+    public String getTipoVehiculo() {
         return tipoVehiculo;
     }
 
-    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+    public void setTipoVehiculo(String tipoVehiculo) {
         this.tipoVehiculo = tipoVehiculo;
     }
 

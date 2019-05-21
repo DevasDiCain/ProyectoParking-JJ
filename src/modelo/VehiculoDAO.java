@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author jose
@@ -53,17 +54,19 @@ public class VehiculoDAO implements IVehiculo {
         return lista;
     }
 
+
+
     @Override
-    public VehiculoVO findByPk(int pk) throws SQLException {
+    public VehiculoVO findByPk(String pk) throws SQLException {
 
         ResultSet res = null;
         VehiculoVO vehiculo = new VehiculoVO();
 
-        String sql = "select * from Vehiculo where codvehiculo=?";
+        String sql = "select * from Vehiculo where matricula=?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
-            prest.setInt(1, pk);
+            prest.setString(1, pk);
 
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
@@ -73,7 +76,7 @@ public class VehiculoDAO implements IVehiculo {
             if (res.first()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 vehiculo.setMatricula(res.getString("matricula"));
-                //p.setTipoVehiculo(res.getObject("tipoVehiculo"));
+                vehiculo.setTipoVehiculo(res.getString("tipoVehiculo"));
                 vehiculo.setCodPlaza((res.getInt("codplaza")));
                 return vehiculo;
             }
@@ -99,7 +102,7 @@ public class VehiculoDAO implements IVehiculo {
 
                 // Establecemos los parámetros de la sentencia
                 prest.setString(1, vehiculo.getMatricula());
-                //prest.setString(2, vehiculo.getTipoVehiculo());
+                prest.setString(2, vehiculo.getTipoVehiculo());
                 prest.setInt(3, vehiculo.getCodPlaza());
 
                 numFilas = prest.executeUpdate();
@@ -157,7 +160,7 @@ public class VehiculoDAO implements IVehiculo {
     }
 
     @Override
-    public int updateVehiculo(int pk, VehiculoVO nuevosDatos) throws SQLException {
+    public int updateVehiculo(String pk, VehiculoVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
         String sql = "update Vehiculo set matricula = ?,tipoVehiculo = ?, codplaza = ?";
@@ -199,5 +202,15 @@ public class VehiculoDAO implements IVehiculo {
         }
         return res;
     }
-
+    @Override
+     public int hallarPlaza() throws SQLException{
+         int r = 0;
+          try (Statement st = con.createStatement()) {
+           
+            ResultSet res = st.executeQuery("select max(codplaza)+1 from Vehiculo");
+            res.next();
+           return res.getInt(1);
+     }
+          
+}
 }

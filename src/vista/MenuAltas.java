@@ -196,7 +196,8 @@ public class MenuAltas extends javax.swing.JFrame {
         AbonadoVO registrado = new AbonadoVO();
 
         registrado.setNombre(Tnombre.getText());
-         registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
+        registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
+        registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
         registrado.setFechaNacimiento(MenuAltas.convertirStringFecha(Tfecnac.getText()));
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());

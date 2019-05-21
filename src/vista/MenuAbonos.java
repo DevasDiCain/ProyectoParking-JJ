@@ -117,7 +117,7 @@ public class MenuAbonos extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // ALTA
-        new MenuAltas().setVisible(true);
+        new MenuAltaVehiculo().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
