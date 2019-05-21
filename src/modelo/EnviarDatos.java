@@ -85,6 +85,9 @@ public class EnviarDatos {
         }
 
     }
+    public static void main(String[] args) {
+       EnviarDatos.borrarTabla();
+    }
 
   
 }

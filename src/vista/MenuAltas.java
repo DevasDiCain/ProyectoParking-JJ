@@ -25,6 +25,11 @@ public class MenuAltas extends javax.swing.JFrame {
          this.setSize(610, 500);
     }
 
+    
+    public static LocalDate convertirStringFecha(String cadena){
+       LocalDate localDate1 = LocalDate.parse(cadena, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+       return localDate1;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,7 +173,7 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Atras
-        new ZonaAdministrador().setVisible(true);
+        new MenuAbonos().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -187,15 +192,12 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE ALTA
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/mm/dd");
-        
-        
-      
-        
+ 
         AbonadoVO registrado = new AbonadoVO();
+
         registrado.setNombre(Tnombre.getText());
-        registrado.setFeciniabo(LocalDate.parse(Tfecini.getText(),formatter).atStartOfDay().toLocalDate());
-        registrado.setFechaNacimiento(LocalDate.parse(Tfecnac.getText(),formatter));
+         registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
+        registrado.setFechaNacimiento(MenuAltas.convertirStringFecha(Tfecnac.getText()));
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());
