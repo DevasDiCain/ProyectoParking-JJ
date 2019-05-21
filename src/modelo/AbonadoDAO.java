@@ -112,7 +112,9 @@ public class AbonadoDAO implements IAbonado {
             try (PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-          
+                System.out.println(abonado.getFecfinabo());
+                System.out.println(abonado.getFeciniabo());
+                System.out.println(abonado.getFechaNacimiento());
                 prest.setInt(1, abonado.getPk());
                 prest.setString(2, abonado.getNombre());
                 prest.setString(3, abonado.getTipoDeAbono());

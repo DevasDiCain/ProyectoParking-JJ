@@ -128,6 +128,12 @@ public class MenuAltas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Tnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 420, 30));
+
+        Tfecini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfeciniActionPerformed(evt);
+            }
+        });
         getContentPane().add(Tfecini, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 410, -1));
 
         Tfecnac.setText("Formato-> xxxx/xx/xx");
@@ -199,8 +205,8 @@ public class MenuAltas extends javax.swing.JFrame {
         
         registrado.setNombre(Tnombre.getText());
         registrado.setFeciniabo(tiempo);
-        registrado.setFeciniabo(tiempo);
-        registrado.setFechaNacimiento(tiempo);
+        registrado.setFecfinabo(LocalDate.parse(Tfecini.getText()));
+        registrado.setFechaNacimiento(LocalDate.parse(Tfecnac.getText()));
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());
@@ -214,6 +220,10 @@ public class MenuAltas extends javax.swing.JFrame {
     private void TabonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TabonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TabonoActionPerformed
+
+    private void TfeciniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfeciniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfeciniActionPerformed
 
     /**
      * @param args the command line arguments

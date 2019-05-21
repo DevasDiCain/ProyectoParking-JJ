@@ -125,10 +125,10 @@ public class EnviarDatos {
     }
 
     public static void main(String[] args) {
-//        AbonadoVO x = new AbonadoVO(1,"Eva","ANUAL",LocalDate.of(1995, Month.MARCH, 10),LocalDate.of(1995, Month.MARCH, 10),"","","",LocalDate.of(1995, Month.MARCH, 10),"abc 1234");
-//        EnviarDatos.insertarAbonado(x);
+        AbonadoVO x = new AbonadoVO("Eva","ANUAL",LocalDate.of(1995, Month.MARCH, 10),LocalDate.of(1995, Month.MARCH, 10),"","","",LocalDate.of(1995, Month.MARCH, 10),"abc 1234");
+        EnviarDatos.insertarAbonado(x);
        
-        System.out.println( EnviarDatos.ultimoAbonado());
+       
     }
 
 }
