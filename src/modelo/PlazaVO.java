@@ -15,34 +15,32 @@ import java.util.Objects;
 public class PlazaVO {
 
     private int codPlaza;
-    private boolean reservado;
     private boolean ocupado;
-
-  
+    private boolean reservado;
+    private TipoPlaza tipoPlaza;
+    private enum TipoPlaza{
+        paraTurismos,
+        paraMotocicletas,
+        paraCaravanas
+    }
+    
 
     public PlazaVO() {
     }
 
-    public PlazaVO(int codPlaza, boolean reservado, boolean ocupado) {
+    public PlazaVO(int codPlaza, boolean ocupado, boolean reservado, TipoPlaza tipoPlaza) {
         this.codPlaza = codPlaza;
-        this.reservado = reservado;
         this.ocupado = ocupado;
+        this.reservado = reservado;
+        this.tipoPlaza = tipoPlaza;
     }
-
+    
     public int getCodPlaza() {
         return codPlaza;
     }
 
     public void setCodPlaza(int codPlaza) {
         this.codPlaza = codPlaza;
-    }
-
-    public boolean isReservado() {
-        return reservado;
-    }
-
-    public void setReservado(boolean reservado) {
-        this.reservado = reservado;
     }
 
     public boolean isOcupado() {
@@ -53,12 +51,34 @@ public class PlazaVO {
         this.ocupado = ocupado;
     }
 
+    public boolean isReservado() {
+        return reservado;
+    }
+
+    public void setReservado(boolean reservado) {
+        this.reservado = reservado;
+    }
+
+    public TipoPlaza getTipoPlaza() {
+        return tipoPlaza;
+    }
+
+    public void setTipoPlaza(TipoPlaza tipoPlaza) {
+        this.tipoPlaza = tipoPlaza;
+    }
+
+    @Override
+    public String toString() {
+        return "PlazaVO{" + "codPlaza=" + codPlaza + ", ocupado=" + ocupado + ", reservado=" + reservado + ", tipoPlaza=" + tipoPlaza + '}';
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + this.codPlaza;
-        hash = 47 * hash + (this.reservado ? 1 : 0);
-        hash = 47 * hash + (this.ocupado ? 1 : 0);
+        int hash = 3;
+        hash = 23 * hash + this.codPlaza;
+        hash = 23 * hash + (this.ocupado ? 1 : 0);
+        hash = 23 * hash + (this.reservado ? 1 : 0);
+        hash = 23 * hash + Objects.hashCode(this.tipoPlaza);
         return hash;
     }
 
@@ -77,20 +97,18 @@ public class PlazaVO {
         if (this.codPlaza != other.codPlaza) {
             return false;
         }
+        if (this.ocupado != other.ocupado) {
+            return false;
+        }
         if (this.reservado != other.reservado) {
             return false;
         }
-        if (this.ocupado != other.ocupado) {
+        if (this.tipoPlaza != other.tipoPlaza) {
             return false;
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "PlazaVO{" + "codPlaza=" + codPlaza + ", reservado=" + reservado + ", ocupado=" + ocupado + '}';
-    }
-
+    
     
 
 }

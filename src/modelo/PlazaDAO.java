@@ -75,6 +75,7 @@ public class PlazaDAO implements IPlaza {
                 plaza.setCodPlaza(res.getInt("codplaza"));
                 plaza.setOcupado(res.getBoolean("ocupado"));
                 plaza.setReservado(res.getBoolean("reservado"));
+                
                 return plaza;
             }
 
@@ -86,7 +87,7 @@ public class PlazaDAO implements IPlaza {
     public int insertPlaza(PlazaVO plaza) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Plaza values (?,?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(plaza.getCodPlaza()) != null) {
             // Existe un registro con esa pk
