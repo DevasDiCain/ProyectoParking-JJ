@@ -6,6 +6,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Objects;
 
 /**
@@ -26,10 +27,11 @@ public class AbonadoVO {
   
 
     public AbonadoVO() {
+        this.pk= EnviarDatos.ultimoAbonado();
     }
         
-    public AbonadoVO(int pk,String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula) {
-        this.pk = pk;
+    public AbonadoVO(String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula) {
+        this.pk = EnviarDatos.ultimoAbonado();
         this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
         this.nombre = nombre;
@@ -168,6 +170,11 @@ public class AbonadoVO {
     @Override
     public String toString() {
         return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
+    }
+    public static void main(String[] args) {
+        AbonadoVO apestoso = new AbonadoVO();
+        apestoso.setFecfinabo(LocalDate.of(1995, Month.MARCH, 12));
+        System.out.println(apestoso.getFecfinabo());
     }
 
 }

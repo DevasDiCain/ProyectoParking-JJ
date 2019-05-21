@@ -98,6 +98,18 @@ public class EnviarDatos {
         }
 
     }
+    public static int ultimoAbonado(){
+        AbonadoDAO x = new AbonadoDAO();
+        int resultado = 0;
+       try {
+           resultado=x.hallarPk();
+           
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido encontrar el último abonado");
+            System.out.println(sqle.getMessage());
+        }
+       return resultado;
+    }
 
     public static int ultimoVehiculo() {
         VehiculoDAO x = new VehiculoDAO();
@@ -115,15 +127,8 @@ public class EnviarDatos {
     public static void main(String[] args) {
 //        AbonadoVO x = new AbonadoVO(1,"Eva","ANUAL",LocalDate.of(1995, Month.MARCH, 10),LocalDate.of(1995, Month.MARCH, 10),"","","",LocalDate.of(1995, Month.MARCH, 10),"abc 1234");
 //        EnviarDatos.insertarAbonado(x);
-        VehiculoDAO x = new VehiculoDAO();
-        try {
-
-            System.out.println(x.hallarPlaza());
-        } catch (SQLException sqle) {
-            System.out.println("No se ha podido encontrar la ultima plaza");
-            System.out.println(sqle.getMessage());
-        }
-
+       
+        System.out.println( EnviarDatos.ultimoAbonado());
     }
 
 }

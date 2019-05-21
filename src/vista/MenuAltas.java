@@ -7,6 +7,7 @@ package vista;
 
 import funcionalidad.Abonado;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
@@ -194,11 +195,12 @@ public class MenuAltas extends javax.swing.JFrame {
         // DAR DE ALTA
  
         AbonadoVO registrado = new AbonadoVO();
-
+        LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
+        
         registrado.setNombre(Tnombre.getText());
-        registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
-        registrado.setFeciniabo(MenuAltas.convertirStringFecha(Tfecini.getText()));
-        registrado.setFechaNacimiento(MenuAltas.convertirStringFecha(Tfecnac.getText()));
+        registrado.setFeciniabo(tiempo);
+        registrado.setFeciniabo(tiempo);
+        registrado.setFechaNacimiento(tiempo);
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());

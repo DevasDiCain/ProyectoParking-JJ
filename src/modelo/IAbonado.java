@@ -34,4 +34,6 @@ public interface IAbonado {
     // Método para modificar una persona. Se modifica a la persona que tenga esa 'pk'
     // con los nuevos datos que traiga la persona 'nuevosDatos'
     int updatePersona (int pk, AbonadoVO nuevosDatos) throws SQLException;
+    
+    int hallarPk()throws SQLException;
 }
