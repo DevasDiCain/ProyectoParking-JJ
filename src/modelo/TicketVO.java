@@ -6,6 +6,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 /**
  *
@@ -18,17 +19,21 @@ public class TicketVO {
     private LocalDate fecha;
     private int importe;
     private String pin;
+    private LocalTime horaEntrada;
+    private LocalTime horaSalida;
     
     public TicketVO(){
     }
 
-    public TicketVO(int codTicket, int codPlaza, String matricula, LocalDate fecha, int importe, String pin) {
+    public TicketVO(int codTicket, int codPlaza, String matricula, LocalDate fecha, int importe, String pin, LocalTime horaEntrada, LocalTime horaSalida) {
         this.codTicket = codTicket;
         this.codPlaza = codPlaza;
         this.matricula = matricula;
         this.fecha = fecha;
         this.importe = importe;
         this.pin = pin;
+        this.horaEntrada = horaEntrada;
+        this.horaSalida = horaSalida;
     }
 
     public int getCodTicket() {
@@ -79,15 +84,33 @@ public class TicketVO {
         this.pin = pin;
     }
 
+    public LocalTime getHoraEntrada() {
+        return horaEntrada;
+    }
+
+    public void setHoraEntrada(LocalTime horaEntrada) {
+        this.horaEntrada = horaEntrada;
+    }
+
+    public LocalTime getHoraSalida() {
+        return horaSalida;
+    }
+
+    public void setHoraSalida(LocalTime horaSalida) {
+        this.horaSalida = horaSalida;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + this.codTicket;
-        hash = 37 * hash + this.codPlaza;
-        hash = 37 * hash + Objects.hashCode(this.matricula);
-        hash = 37 * hash + Objects.hashCode(this.fecha);
-        hash = 37 * hash + this.importe;
-        hash = 37 * hash + Objects.hashCode(this.pin);
+        hash = 79 * hash + this.codTicket;
+        hash = 79 * hash + this.codPlaza;
+        hash = 79 * hash + Objects.hashCode(this.matricula);
+        hash = 79 * hash + Objects.hashCode(this.fecha);
+        hash = 79 * hash + this.importe;
+        hash = 79 * hash + Objects.hashCode(this.pin);
+        hash = 79 * hash + Objects.hashCode(this.horaEntrada);
+        hash = 79 * hash + Objects.hashCode(this.horaSalida);
         return hash;
     }
 
@@ -121,13 +144,20 @@ public class TicketVO {
         if (!Objects.equals(this.fecha, other.fecha)) {
             return false;
         }
+        if (!Objects.equals(this.horaEntrada, other.horaEntrada)) {
+            return false;
+        }
+        if (!Objects.equals(this.horaSalida, other.horaSalida)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "TicketVO{" + "codTicket=" + codTicket + ", codPlaza=" + codPlaza + ", matricula=" + matricula + ", fecha=" + fecha + ", importe=" + importe + ", pin=" + pin + '}';
+        return "TicketVO{" + "codTicket=" + codTicket + ", codPlaza=" + codPlaza + ", matricula=" + matricula + ", fecha=" + fecha + ", importe=" + importe + ", pin=" + pin + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + '}';
     }
+    
     
     
 }
