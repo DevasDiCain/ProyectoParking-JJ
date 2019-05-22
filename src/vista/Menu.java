@@ -74,7 +74,7 @@ public class Menu extends javax.swing.JFrame {
                 botonZonaClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 200, 280));
+        getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 200, 270));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Parking icono.png"))); // NOI18N
         jLabel2.setText("jLabel2");
