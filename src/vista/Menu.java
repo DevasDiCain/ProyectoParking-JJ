@@ -41,8 +41,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         botonZonaAdmin = new javax.swing.JButton();
         botonZonaCliente = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -76,14 +76,14 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(botonZonaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 200, 270));
 
+        jLabel22.setBackground(new java.awt.Color(250, 13, 31));
+        jLabel22.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel22.setText("By... Devas & Kanche");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Parking icono.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, -1));
-
-        jLabel22.setBackground(new java.awt.Color(250, 13, 31));
-        jLabel22.setForeground(new java.awt.Color(243, 249, 5));
-        jLabel22.setText("By... Devas & Kanche");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
 
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Aparka.png"))); // NOI18N
         getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));

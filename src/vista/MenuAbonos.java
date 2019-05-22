@@ -33,10 +33,10 @@ public class MenuAbonos extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         MODIFICACIÓN = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        darAltaAbonado = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,13 +79,13 @@ public class MenuAbonos extends javax.swing.JFrame {
         });
         getContentPane().add(MODIFICACIÓN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 200, -1));
 
-        jButton3.setText("ALTA");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        darAltaAbonado.setText("ALTA");
+        darAltaAbonado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                darAltaAbonadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 200, -1));
+        getContentPane().add(darAltaAbonado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 200, -1));
 
         jButton2.setText("BAJA");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -95,13 +95,13 @@ public class MenuAbonos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 200, -1));
 
-        jLabel24.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel24.setText("By.....Devas & Kanche");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        jLabel22.setBackground(new java.awt.Color(250, 13, 31));
+        jLabel22.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel22.setText("By... Devas & Kanche");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,11 +115,11 @@ public class MenuAbonos extends javax.swing.JFrame {
         System.exit(1);
     }//GEN-LAST:event_salirActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed
         // ALTA
         new MenuAltaVehiculo().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -172,12 +172,12 @@ public class MenuAbonos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MODIFICACIÓN;
     private javax.swing.JButton atras;
+    private javax.swing.JButton darAltaAbonado;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }
