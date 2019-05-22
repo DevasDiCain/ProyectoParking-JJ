@@ -3,20 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/vista/MenuAbonos.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/funcionalidad/Vehiculo.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/vista/ZonaAdministrador.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/EnviarDatos.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/TicketVO.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/funcionalidad/Ticket.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/AbonadoDAO.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/funcionalidad/Plaza.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/vista/MenuAltas.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/funcionalidad/Abonado.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/ITicket.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/vista/MenuControlPlazas.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/TicketDAO.java</file>
-            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1.5/src/modelo/AbonadoVO.java</file>
+            <file>file:/home/juan/NetBeansProjects/ProyectoParking-JJ/src/vista/Menu.java</file>
         </group>
     </open-files>
 </project-private>
