@@ -46,7 +46,7 @@ public class botonPlaza extends JButton {
         
         switch (plaza.getTipo()) {
             case CARAVANA:
-                this.setBackground(Color.white);
+                this.setBackground(Color.red);
                 break;
 
             case TURISMO:

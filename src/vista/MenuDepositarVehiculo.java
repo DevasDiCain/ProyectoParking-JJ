@@ -51,7 +51,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         motosLibres.setForeground(Color.blue);
         
         caravanasLibres.setText(String.valueOf(contadorCaravanas));
-        caravanasLibres.setForeground(Color.white);
+        caravanasLibres.setForeground(Color.red);
         
     }
 

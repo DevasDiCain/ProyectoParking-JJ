@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -15,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class MenuControlPlazas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuControlPlazas
-     */
+    private int contadorCaravanas;
+    private int contadorMotocicletas;
+    private int contadorTurismos;
     public MenuControlPlazas() {
         initComponents();
         this.setSize(655, 462);
@@ -25,9 +26,27 @@ public class MenuControlPlazas extends javax.swing.JFrame {
         for (int i = 0; i < ZonaAdministrador.plazas.getMatriz().length; i++) {
             for (int j = 0; j < ZonaAdministrador.plazas.getMatriz().length; j++) {
                 panel.add(ZonaAdministrador.plazas.getPlaza(i, j));
-
+                  if (ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
+                    contadorCaravanas++;
+                    
+                }
+                if(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
+                    contadorMotocicletas++;
+                }
+                if(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
+                      contadorTurismos++;
+                }
             }
         }
+        turismosLibres.setText(String.valueOf(contadorTurismos));
+        turismosLibres.setForeground(Color.yellow);
+        
+        motosLibres.setText(String.valueOf( contadorMotocicletas));
+        motosLibres.setForeground(Color.blue);
+        
+        caravanasLibres.setText(String.valueOf(contadorCaravanas));
+        caravanasLibres.setForeground(Color.red);
+       
 
     }
 
@@ -179,6 +198,7 @@ public class MenuControlPlazas extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // Marcador plaza 1
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -205,6 +225,7 @@ public class MenuControlPlazas extends javax.swing.JFrame {
         }else{jLabel8.setText("No está reservada");}
      // FIN TEMPORAL
 
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
