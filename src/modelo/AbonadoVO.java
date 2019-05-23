@@ -29,6 +29,7 @@ public class AbonadoVO {
     public AbonadoVO() {
         this.pk= EnviarDatos.ultimoAbonado();
     }
+    public AbonadoVO(String especial){}
         
     public AbonadoVO(String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula) {
         this.pk = EnviarDatos.ultimoAbonado();
