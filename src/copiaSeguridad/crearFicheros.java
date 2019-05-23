@@ -31,13 +31,13 @@ public class crearFicheros {
         return String.valueOf(directory);
     }
     public static void main(String[] args) {
-       
+       crearFicheros.crearCopiaSeguridad("Abonado");
     }
     
-    public static void crearCopiaSeguridad(){
+    public static void crearCopiaSeguridad(String carpeta){
         String subCarpeta=crearFicheros.crearSubCarpeta();
-        Path origen  = Paths.get("./Aparka_Abonado.sql");
-        Path destino = Paths.get("./backup/"+subCarpeta+"destino.txt");
+        Path origen  = Paths.get("./Aparka_"+carpeta+".sql");
+        Path destino = Paths.get("./"+subCarpeta+"copia"+carpeta+".txt");
         try
         {  
             Files.copy(origen, destino);
@@ -50,4 +50,6 @@ public class crearFicheros {
         
     }
     public static void restaurarCopiaSeguridad(){}
+    
 }
+
