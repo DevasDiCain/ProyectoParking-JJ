@@ -20,16 +20,34 @@ import java.time.Month;
  */
 public class crearFicheros {
 
-    public static void crearSubCarpeta(LocalDate dia, LocalTime hora) {
-        Path directory = Paths.get(String.valueOf(dia)+"---"+String.valueOf(hora)+"./files");
+    public static String crearSubCarpeta() {
+        Path directory = Paths.get("./backup/"+String.valueOf(LocalDate.now())+"---"+String.valueOf(LocalTime.now()));
         try {
-            Files.createDirectory(directory);
+            Files.createDirectories(directory);
         } catch (IOException e) {
             System.out.println("Problema creando el directorio.");
             System.out.println(e.toString());
         }
+        return String.valueOf(directory);
     }
     public static void main(String[] args) {
-        crearFicheros.crearSubCarpeta(LocalDate.of(1998, Month.MARCH, 1), LocalTime.of(15, 0));
+       
     }
+    
+    public static void crearCopiaSeguridad(){
+        String subCarpeta=crearFicheros.crearSubCarpeta();
+        Path origen  = Paths.get("./Aparka_Abonado.sql");
+        Path destino = Paths.get("./backup/"+subCarpeta+"destino.txt");
+        try
+        {  
+            Files.copy(origen, destino);
+        }
+        catch(IOException e) {     
+            System.out.println("Problema copiando el archivo.");
+            System.out.println(e.toString());
+        }
+
+        
+    }
+    public static void restaurarCopiaSeguridad(){}
 }
