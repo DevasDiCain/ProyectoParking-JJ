@@ -40,6 +40,7 @@ public class MenuBajas extends javax.swing.JFrame {
         tCodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
@@ -103,6 +104,10 @@ public class MenuBajas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        jLabel9.setText("jLabel1");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,6 +192,7 @@ public class MenuBajas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tCodigo;
     // End of variables declaration//GEN-END:variables
 }
