@@ -127,7 +127,8 @@ public class MenuAbonos extends javax.swing.JFrame {
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
         // modifciacion
-        
+        new MenuModificaAbonado().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_MODIFICACIÓNActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
