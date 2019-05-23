@@ -120,6 +120,12 @@ public class MenuAltas extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel9.setText("NºTarjetaBancaria:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 20));
+
+        tMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tMatriculaActionPerformed(evt);
+            }
+        });
         getContentPane().add(tMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 420, -1));
 
         Tnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -203,17 +209,20 @@ public class MenuAltas extends javax.swing.JFrame {
         AbonadoVO registrado = new AbonadoVO();
         LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
         
+                          
         registrado.setNombre(Tnombre.getText());
         registrado.setFeciniabo(tiempo);
-        registrado.setFecfinabo(LocalDate.parse(Tfecini.getText()));
-        registrado.setFechaNacimiento(LocalDate.parse(Tfecnac.getText()));
+        registrado.setFecfinabo(tiempo);
+        registrado.setFechaNacimiento(tiempo);
         registrado.setDni(Tdni.getText());
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());
-        registrado.setMatricula(Tmatricula.getText());
+        registrado.setMatricula(tMatricula.getText());
         registrado.setTipoDeAbono(Tabono.getToolTipText());
         
         EnviarDatos.insertarAbonado(registrado);
+        this.setVisible(false);
+        new ZonaAdministrador().setVisible(true);
         // FIN TEMPORAL
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -224,6 +233,10 @@ public class MenuAltas extends javax.swing.JFrame {
     private void TfeciniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfeciniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TfeciniActionPerformed
+
+    private void tMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
