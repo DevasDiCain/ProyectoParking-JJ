@@ -247,10 +247,18 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                 }     
                 break;
             case "motocicletas":
-                this.precio = minutosTotalesAparcado * 0.08;
+                if (diasEntreDepositoYRetiro > 1){
+                this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
+                } else {
+                this.precio = (minutosTotalesAparcado * 0.08);
+                }  
                 break;
             case "caravanas":
-                this.precio = minutosTotalesAparcado * 0.45;
+                if (diasEntreDepositoYRetiro > 1){
+                this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
+                } else {
+                this.precio = (minutosTotalesAparcado * 0.45);
+                }  
                 break;
             default:
                 break;
