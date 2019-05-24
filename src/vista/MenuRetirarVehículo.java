@@ -5,18 +5,64 @@
  */
 package vista;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
 /**
  *
  * @author José
  */
-public class MenuRetirarVehículo extends javax.swing.JFrame {
+public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusListener {
 
     /**
      * Creates new form MenuRetirarVehículo
      */
-    public MenuRetirarVehículo() {
+    public MenuRetirarVehículo(){
         initComponents();
         this.setSize(556, 418);
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirMatriculaTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirMatriculaTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                    introducirMatriculaTextField.setText("Introduzca Su Identificación");
+            }
+        });
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducitIdentificacionTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducitIdentificacionTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducitIdentificacionTextField.getText().equalsIgnoreCase(""))
+                    introducitIdentificacionTextField.setText("Introduzca Su Identificación");
+            }
+        });
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirPinTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirPinTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirPinTextField.getText().equalsIgnoreCase(""))
+                    introducirPinTextField.setText("Introduzca Su Pin Asociado");
+            }
+        });
+    }
+    
+    public static int calcularTarifa(){
+        
     }
 
     /**
@@ -34,10 +80,9 @@ public class MenuRetirarVehículo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        mostrarPrecio = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        introducirMatriculaTextField = new javax.swing.JTextField();
+        introducitIdentificacionTextField = new javax.swing.JTextField();
+        introducirPinTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         retirar = new javax.swing.JButton();
@@ -70,29 +115,26 @@ public class MenuRetirarVehículo extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Total a Pagar");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
 
-        mostrarPrecio.setText("jLabel6");
-        getContentPane().add(mostrarPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
-
-        jTextField1.setText("Introduzca Su Matrícula");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        introducirMatriculaTextField.setText("Introduzca Su Matrícula");
+        introducirMatriculaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                introducirMatriculaTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 250, -1));
+        getContentPane().add(introducirMatriculaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 250, -1));
 
-        jTextField2.setText("Introduzca Su Identificación");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 150, -1));
+        introducitIdentificacionTextField.setText("Introduzca Su Identificación");
+        getContentPane().add(introducitIdentificacionTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 150, -1));
 
-        jTextField3.setText("Introduzca Su Pin Asociado");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        introducirPinTextField.setText("Introduzca Su Pin Asociado");
+        introducirPinTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                introducirPinTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 220, -1));
+        getContentPane().add(introducirPinTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 220, -1));
 
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,13 +169,13 @@ public class MenuRetirarVehículo extends javax.swing.JFrame {
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void introducirMatriculaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirMatriculaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void introducirPinTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirPinTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_introducirPinTextFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(1);
@@ -150,6 +192,9 @@ public class MenuRetirarVehículo extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField introducirMatriculaTextField;
+    private javax.swing.JTextField introducirPinTextField;
+    private javax.swing.JTextField introducitIdentificacionTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -160,10 +205,16 @@ public class MenuRetirarVehículo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel mostrarPrecio;
     private javax.swing.JButton retirar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

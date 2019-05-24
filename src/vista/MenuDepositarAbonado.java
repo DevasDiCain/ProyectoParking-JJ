@@ -45,7 +45,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
 
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
-                    introducirMatriculaTextField.setText("Matricula");
+                    introducirMatriculaTextField.setText("Introduzca Su Identificación");
             }
         });
         // Al estar el textField del DNI en foco, se borrará el texto interior
