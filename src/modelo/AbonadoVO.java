@@ -170,7 +170,7 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return "AbonadoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellidos=" + ", email=" + email + ", numTarjeta=" + numTarjeta + ", tipoDeAbono=" + tipoDeAbono + '}';
+        return pk+"|"+nombre+"|"+tipoDeAbono+"|"+feciniabo+"|"+fecfinabo+"|"+FechaNacimiento+"|"+dni+"|"+email+"|"+numTarjeta+"|"+matricula;
     }
     public static void main(String[] args) {
         AbonadoVO apestoso = new AbonadoVO();

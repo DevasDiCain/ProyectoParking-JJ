@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
@@ -36,12 +37,13 @@ public class crearFicheros {
         return String.valueOf(directory);
     }
     public static void main(String[] args) {
-       crearFicheros.crearCopiaSeguridad("Abonado");
+       crearFicheros.crearCopiaSeguridadAbonado();
     }
     
-    public static void crearCopiaSeguridadAbonado(List<AbonadoVO>  lista){
+    public static void crearCopiaSeguridadAbonado(){
+        List<AbonadoVO>  lista = new ArrayList<>();
        // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idfichero = "Abonado.txt";
+        String idfichero = crearFicheros.crearSubCarpeta()+"/Abonado.txt";
         
         // Array a escribir
          lista =EnviarDatos.obtenerAbonados();
@@ -50,18 +52,13 @@ public class crearFicheros {
        // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
         try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))){
             
-            
-            for (int i = 0 ; i < lista.size(); i++) {
-                for (int j = 0; j < lista.size(); j++) {
-                    // Usamos metodo write() para escribir en el buffer
-                    flujo.write(i + ",");
-                }
-                // Metodo newLine() añade línea en blanco
+            lista.forEach(System.out::println);
+            for (AbonadoVO x : lista){
+                flujo.write(x.toString());
                 flujo.newLine();
             }
-            // Metodo flush() guarda cambios en disco 
             flujo.flush();
-            
+           
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } 
