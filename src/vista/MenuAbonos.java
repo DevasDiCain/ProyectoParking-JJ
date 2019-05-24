@@ -112,7 +112,7 @@ public class MenuAbonos extends javax.swing.JFrame {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed

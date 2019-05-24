@@ -241,7 +241,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-            System.exit(1);
+            System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed

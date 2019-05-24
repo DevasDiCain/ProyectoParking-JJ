@@ -61,9 +61,6 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         });
     }
     
-    public static int calcularTarifa(){
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,6 +84,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         jButton2 = new javax.swing.JButton();
         retirar = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
+        CalcularTotalPagar = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,6 +162,14 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         jLabel24.setText("By.....Devas & Kanche");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
+        CalcularTotalPagar.setText("Calcular");
+        CalcularTotalPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcularTotalPagarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CalcularTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         jLabel29.setText("jLabel1");
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
@@ -178,7 +184,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_introducirPinTextFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -189,9 +195,14 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_retirarActionPerformed
+
+    private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
+        
+    }//GEN-LAST:event_CalcularTotalPagarActionPerformed
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CalcularTotalPagar;
     private javax.swing.JTextField introducirMatriculaTextField;
     private javax.swing.JTextField introducirPinTextField;
     private javax.swing.JTextField introducitIdentificacionTextField;

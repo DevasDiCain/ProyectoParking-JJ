@@ -192,7 +192,7 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Salir:
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void TfecnacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfecnacActionPerformed

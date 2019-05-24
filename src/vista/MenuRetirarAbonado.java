@@ -182,7 +182,7 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
