@@ -7,6 +7,10 @@ package vista;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -17,7 +21,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     /**
      * Creates new form MenuRetirarVehículo
      */
-    public MenuRetirarVehículo(){
+    public MenuRetirarVehículo() {
         initComponents();
         this.setSize(556, 418);
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
@@ -25,25 +29,27 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-                
+
             }
 
             public void focusLost(FocusEvent e) {
-                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Identificación");
+                }
             }
         });
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
-        introducitIdentificacionTextField.addFocusListener(new FocusListener() {
+        introducirIdentificadorTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
-                introducitIdentificacionTextField.setText("");
-                
+                introducirIdentificadorTextField.setText("");
+
             }
 
             public void focusLost(FocusEvent e) {
-                if (introducitIdentificacionTextField.getText().equalsIgnoreCase(""))
-                    introducitIdentificacionTextField.setText("Introduzca Su Identificación");
+                if (introducirIdentificadorTextField.getText().equalsIgnoreCase("")) {
+                    introducirIdentificadorTextField.setText("Introduzca Su Identificación");
+                }
             }
         });
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
@@ -51,16 +57,16 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         introducirPinTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirPinTextField.setText("");
-                
+
             }
 
             public void focusLost(FocusEvent e) {
-                if (introducirPinTextField.getText().equalsIgnoreCase(""))
+                if (introducirPinTextField.getText().equalsIgnoreCase("")) {
                     introducirPinTextField.setText("Introduzca Su Pin Asociado");
+                }
             }
         });
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,7 +84,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         introducirMatriculaTextField = new javax.swing.JTextField();
-        introducitIdentificacionTextField = new javax.swing.JTextField();
+        introducirIdentificadorTextField = new javax.swing.JTextField();
         introducirPinTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -101,19 +107,19 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Introduzca Su Matrícula:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Introduzca La Identificación de su Plaza:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jLabel2.setText("Introduzca el Identificador de su Plaza:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText(" Introduzca Su Pin Asociado:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 10));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 10));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Total a Pagar");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
 
         introducirMatriculaTextField.setText("Introduzca Su Matrícula");
         introducirMatriculaTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -121,10 +127,10 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                 introducirMatriculaTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(introducirMatriculaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 250, -1));
+        getContentPane().add(introducirMatriculaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, -1));
 
-        introducitIdentificacionTextField.setText("Introduzca Su Identificación");
-        getContentPane().add(introducitIdentificacionTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 150, -1));
+        introducirIdentificadorTextField.setText("Introduzca Su Identificador");
+        getContentPane().add(introducirIdentificadorTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 180, 20));
 
         introducirPinTextField.setText("Introduzca Su Pin Asociado");
         introducirPinTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +138,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                 introducirPinTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(introducirPinTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 220, -1));
+        getContentPane().add(introducirPinTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 220, -1));
 
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +174,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                 CalcularTotalPagarActionPerformed(evt);
             }
         });
-        getContentPane().add(CalcularTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        getContentPane().add(CalcularTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         jLabel29.setText("jLabel1");
@@ -197,15 +203,53 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
+        String matricula = introducirMatriculaTextField.getText();
+        String identificador = introducirIdentificadorTextField.getText();
+        String pin = introducirPinTextField.getText();
+        double precio = 0;
+        int minutosTotalesAparcado = 0;
+        LocalDate hoy = LocalDate.now();
+        // Hace falta determinar el LocalDate del ticket en la base de datos,
+        // en base a la información introducida por el cliente
+        LocalDate yesterday = hoy.minusDays(3);
+        long diasEntreDepositoYRetiro = Duration.between(yesterday.atStartOfDay(), hoy.atStartOfDay()).toDays();
+        System.out.println(diasEntreDepositoYRetiro);
+        LocalTime horaActual = LocalTime.now();
+        LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
+        int minutosTotalesHoy = (horaActual.getHour() * 60) + horaActual.getMinute();
+        int minutosTotalesTicket = (horaTicket.getHour() * 60) + horaTicket.getMinute();
+        if (minutosTotalesTicket < minutosTotalesHoy) {
+            minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
+        } else {
+            int minutosEntre = minutosTotalesTicket - minutosTotalesHoy;
+            minutosTotalesAparcado = 1440 - minutosEntre;
+        }
+        // Hay que extraer el tipo de coche desde la base de datos, y guardarlo
+        // en minúsculas en la variable "tipoCoche"
+        String tipoCoche = "turismo";
+        switch (tipoCoche) {
+            case "turismo":
+                precio = minutosTotalesAparcado * 0.12;
+                break;
+            case "motocicletas":
+                precio = minutosTotalesAparcado * 0.08;
+                break;
+            case "caravanas":
+                precio = minutosTotalesAparcado * 0.45;
+                break;
+            default:
+                break;
+        }
         
+
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CalcularTotalPagar;
+    private javax.swing.JTextField introducirIdentificadorTextField;
     private javax.swing.JTextField introducirMatriculaTextField;
     private javax.swing.JTextField introducirPinTextField;
-    private javax.swing.JTextField introducitIdentificacionTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
