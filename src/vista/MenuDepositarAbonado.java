@@ -6,12 +6,14 @@
 package vista;
 
 import funcionalidad.Abonado;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  *
  * @author José
  */
-public class MenuDepositarAbonado extends javax.swing.JFrame {
+public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusListener {
 
     /**
      * Creates new form MenuDepositarAbonado
@@ -19,22 +21,44 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
     public MenuDepositarAbonado() {
         initComponents();
         this.setSize(578, 462);
-         for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
+        for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
             for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
                 panel.add(ZonaClientes.plazas.getPlaza(i, j));
                 if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
-                   
-                    
+
                 }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
-                   
+                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)) {
+
                 }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
-                     
+                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)) {
+
                 }
             }
         }
-        
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirMatriculaTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirMatriculaTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                    introducirMatriculaTextField.setText("Matricula");
+            }
+        });
+        // Al estar el textField del DNI en foco, se borrará el texto interior
+        introducirDniTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirDniTextField.setText("");
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirDniTextField.getText().equalsIgnoreCase(""))
+                    introducirDniTextField.setText("Dni");
+            }
+        });
     }
 
     /**
@@ -58,9 +82,9 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         retirar = new javax.swing.JButton();
+        introducirMatriculaTextField = new javax.swing.JTextField();
+        introducirDniTextField = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,24 +165,24 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
         });
         getContentPane().add(retirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 80, 50));
 
+        introducirMatriculaTextField.setText("Matricula");
+        introducirMatriculaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                introducirMatriculaTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(introducirMatriculaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 120, -1));
+
+        introducirDniTextField.setText("Dni");
+        introducirDniTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                introducirDniTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(introducirDniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 140, -1));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -400, 600, 950));
-
-        jTextField1.setText("Matricula");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 120, -1));
-
-        jTextField2.setText("Dni");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,17 +198,21 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // TODO add your handling code here:
-        jLabel7.setText(Abonado.generarPin(jTextField1.getText(), jTextField2.getText()));
-        
+        jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
+
     }//GEN-LAST:event_retirarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void introducirMatriculaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirMatriculaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void introducirDniTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirDniTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+        if (evt.getActionCommand().equals("onfocus"));
+        {
+            introducirDniTextField.setText("");
+        }
+    }//GEN-LAST:event_introducirDniTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,9 +249,12 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
     private javax.swing.JLabel fondo;
+    private javax.swing.JTextField introducirDniTextField;
+    private javax.swing.JTextField introducirMatriculaTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
@@ -232,10 +263,18 @@ public class MenuDepositarAbonado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel panel;
     private javax.swing.JButton retirar;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
