@@ -92,6 +92,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         retirar = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         CalcularTotalPagar = new javax.swing.JButton();
+        precioJLabel = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,6 +178,10 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         });
         getContentPane().add(CalcularTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
+        precioJLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        precioJLabel.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(precioJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         jLabel29.setText("jLabel1");
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
@@ -218,19 +223,28 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         LocalTime horaActual = LocalTime.now();
         LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
         int minutosTotalesHoy = (horaActual.getHour() * 60) + horaActual.getMinute();
+        System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
         int minutosTotalesTicket = (horaTicket.getHour() * 60) + horaTicket.getMinute();
+        System.out.println("minutosTotalesTicket " + minutosTotalesTicket);
         if (minutosTotalesTicket < minutosTotalesHoy) {
             minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
+            System.out.println("minutosTotalesAparcado primer if: " + minutosTotalesAparcado);
         } else {
             int minutosEntre = minutosTotalesTicket - minutosTotalesHoy;
             minutosTotalesAparcado = 1440 - minutosEntre;
+            System.out.println("minutosTotalesAparcado segundo if: " + minutosTotalesAparcado);
         }
+        System.out.println(minutosTotalesAparcado);
         // Hay que extraer el tipo de coche desde la base de datos, y guardarlo
         // en minúsculas en la variable "tipoCoche"
         String tipoCoche = "turismo";
         switch (tipoCoche) {
             case "turismo":
-                this.precio = minutosTotalesAparcado * 0.12;
+                if (diasEntreDepositoYRetiro > 1){
+                this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
+                } else {
+                this.precio = (minutosTotalesAparcado * 0.12);
+                }     
                 break;
             case "motocicletas":
                 this.precio = minutosTotalesAparcado * 0.08;
@@ -241,8 +255,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
             default:
                 break;
         }
-        
-
+        precioJLabel.setText(Double.toString(precio));
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
 
@@ -261,6 +274,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel precioJLabel;
     private javax.swing.JButton retirar;
     // End of variables declaration//GEN-END:variables
 
