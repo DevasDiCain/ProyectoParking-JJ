@@ -8,6 +8,8 @@ package vista;
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import modelo.EnviarDatos;
 
 /**
@@ -53,6 +55,34 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         caravanasLibres.setText(String.valueOf(contadorCaravanas));
         caravanasLibres.setForeground(Color.red);
         
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirMatriculaTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirMatriculaTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                    introducirMatriculaTextField.setText("Introduzca Su Matricula");
+            }
+        });
+        
+        // Al estar el textField de la matrícula en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirTipoVehiculoTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirTipoVehiculoTextField.setText("");
+                
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase(""))
+                    introducirTipoVehiculoTextField.setText("Introduzca El Tipo De Vehículo");
+            }
+        });
+        
     }
 
     /**
@@ -78,8 +108,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        introducirMatriculaTextField = new javax.swing.JTextField();
+        introducirTipoVehiculoTextField = new javax.swing.JTextField();
         salir = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -156,21 +186,21 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         jLabel10.setText("Tipo:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
 
-        jTextField1.setText("Introduzca Su Matricula");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        introducirMatriculaTextField.setText("Introduzca Su Matricula");
+        introducirMatriculaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                introducirMatriculaTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 190, -1));
+        getContentPane().add(introducirMatriculaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 190, -1));
 
-        jTextField2.setText("Introduzca El Tipo De Vehículo");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        introducirTipoVehiculoTextField.setText("Introduzca El Tipo De Vehículo");
+        introducirTipoVehiculoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                introducirTipoVehiculoTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
+        getContentPane().add(introducirTipoVehiculoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 190, -1));
 
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -202,13 +232,13 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        vehiculo.setMatricula(jTextField1.getText());// Recogemos la matricula del coche 
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void introducirMatriculaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirMatriculaTextFieldActionPerformed
+        vehiculo.setMatricula(introducirMatriculaTextField.getText());// Recogemos la matricula del coche 
+    }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        vehiculo.setTipoDeVehiculo(Vehiculo.conversion(jTextField2.getText()));//Método que convierte el tipo introducido (string) en el tipo de vehiculo, tiene encuenta mayusculas y minusculas
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void introducirTipoVehiculoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirTipoVehiculoTextFieldActionPerformed
+        vehiculo.setTipoDeVehiculo(Vehiculo.conversion(introducirTipoVehiculoTextField.getText()));//Método que convierte el tipo introducido (string) en el tipo de vehiculo, tiene encuenta mayusculas y minusculas
+    }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
             System.exit(1);
@@ -264,6 +294,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private javax.swing.JButton atras;
     private javax.swing.JLabel caravanasLibres;
     private javax.swing.JLabel fondo;
+    private javax.swing.JTextField introducirMatriculaTextField;
+    private javax.swing.JTextField introducirTipoVehiculoTextField;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -275,8 +307,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel motosLibres;
     private javax.swing.JPanel panel;
     private javax.swing.JButton salir;
