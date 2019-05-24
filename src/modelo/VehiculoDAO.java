@@ -204,13 +204,11 @@ public class VehiculoDAO implements IVehiculo {
     }
     @Override
      public int hallarPlaza() throws SQLException{
-         int r = 0;
-          try (Statement st = con.createStatement()) {
-           
+        int r = 0;
+            try (Statement st = con.createStatement()) {
             ResultSet res = st.executeQuery("select max(codplaza)+1 from Vehiculo");
             res.next();
-           return res.getInt(1);
-     }
-          
-}
+            return res.getInt(1);
+        }    
+    }
 }

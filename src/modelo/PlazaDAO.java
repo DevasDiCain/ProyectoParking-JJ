@@ -202,5 +202,13 @@ public class PlazaDAO implements IPlaza {
         return res;
     }
 
+    public int hallarCodPlaza()throws SQLException{
+        int r = 0;
+        try (Statement st = con.createStatement()) {
+            ResultSet res = st.executeQuery("select max(codplaza)+1 from Plaza");
+            res.next();
+            return res.getInt(1);
+        }
+    }
 }
 

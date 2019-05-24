@@ -235,13 +235,10 @@ public class AbonadoDAO implements IAbonado {
     
     public int hallarPk()throws SQLException{
         int r = 0;
-        
-          try (Statement st = con.createStatement()) {
-           
+        try (Statement st = con.createStatement()) {
             ResultSet res = st.executeQuery("select max(codabonado)+1 from Abonado");
             res.next();
-           return res.getInt(1);
+            return res.getInt(1);
+        }
     }
-
-}
 }

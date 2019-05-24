@@ -216,4 +216,12 @@ public class TicketDAO implements ITicket {
         return res;
     }
 
+    public int hallarCodTicket()throws SQLException{
+        int r = 0;
+        try (Statement st = con.createStatement()) {
+            ResultSet res = st.executeQuery("select max(codticket)+1 from Ticket");
+            res.next();
+            return res.getInt(1);
+        }
+    }
 }
