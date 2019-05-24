@@ -79,7 +79,7 @@ public class ZonaClientes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         botonRetirarVehiculo = new javax.swing.JButton();
         menuDepositarVehiculo = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        botonMenuDepositarAbonados = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -139,14 +139,14 @@ public class ZonaClientes extends javax.swing.JFrame {
         });
         getContentPane().add(menuDepositarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 120, 60));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        jButton4.setText("Depositar Abonados");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonMenuDepositarAbonados.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        botonMenuDepositarAbonados.setText("Depositar Abonados");
+        botonMenuDepositarAbonados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonMenuDepositarAbonadosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 120, 60));
+        getContentPane().add(botonMenuDepositarAbonados, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 120, 60));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 0));
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
@@ -213,12 +213,12 @@ public class ZonaClientes extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_atrasActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botonMenuDepositarAbonadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuDepositarAbonadosActionPerformed
         // DepositarAbonado
         new MenuDepositarAbonado().setVisible(true);
         this.setVisible(false);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_botonMenuDepositarAbonadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Retirar Abonado
@@ -230,9 +230,9 @@ public class ZonaClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
+    private javax.swing.JButton botonMenuDepositarAbonados;
     private javax.swing.JButton botonRetirarVehiculo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
