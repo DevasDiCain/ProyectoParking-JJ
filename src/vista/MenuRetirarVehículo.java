@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusListener {
 
+    private double precio;
     /**
      * Creates new form MenuRetirarVehículo
      */
@@ -199,14 +200,14 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
         String matricula = introducirMatriculaTextField.getText();
         String identificador = introducirIdentificadorTextField.getText();
         String pin = introducirPinTextField.getText();
-        double precio = 0;
+        this.precio = 0;
         int minutosTotalesAparcado = 0;
         LocalDate hoy = LocalDate.now();
         // Hace falta determinar el LocalDate del ticket en la base de datos,
@@ -229,13 +230,13 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         String tipoCoche = "turismo";
         switch (tipoCoche) {
             case "turismo":
-                precio = minutosTotalesAparcado * 0.12;
+                this.precio = minutosTotalesAparcado * 0.12;
                 break;
             case "motocicletas":
-                precio = minutosTotalesAparcado * 0.08;
+                this.precio = minutosTotalesAparcado * 0.08;
                 break;
             case "caravanas":
-                precio = minutosTotalesAparcado * 0.45;
+                this.precio = minutosTotalesAparcado * 0.45;
                 break;
             default:
                 break;
