@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
+import modelo.TicketVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -37,7 +40,7 @@ public class crearFicheros {
         return String.valueOf(directory);
     }
     public static void main(String[] args) {
-       crearFicheros.crearCopiaSeguridadAbonado();
+       crearFicheros.crearCopiaSeguridad();
     }
     
     public static void crearCopiaSeguridadAbonado(){
@@ -52,7 +55,7 @@ public class crearFicheros {
        // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
         try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))){
             
-            lista.forEach(System.out::println);
+            
             for (AbonadoVO x : lista){
                 flujo.write(x.toString());
                 flujo.newLine();
@@ -64,8 +67,85 @@ public class crearFicheros {
         } 
 
     }
-
+     public static void crearCopiaSeguridadPlaza(){
+        List<PlazaVO>  lista = new ArrayList<>();
+       // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
+        String idfichero = crearFicheros.crearSubCarpeta()+"/Plaza.txt";
         
+        // Array a escribir
+         lista =EnviarDatos.obtenerPlazas();
+
+       // Estructura try-with-resources. Instancia el objeto con el fichero a escribir
+       // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))){
+            
+          
+            for (PlazaVO x : lista){
+                flujo.write(x.toString());
+                flujo.newLine();
+            }
+            flujo.flush();
+           
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } 
+
+    }
+      public static void crearCopiaSeguridadVehiculo(){
+        List<VehiculoVO>  lista = new ArrayList<>();
+       // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
+        String idfichero = crearFicheros.crearSubCarpeta()+"/Vehiculo.txt";
+        
+        // Array a escribir
+         lista =EnviarDatos.obtenerVehiculos();
+
+       // Estructura try-with-resources. Instancia el objeto con el fichero a escribir
+       // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))){
+            
+            
+            for (VehiculoVO x : lista){
+                flujo.write(x.toString());
+                flujo.newLine();
+            }
+            flujo.flush();
+           
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } 
+
+    }
+       public static void crearCopiaSeguridadTicket(){
+        List<TicketVO>  lista = new ArrayList<>();
+       // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
+        String idfichero = crearFicheros.crearSubCarpeta()+"/Abonado.txt";
+        
+        // Array a escribir
+         lista =EnviarDatos.obtenerTickets();
+
+       // Estructura try-with-resources. Instancia el objeto con el fichero a escribir
+       // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))){
+            
+            lista.forEach(System.out::println);
+            for (TicketVO x : lista){
+                flujo.write(x.toString());
+                flujo.newLine();
+            }
+            flujo.flush();
+           
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } 
+
+    }
+
+        public static void crearCopiaSeguridad(){
+        crearFicheros.crearCopiaSeguridadAbonado();
+        crearFicheros.crearCopiaSeguridadPlaza();
+        crearFicheros.crearCopiaSeguridadTicket();
+        crearFicheros.crearCopiaSeguridadVehiculo();
+        }
     
     public static void restaurarCopiaSeguridad(){}
     
