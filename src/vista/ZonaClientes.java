@@ -23,12 +23,12 @@ public class ZonaClientes extends javax.swing.JFrame {
     public ZonaClientes() {
         initComponents();
         this.setSize(578, 462);
-        panel.setLayout(new GridLayout(8, 8));
+        panel.setLayout(new GridLayout(7, 7));
         plazas = new graficoPlazas(7);
 
         for (int i = 0; i < plazas.getMatriz().length; i++) {
             for (int j = 0; j < plazas.getMatriz().length; j++) {
-                contador++;
+                
                 if (contador < 15) {
                     botonPlaza tmp = new botonPlaza(1);
               
@@ -37,19 +37,20 @@ public class ZonaClientes extends javax.swing.JFrame {
                     panel.add(plazas.getPlaza(i, j));
 
                 }
-                if (contador > 15 && contador < 30) {
+                if (contador >= 15 && contador < 30) {
                     botonPlaza tmp = new botonPlaza(2);
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
 
                 }
-                if (contador > 30 && contador < 51) {
+                if (contador >= 30 && contador < 45) {
                     botonPlaza tmp = new botonPlaza(3);
                     tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
                 }
+                contador++;
             }
         }
 
