@@ -32,21 +32,21 @@ public class ZonaClientes extends javax.swing.JFrame {
                 if (contador < 15) {
                     botonPlaza tmp = new botonPlaza(1);
               
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
 
                 }
                 if (contador >= 15 && contador < 30) {
                     botonPlaza tmp = new botonPlaza(2);
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
 
                 }
                 if (contador >= 30 && contador < 45) {
                     botonPlaza tmp = new botonPlaza(3);
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
                     panel.add(plazas.getPlaza(i, j));
                 }

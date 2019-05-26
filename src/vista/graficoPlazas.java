@@ -24,7 +24,9 @@ public class graficoPlazas {
                 ponerPlaza(i, j, tmp);
             }
         }
+        
     }
+    
 
     public void ponerPlaza(int i, int j, botonPlaza tmp) {
         matriz[i][j] = tmp;
