@@ -20,33 +20,34 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     public ZonaAdministrador() {
         initComponents();
          this.setSize(578, 462);
-        jPanel1.setLayout(new GridLayout(8, 8));
+        panel.setLayout(new GridLayout(7, 7));
         plazas = new graficoPlazas(7);
 
         for (int i = 0; i < plazas.getMatriz().length; i++) {
             for (int j = 0; j < plazas.getMatriz().length; j++) {
-                contador++;
+                
                 if (contador < 15) {
                     botonPlaza tmp = new botonPlaza(1);
               
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
-                    jPanel1.add(plazas.getPlaza(i, j));
+                    panel.add(plazas.getPlaza(i, j));
 
                 }
-                if (contador > 15 && contador < 30) {
+                if (contador >= 15 && contador < 30) {
                     botonPlaza tmp = new botonPlaza(2);
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
-                    jPanel1.add(plazas.getPlaza(i, j));
+                    panel.add(plazas.getPlaza(i, j));
 
                 }
-                if (contador > 30 && contador < 51) {
+                if (contador >= 30 && contador < 45) {
                     botonPlaza tmp = new botonPlaza(3);
-                    tmp.setToolTipText(Integer.toString(i) + "," + Integer.toString(j));
+                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
                     plazas.ponerPlaza(i, j, tmp);
-                    jPanel1.add(plazas.getPlaza(i, j));
+                    panel.add(plazas.getPlaza(i, j));
                 }
+                contador++;
             }
         }
     }
@@ -62,7 +63,7 @@ public class ZonaAdministrador extends javax.swing.JFrame {
 
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -82,21 +83,21 @@ public class ZonaAdministrador extends javax.swing.JFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(254, 6, 6)));
+        panel.setBackground(new java.awt.Color(1, 1, 1));
+        panel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(254, 6, 6)));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 278, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 338, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 340));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Información de las Plazas");
@@ -215,6 +216,6 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }
