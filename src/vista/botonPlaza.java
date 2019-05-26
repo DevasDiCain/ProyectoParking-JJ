@@ -54,7 +54,7 @@ public class botonPlaza extends JButton {
         
         if (plaza.isReservado()) {
             this.setBorder(reservado);
-        }
+        } else this.setBorder(noReservado);
     }
 
     // Hará que el estado de una plaza cambie a ocupado (a no ser que ya esté ocupado)
@@ -149,5 +149,4 @@ public class botonPlaza extends JButton {
             boton.setBorder(noReservado);
         }
     }
-
 }
