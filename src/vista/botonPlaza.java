@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import modelo.EnviarDatos;
+import modelo.PlazaVO;
 
 /**
  *
@@ -18,9 +20,9 @@ import javax.swing.border.LineBorder;
 public class botonPlaza extends JButton {
 
     // Atributo
-    private Plaza plaza;
+    private PlazaVO plaza;
 
-    public Plaza getPlaza() {
+    public PlazaVO getPlaza() {
         return plaza;
     }
 
@@ -29,31 +31,19 @@ public class botonPlaza extends JButton {
 
     // Dibujará cada uno de los botones
     public botonPlaza(int x) {
-        //1 - Turismo
-        //2 - Motocicleta
-        //3 - Caravana
-        switch (x) {
-            case 1:
-                plaza = new Plaza(false, false, Plaza.TipoPlaza.TURISMO);
-                break;
-            case 2:
-                plaza = new Plaza(false, false, Plaza.TipoPlaza.MOTOCICLETA);
-                break;
-            case 3:
-                plaza = new Plaza(false, false, Plaza.TipoPlaza.CARAVANA);
-                break;
-        }
-        
-        switch (plaza.getTipo()) {
-            case CARAVANA:
+        // Según el parámetro x (clave primaria), se creará una PlazaVO con los datos
+        // de la plaza en esa ubicación (de la 1 a la 45)
+        plaza = EnviarDatos.obtenerPlazaSegunPk(x);
+        switch (plaza.getTipoPlaza()) {
+            case "turismo":
                 this.setBackground(Color.red);
                 break;
 
-            case TURISMO:
+            case "motocicleta":
                 this.setBackground(Color.yellow);
                 break;
 
-            case MOTOCICLETA:
+            case "caravana":
                 this.setBackground(Color.blue);
                 break;
         }
