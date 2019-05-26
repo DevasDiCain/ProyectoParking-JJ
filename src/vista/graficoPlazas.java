@@ -5,6 +5,10 @@
  */
 package vista;
 
+import java.util.List;
+import modelo.EnviarDatos;
+import modelo.PlazaVO;
+
 /**
  *
  * @author jose
@@ -12,7 +16,11 @@ package vista;
 public class graficoPlazas {
 
     // Atributos
-    private botonPlaza[][] matriz;
+    public static botonPlaza[][] matriz = new botonPlaza[1][1];
+
+    static Object matriz() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int contador;
 
     // Método para dibujar las plazas
@@ -24,11 +32,32 @@ public class graficoPlazas {
                 ponerPlaza(i, j, tmp);
             }
         }
-        
     }
-    
+
+    public static void graficoParking(int numeroDePlazas) {
+        int contador = 1;
+        List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
+        matriz = new botonPlaza[numeroDePlazas][numeroDePlazas];
+        do {
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    botonPlaza tmp = new botonPlaza(contador);
+                    matriz[i][j] = tmp;
+                    contador++;
+                }
+            }
+        } while (listaDePlazas.size() <= contador);
+    }
+
+    public static botonPlaza recuperarBoton(int i, int j) {
+        return matriz[i][j];
+    }
 
     public void ponerPlaza(int i, int j, botonPlaza tmp) {
+        matriz[i][j] = tmp;
+    }
+
+    public static void ponerPlazas(int i, int j, botonPlaza tmp) {
         matriz[i][j] = tmp;
     }
 
