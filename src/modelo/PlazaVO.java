@@ -17,18 +17,13 @@ public class PlazaVO {
     private int codPlaza;
     private boolean ocupado;
     private boolean reservado;
-    private TipoPlaza tipoPlaza;
-    private enum TipoPlaza{
-        paraTurismos,
-        paraMotocicletas,
-        paraCaravanas
-    }
+    private String tipoPlaza;
     
 
     public PlazaVO() {
     }
 
-    public PlazaVO(int codPlaza, boolean ocupado, boolean reservado, TipoPlaza tipoPlaza) {
+    public PlazaVO(int codPlaza, boolean ocupado, boolean reservado, String tipoPlaza) {
         this.codPlaza = codPlaza;
         this.ocupado = ocupado;
         this.reservado = reservado;
@@ -59,11 +54,11 @@ public class PlazaVO {
         this.reservado = reservado;
     }
 
-    public TipoPlaza getTipoPlaza() {
+    public String getTipoPlaza() {
         return tipoPlaza;
     }
 
-    public void setTipoPlaza(TipoPlaza tipoPlaza) {
+    public void setTipoPlaza(String tipoPlaza) {
         this.tipoPlaza = tipoPlaza;
     }
 
