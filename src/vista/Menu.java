@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
 
             }
         });
+        graficoPlazas.graficoParking(7);
     }
     /**
      * This method is called from within the constructor to initialize the form.
