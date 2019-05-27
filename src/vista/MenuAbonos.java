@@ -101,7 +101,7 @@ public class MenuAbonos extends javax.swing.JFrame {
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, 20));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
