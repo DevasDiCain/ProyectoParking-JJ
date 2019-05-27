@@ -199,8 +199,14 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // Depositar:
-         JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
+        if(introducirDniTextField.getText().length() == 9){
+            JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
         jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
+        }else{
+         JOptionPane.showMessageDialog(null, "Formato del dni inválido."
+                 + "Porfavor Únicamente 9 carácteres");
+        }
+         
 
     }//GEN-LAST:event_retirarActionPerformed
 
