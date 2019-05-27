@@ -321,7 +321,7 @@ public class EnviarDatos {
         return resultado;
     }
     //</editor-fold>
-    
+    //<editor-fold defaultstate="collapsed" desc="ENVIAR EMAILS">
     public static void enviarEmailUnaSemana(ArrayList<AbonadoVO> abonados){
         // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
         String email;
@@ -340,6 +340,7 @@ public class EnviarDatos {
         }
         JOptionPane.showMessageDialog(null, "Email enviado");
     }
+     //</editor-fold>
     public static void main(String[] args) {
         AbonadoVO x = new AbonadoVO("Eva", "ANUAL", LocalDate.of(1995, Month.MARCH, 10), LocalDate.of(1995, Month.MARCH, 10), "", "", "", LocalDate.of(1995, Month.MARCH, 10), "abc 1234");
         EnviarDatos.insertarAbonado(x);

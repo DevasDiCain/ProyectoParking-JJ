@@ -147,7 +147,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Enviar Email 1 mes:
-        EnviarDatos.enviarEmail("");
+        EnviarDatos.enviarEmail("",);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

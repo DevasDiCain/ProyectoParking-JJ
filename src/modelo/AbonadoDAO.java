@@ -276,4 +276,39 @@ public class AbonadoDAO implements IAbonado {
         }
       
     }
+       public  ArrayList<AbonadoVO>  unMesParaCaducar() throws SQLException{
+        ArrayList<AbonadoVO>abonados = new ArrayList();
+        ResultSet res = null;
+
+        String sql = "select * from Abonados where fecfinabo = curdate()";// PREPARAR BIEN ESTA SENTENCIA
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+          
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+         
+            while (res.next()) {
+                AbonadoVO p = new AbonadoVO();
+                // Recogemos los datos de la persona, guardamos en un objeto
+                p.setPk(res.getInt("codabonado"));
+                p.setNombre(res.getString("nombre"));
+                p.setTipoDeAbono((res.getString(2)));
+                p.setFeciniabo(res.getDate("feciniabo").toLocalDate());
+                p.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
+                p.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
+                p.setDni(res.getString("dni"));
+                p.setEmail(res.getString("email"));
+                p.setNumTarjeta(res.getString("numTarjeta"));
+
+
+                //Añadimos el objeto a la lista
+                abonados.add(p);
+            }
+            return null;
+        }
+      
+    }
 }
