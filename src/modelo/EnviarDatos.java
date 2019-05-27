@@ -320,6 +320,10 @@ public class EnviarDatos {
         return resultado;
     }
     //</editor-fold>
+    
+    public static void enviarEmail(String email){
+        // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
+    }
     public static void main(String[] args) {
         AbonadoVO x = new AbonadoVO("Eva", "ANUAL", LocalDate.of(1995, Month.MARCH, 10), LocalDate.of(1995, Month.MARCH, 10), "", "", "", LocalDate.of(1995, Month.MARCH, 10), "abc 1234");
         EnviarDatos.insertarAbonado(x);
