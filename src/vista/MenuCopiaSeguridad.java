@@ -5,7 +5,7 @@
  */
 package vista;
 
-import copiaSeguridad.crearFicheros;
+import copiaSeguridad.crearCopiaDeSeguridad;
 
 /**
  *
@@ -97,7 +97,7 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
              // Crear copia de seguridad
-        crearFicheros.crearCopiaSeguridad();
+        crearCopiaDeSeguridad.crearCopiaSeguridad();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

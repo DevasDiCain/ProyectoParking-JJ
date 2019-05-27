@@ -27,7 +27,7 @@ import modelo.VehiculoVO;
  *
  * @author jose
  */
-public class crearFicheros {
+public class crearCopiaDeSeguridad {
 
     public static String crearSubCarpeta() {
         Path directory = Paths.get("./backup/" + String.valueOf(LocalDate.now()) + "" + String.valueOf(LocalTime.now()));
@@ -41,7 +41,7 @@ public class crearFicheros {
     }
 
     public static void main(String[] args) {
-        crearFicheros.crearCopiaSeguridad();
+        crearCopiaDeSeguridad.crearCopiaSeguridad();
     }
 
     public static String hallarCarpeta() {
@@ -62,7 +62,7 @@ public class crearFicheros {
     public static void crearCopiaSeguridadAbonado() {
         List<AbonadoVO> lista = new ArrayList<>();
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idfichero = "backup/" + crearFicheros.hallarCarpeta() + "/Abonado.txt";
+        String idfichero = "backup/" + crearCopiaDeSeguridad.hallarCarpeta() + "/Abonado.txt";
 
         // Array a escribir
         lista = EnviarDatos.obtenerAbonados();
@@ -86,7 +86,7 @@ public class crearFicheros {
     public static void crearCopiaSeguridadPlaza() {
         List<PlazaVO> lista = new ArrayList<>();
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idfichero = "backup/" + crearFicheros.hallarCarpeta() + "/Plaza.txt";
+        String idfichero = "backup/" + crearCopiaDeSeguridad.hallarCarpeta() + "/Plaza.txt";
 
         // Array a escribir
         lista = EnviarDatos.obtenerPlazas();
@@ -110,7 +110,7 @@ public class crearFicheros {
     public static void crearCopiaSeguridadVehiculo() {
         List<VehiculoVO> lista = new ArrayList<>();
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idfichero = "backup/" + crearFicheros.hallarCarpeta() + "/Vehiculo.txt";
+        String idfichero = "backup/" + crearCopiaDeSeguridad.hallarCarpeta() + "/Vehiculo.txt";
 
         // Array a escribir
         lista = EnviarDatos.obtenerVehiculos();
@@ -134,7 +134,7 @@ public class crearFicheros {
     public static void crearCopiaSeguridadTicket() {
         List<TicketVO> lista = new ArrayList<>();
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idfichero = "backup/" + crearFicheros.hallarCarpeta() + "/Ticket.txt";
+        String idfichero = "backup/" + crearCopiaDeSeguridad.hallarCarpeta() + "/Ticket.txt";
 
         // Array a escribir
         lista = EnviarDatos.obtenerTickets();
@@ -157,11 +157,11 @@ public class crearFicheros {
     }
 
     public static void crearCopiaSeguridad() {
-        crearFicheros.crearSubCarpeta();
-        crearFicheros.crearCopiaSeguridadAbonado();
-        crearFicheros.crearCopiaSeguridadPlaza();
-        crearFicheros.crearCopiaSeguridadTicket();
-        crearFicheros.crearCopiaSeguridadVehiculo();
+        crearCopiaDeSeguridad.crearSubCarpeta();
+        crearCopiaDeSeguridad.crearCopiaSeguridadAbonado();
+        crearCopiaDeSeguridad.crearCopiaSeguridadPlaza();
+        crearCopiaDeSeguridad.crearCopiaSeguridadTicket();
+        crearCopiaDeSeguridad.crearCopiaSeguridadVehiculo();
     }
 
     public static void restaurarCopiaSeguridad() {
