@@ -16,6 +16,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
      */
     public MenuCaducidadAbonos() {
         initComponents();
+        this.setSize(580, 420);
     }
 
     /**

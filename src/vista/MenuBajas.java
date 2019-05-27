@@ -19,6 +19,7 @@ public class MenuBajas extends javax.swing.JFrame {
      */
     public MenuBajas() {
         initComponents();
+         this.setSize(499, 380);
     }
 
     /**
@@ -39,8 +40,10 @@ public class MenuBajas extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         tCodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        atras = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
@@ -52,7 +55,7 @@ public class MenuBajas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 5, 11));
         jLabel3.setText("Administración");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setText("Dar de baja a un abonado");
@@ -97,17 +100,32 @@ public class MenuBajas extends javax.swing.JFrame {
         jLabel5.setText("Dar de baja a todos los abonados");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 20));
 
-        jButton1.setText("Baja-Total");
+        jButton7.setText("Baja-Total");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
+
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        jLabel9.setText("jLabel1");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
+        atras.setText("Atrás");
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 600, 950));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,13 +157,19 @@ public class MenuBajas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tCodigoActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // baja global
-        
-        EnviarDatos.borrarTablaAbonado();
-        new MenuAbonos().setVisible(true);
+        // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        new MenuAbonos().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_atrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,15 +208,17 @@ public class MenuBajas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Tmatricula;
+    private javax.swing.JButton atras;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tCodigo;
     // End of variables declaration//GEN-END:variables
 }
