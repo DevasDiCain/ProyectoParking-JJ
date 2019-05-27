@@ -130,7 +130,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
     }//GEN-LAST:event_MODIFICACIÓNActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-        new ZonaAdministrador().setVisible(true);
+        new MenuAbonos().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_atrasActionPerformed
 

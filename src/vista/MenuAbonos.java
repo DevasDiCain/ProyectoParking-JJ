@@ -122,7 +122,9 @@ public class MenuAbonos extends javax.swing.JFrame {
     }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Caducidad de abonos
+        new MenuCaducidadAbonos().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
