@@ -6,6 +6,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -18,7 +19,6 @@ public class PlazaVO {
     private boolean ocupado;
     private boolean reservado;
     private String tipoPlaza;
-    
 
     public PlazaVO() {
     }
@@ -29,7 +29,7 @@ public class PlazaVO {
         this.reservado = reservado;
         this.tipoPlaza = tipoPlaza;
     }
-    
+
     public int getCodPlaza() {
         return codPlaza;
     }
@@ -103,7 +103,47 @@ public class PlazaVO {
         }
         return true;
     }
-    
-    
+
+    public static int turismosLibres() {
+        List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
+       int turismos = 0;
+        for (PlazaVO x : lista) {
+            if (x.getTipoPlaza().equals("turismo")) {
+                if (!x.isOcupado()) {
+                    turismos++;
+                }
+            }
+        }
+        return turismos;
+    }
+
+    public static int caravanasLibres( ) {
+       List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
+        int caravanas = 0;
+        System.out.println(lista.size());
+        for (PlazaVO x : lista) {
+            System.out.println(x);
+            if (x.getTipoPlaza().equals("caravana")) {
+                if (!x.isOcupado()) {
+                    caravanas++;
+                }
+            }
+        }
+        return caravanas;
+    }
+
+    public static int motocicletasLibres() {
+        List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
+        int motos = 0;
+        for (PlazaVO x : lista) {
+            if (x.getTipoPlaza().equals("motocicleta")) {
+                if (!x.isOcupado()) {
+                    motos++;
+                }
+            }
+        }
+        return motos;
+    }
+   
 
 }

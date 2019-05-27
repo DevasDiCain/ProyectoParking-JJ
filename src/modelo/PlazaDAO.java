@@ -45,7 +45,7 @@ public class PlazaDAO implements IPlaza {
                 p.setCodPlaza(res.getInt("codplaza"));
                 p.setOcupado(res.getBoolean("ocupado"));
                 p.setReservado(res.getBoolean("reservado"));
-                //Añadimos el objeto a la lista
+                p.setTipoPlaza(res.getString("tipoPlaza"));                //Añadimos el objeto a la lista
                 lista.add(p);
             }
         }
@@ -70,7 +70,7 @@ public class PlazaDAO implements IPlaza {
 
             // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
             // si existe esa pk
-            if (res.first()) {System.out.println("Hola");
+            if (res.first()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 plaza.setCodPlaza(res.getInt("codplaza"));
                 plaza.setOcupado(res.getBoolean("ocupado"));

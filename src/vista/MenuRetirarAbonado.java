@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.GridLayout;
+
 /**
  *
  * @author José
@@ -17,19 +19,11 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
     public MenuRetirarAbonado() {
         initComponents();
          this.setSize(598, 462);
-         for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
-            for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
-                panel.add(ZonaClientes.plazas.getPlaza(i, j));
-                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
-                   
-                    
-                }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
-                   
-                }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
-                     
-                }
+          panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
+                panel.add(graficoPlazas.recuperarBoton(i,j));
             }
         }
     }

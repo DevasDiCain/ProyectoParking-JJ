@@ -8,9 +8,11 @@ package vista;
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
 
 /**
  *
@@ -30,30 +32,25 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         initComponents();
         this.setSize(575, 462);
 
-        for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
-            for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
-                panel.add(ZonaClientes.plazas.getPlaza(i, j));
-                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
-                    contadorCaravanas++;
+       panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
+                panel.add(graficoPlazas.recuperarBoton(i,j));
+                if(graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)){
                     
-                }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
-                    contadorMotocicletas++;
-                }
-                if(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
-                      contadorTurismos++;
                 }
             }
         }
         
-        turismosLibres.setText(String.valueOf(contadorTurismos));
+        turismosLibres.setText(String.valueOf(PlazaVO.turismosLibres()));
         turismosLibres.setForeground(Color.yellow);
         
-        motosLibres.setText(String.valueOf( contadorMotocicletas));
+        motosLibres.setText(String.valueOf( PlazaVO.motocicletasLibres()));
         motosLibres.setForeground(Color.blue);
         
-        caravanasLibres.setText(String.valueOf(contadorCaravanas));
-        caravanasLibres.setForeground(Color.red);
+        caravanasLibres.setText(String.valueOf(PlazaVO.caravanasLibres()));
+        caravanasLibres.setForeground(Color.green);
         
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto

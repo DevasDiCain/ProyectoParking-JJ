@@ -6,9 +6,11 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.PlazaVO;
 
 /**
  *
@@ -23,30 +25,25 @@ public class MenuControlPlazas extends javax.swing.JFrame {
         initComponents();
         this.setSize(655, 462);
 
-        for (int i = 0; i < ZonaAdministrador.plazas.getMatriz().length; i++) {
-            for (int j = 0; j < ZonaAdministrador.plazas.getMatriz().length; j++) {
-                panel.add(ZonaAdministrador.plazas.getPlaza(i, j));
-                  if (ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
-                    contadorCaravanas++;
+         panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
+                panel.add(graficoPlazas.recuperarBoton(i,j));
+                if(graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)){
                     
-                }
-                if(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)){
-                    contadorMotocicletas++;
-                }
-                if(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaAdministrador.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)){
-                      contadorTurismos++;
                 }
             }
         }
-        turismosLibres.setText(String.valueOf(contadorTurismos));
+        
+       turismosLibres.setText(String.valueOf(PlazaVO.turismosLibres()));
         turismosLibres.setForeground(Color.yellow);
         
-        motosLibres.setText(String.valueOf( contadorMotocicletas));
+        motosLibres.setText(String.valueOf( PlazaVO.motocicletasLibres()));
         motosLibres.setForeground(Color.blue);
         
-        caravanasLibres.setText(String.valueOf(contadorCaravanas));
-        caravanasLibres.setForeground(Color.red);
-       
+        caravanasLibres.setText(String.valueOf(PlazaVO.caravanasLibres()));
+        caravanasLibres.setForeground(Color.green);
 
     }
 

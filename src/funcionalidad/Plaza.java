@@ -13,12 +13,8 @@ public class Plaza {
     // Atributos
     private int id;
     private boolean ocupado, reservado;
-    private TipoPlaza tipo;
-    public enum TipoPlaza {
-        TURISMO,
-        MOTOCICLETA,
-        CARAVANA
-    }
+    private String tipo;
+
 
     // Getters y Setters
    public boolean isOcupado() {
@@ -37,16 +33,16 @@ public class Plaza {
         this.reservado = reservado;
     }
 
-    public TipoPlaza getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoPlaza tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
     // Constructor parametrizado
-    public Plaza(boolean ocupado, boolean reservado, TipoPlaza tipo) {
+    public Plaza(boolean ocupado, boolean reservado, String tipo) {
         this.ocupado = ocupado;
         this.reservado = reservado;
         this.tipo = tipo;

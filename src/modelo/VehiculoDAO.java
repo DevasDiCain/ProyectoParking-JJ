@@ -206,7 +206,7 @@ public class VehiculoDAO implements IVehiculo {
      public int hallarPlaza() throws SQLException{
         int r = 0;
             try (Statement st = con.createStatement()) {
-            ResultSet res = st.executeQuery("select max(codplaza)+1 from Vehiculo");
+            ResultSet res = st.executeQuery("select ifnull(max(codplaza),0)+1 from Vehiculo");
             res.next();
             return res.getInt(1);
         }    

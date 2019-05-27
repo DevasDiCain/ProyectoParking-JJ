@@ -6,6 +6,7 @@
 package vista;
 
 import funcionalidad.Abonado;
+import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
@@ -21,18 +22,11 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     public MenuDepositarAbonado() {
         initComponents();
         this.setSize(578, 462);
-        for (int i = 0; i < ZonaClientes.plazas.getMatriz().length; i++) {
-            for (int j = 0; j < ZonaClientes.plazas.getMatriz().length; j++) {
-                panel.add(ZonaClientes.plazas.getPlaza(i, j));
-                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().CARAVANA)) {
-
-                }
-                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().MOTOCICLETA)) {
-
-                }
-                if (ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().equals(ZonaClientes.plazas.getPlaza(i, j).getPlaza().getTipo().TURISMO)) {
-
-                }
+        panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
+                panel.add(graficoPlazas.recuperarBoton(i, j));
             }
         }
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
@@ -40,12 +34,13 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-                
+
             }
 
             public void focusLost(FocusEvent e) {
-                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Identificación");
+                }
             }
         });
         // Al estar el textField del DNI en foco, se borrará el texto interior
@@ -55,8 +50,9 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             }
 
             public void focusLost(FocusEvent e) {
-                if (introducirDniTextField.getText().equalsIgnoreCase(""))
+                if (introducirDniTextField.getText().equalsIgnoreCase("")) {
                     introducirDniTextField.setText("Dni");
+                }
             }
         });
     }

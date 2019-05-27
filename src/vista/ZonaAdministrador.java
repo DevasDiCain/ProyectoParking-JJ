@@ -20,34 +20,11 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     public ZonaAdministrador() {
         initComponents();
          this.setSize(578, 462);
-        panel.setLayout(new GridLayout(7, 7));
-        plazas = new graficoPlazas(7);
-
-        for (int i = 0; i < plazas.getMatriz().length; i++) {
-            for (int j = 0; j < plazas.getMatriz().length; j++) {
-                
-                if (contador < 15) {
-                    botonPlaza tmp = new botonPlaza(1);
-              
-                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
-
-                }
-                if (contador >= 15 && contador < 30) {
-                    botonPlaza tmp = new botonPlaza(2);
-                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
-
-                }
-                if (contador >= 30 && contador < 45) {
-                    botonPlaza tmp = new botonPlaza(3);
-                    tmp.setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                    plazas.ponerPlaza(i, j, tmp);
-                    panel.add(plazas.getPlaza(i, j));
-                }
-                contador++;
+         panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
+                panel.add(graficoPlazas.recuperarBoton(i,j));
             }
         }
     }
