@@ -104,6 +104,17 @@ public class EnviarDatos {
         }
         return abonados;
     }
+       public static ArrayList<AbonadoVO> unMesCaducan() {
+        AbonadoDAO x = new AbonadoDAO();
+        ArrayList<AbonadoVO> abonados = new ArrayList();
+        try {
+            abonados = x.unMesParaCaducar();
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido encontrar los abonos que caducan en 1 semana");
+            System.out.println(sqle.getMessage());
+        }
+        return abonados;
+    }
 
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA VEHÍCULO">
