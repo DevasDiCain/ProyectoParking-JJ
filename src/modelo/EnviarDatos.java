@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -321,8 +322,23 @@ public class EnviarDatos {
     }
     //</editor-fold>
     
-    public static void enviarEmail(String email){
+    public static void enviarEmailUnaSemana(ArrayList<AbonadoVO> abonados){
         // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
+        String email;
+        for (AbonadoVO x : abonados){
+            email = x.getEmail();
+            System.out.println("Enviando email a "+email);
+        }
+        JOptionPane.showConfirmDialog(null, "Emails enviados");
+    }
+     public static void enviarEmailUnMes(ArrayList<AbonadoVO> abonados){
+        // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
+        String email;
+        for (AbonadoVO x : abonados){
+            email = x.getEmail();
+            System.out.println("Enviando email a "+email);
+        }
+        JOptionPane.showMessageDialog(null, "Email enviado");
     }
     public static void main(String[] args) {
         AbonadoVO x = new AbonadoVO("Eva", "ANUAL", LocalDate.of(1995, Month.MARCH, 10), LocalDate.of(1995, Month.MARCH, 10), "", "", "", LocalDate.of(1995, Month.MARCH, 10), "abc 1234");

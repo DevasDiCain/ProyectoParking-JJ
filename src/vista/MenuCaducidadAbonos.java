@@ -5,6 +5,8 @@
  */
 package vista;
 
+import modelo.EnviarDatos;
+
 /**
  *
  * @author José
@@ -144,13 +146,14 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
     }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // baja:
-        new MenuAbonos().setVisible(true);
-        this.setVisible(false);
+        // Enviar Email 1 mes:
+        EnviarDatos.enviarEmail("");
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Enviar Email 1 semana:
+        EnviarDatos.enviarEmail("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
