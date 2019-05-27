@@ -6,6 +6,7 @@
 package vista;
 
 import copiaSeguridad.crearCopiaDeSeguridad;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,6 +65,11 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         jButton1.setText("Restaurar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 240, -1));
 
         jButton2.setText("Crear");
@@ -98,8 +104,14 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
              // Crear copia de seguridad
         crearCopiaDeSeguridad.crearCopiaSeguridad();
+        JOptionPane.showMessageDialog(null, "Copia De Seguridad realizada con éxito");
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Restaurar
+         JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
