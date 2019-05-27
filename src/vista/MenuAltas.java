@@ -180,6 +180,11 @@ public class MenuAltas extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, 20));
 
         jButton1.setText("Comprobar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
@@ -242,6 +247,23 @@ public class MenuAltas extends javax.swing.JFrame {
     private void tMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMatriculaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tMatriculaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Comprobar
+        if(Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1")|| Tnombre.getText().contains("2")|| Tnombre.getText().contains("3")|| Tnombre.getText().contains("4")
+                || Tnombre.getText().contains("5")|| Tnombre.getText().contains("6")|| Tnombre.getText().contains("7")|| Tnombre.getText().contains("8")|| Tnombre.getText().contains("9")|| Tnombre.getText().contains("=")|| Tnombre.getText().contains("&")|| Tnombre.getText().contains("%")){
+            JOptionPane.showMessageDialog(null, "Carácteres incorrectos"
+                    + "Carácteres Inválidos: {-/*123456789=&}");
+        }
+        if(Tdni.getText().length() > 9 || Tdni.getText().length() < 9){
+            JOptionPane.showMessageDialog(null, "Dimensión del Dni incorrecta");
+        }
+         if(Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16){
+            JOptionPane.showMessageDialog(null, "Dimensión del numero de tarjeta incorrecto");
+        }
+         else{
+         JOptionPane.showMessageDialog(null, "Formato correcto");}
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
