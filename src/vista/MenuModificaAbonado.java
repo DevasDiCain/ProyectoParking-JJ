@@ -55,7 +55,8 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
         Tmatricula = new javax.swing.JLabel();
         Tabono = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -170,9 +171,16 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
         jLabel10.setText("By... Devas & Kanche");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, 20));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-380, 0, -1, -1));
+        jButton1.setText("Comprobar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -230,6 +238,23 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TabonoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Comprobar
+        if(Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1")|| Tnombre.getText().contains("2")|| Tnombre.getText().contains("3")|| Tnombre.getText().contains("4")
+            || Tnombre.getText().contains("5")|| Tnombre.getText().contains("6")|| Tnombre.getText().contains("7")|| Tnombre.getText().contains("8")|| Tnombre.getText().contains("9")|| Tnombre.getText().contains("=")|| Tnombre.getText().contains("&")|| Tnombre.getText().contains("%")){
+            JOptionPane.showMessageDialog(null, "Carácteres incorrectos"
+                + "Carácteres Inválidos: {-/*123456789=&}");
+        }
+        if(Tdni.getText().length() > 9 || Tdni.getText().length() < 9){
+            JOptionPane.showMessageDialog(null, "Dimensión del Dni incorrecta");
+        }
+        if(Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16){
+            JOptionPane.showMessageDialog(null, "Dimensión del numero de tarjeta incorrecto");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Formato correcto");}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -274,12 +299,13 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
     private javax.swing.JLabel Tmatricula;
     private javax.swing.JTextField Tnombre;
     private javax.swing.JTextField Ttarjeta;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
