@@ -38,15 +38,19 @@ public class graficoPlazas {
         int contador = 1;
         List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
         matriz = new botonPlaza[numeroDePlazas][numeroDePlazas];
-        do {
-            for (int i = 0; i < matriz.length; i++) {
-                for (int j = 0; j < matriz.length; j++) {
+
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (contador < 46) {
                     botonPlaza tmp = new botonPlaza(contador);
                     matriz[i][j] = tmp;
                     contador++;
+                } else {
+                    botonPlaza tmp = new botonPlaza();
+                    matriz[i][j] = tmp;
                 }
             }
-        } while (listaDePlazas.size() <= contador);
+        }
     }
 
     public static botonPlaza recuperarBoton(int i, int j) {

@@ -28,6 +28,10 @@ public class botonPlaza extends JButton {
 
     private final Border reservado = new LineBorder(Color.red);
     private final Border noReservado = new LineBorder(Color.black);
+    
+    public botonPlaza(){
+        this.setBackground(Color.black);
+    }
 
     // Dibujará cada uno de los botones
     public botonPlaza(int x) {
@@ -36,7 +40,7 @@ public class botonPlaza extends JButton {
         plaza = EnviarDatos.obtenerPlazaSegunPk(x);
         switch (plaza.getTipoPlaza()) {
             case "turismo":
-                this.setBackground(Color.red);
+                this.setBackground(Color.green);
                 break;
 
             case "motocicleta":
