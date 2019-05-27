@@ -256,4 +256,35 @@ public class TicketDAO implements ITicket {
         }
       
     }
+     public  ArrayList<TicketVO>  hallarTicketsPorAño(LocalDate fecha) throws SQLException{
+        ArrayList<TicketVO>tickets = new ArrayList();
+        ResultSet res = null;
+
+        String sql = "select * from Ticket where year(fecha) = ?";
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+            prest.setInt(4, fecha.getYear()); // ESTO HAY QUE COMPROBAR SI FUNCIONA PORQUE CREO QUE NO SE PUEDE USAR EL YEAR(FECHA) EN EL WHERE
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+         
+            while (res.next()) {
+                TicketVO p = new TicketVO();
+                // Recogemos los datos de la persona, guardamos en un objeto
+                p.setCodTicket(res.getInt("codticket"));
+                p.setCodPlaza(res.getInt("codplaza"));
+                p.setMatricula(res.getString("matricula"));
+                p.setFecha(res.getDate("fecha").toLocalDate());
+                p.setImporte(res.getInt("importe"));
+                p.setPin(res.getString("pin"));
+
+                //Añadimos el objeto a la lista
+                tickets.add(p);
+            }
+            return null;
+        }
+      
+    }
 }
