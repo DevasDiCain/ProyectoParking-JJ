@@ -127,7 +127,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
         // Caducidad 10 dias
-      
+      new InfoCaducidadSemanal().setVisible(true);
     }//GEN-LAST:event_MODIFICACIÓNActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
