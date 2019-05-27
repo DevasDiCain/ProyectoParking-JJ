@@ -5,6 +5,9 @@
  */
 package vista;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 /**
  *
  * @author José
@@ -16,6 +19,7 @@ public class MenuFacturacion extends javax.swing.JFrame {
      */
     public MenuFacturacion() {
         initComponents();
+         this.setSize(499, 380);
     }
 
     /**
@@ -33,8 +37,8 @@ public class MenuFacturacion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         salir = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        desde = new javax.swing.JTextField();
+        hasta = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +63,11 @@ public class MenuFacturacion extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, -1));
 
         jButton2.setText("Abonados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, 40));
 
         atras.setText("Atrás");
@@ -77,11 +86,11 @@ public class MenuFacturacion extends javax.swing.JFrame {
         });
         getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
-        jTextField1.setText("Desde");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 70, -1));
+        desde.setText("Desde");
+        getContentPane().add(desde, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 70, -1));
 
-        jTextField2.setText("Hasta");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 80, -1));
+        hasta.setText("Hasta");
+        getContentPane().add(hasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 80, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 600, 950));
@@ -99,8 +108,14 @@ public class MenuFacturacion extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Facturacion por fechas
+        LocalDate primeraFecha = LocalDate.parse(desde.getText());
+        LocalDate segundaFecha = LocalDate.parse(hasta.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Facturacion por abonados
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,13 +154,13 @@ public class MenuFacturacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
+    private javax.swing.JTextField desde;
     private javax.swing.JLabel fondo;
+    private javax.swing.JTextField hasta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }
