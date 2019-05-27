@@ -120,15 +120,13 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed
-        // ALTA
-        new MenuAltaVehiculo().setVisible(true);
-        this.setVisible(false);
+        // Caducidad Mensual
+        new InfoCaducidadMensual().setVisible(true);
     }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
-        // modifciacion
-        new MenuModificaAbonado().setVisible(true);
-        this.setVisible(false);
+        // Caducidad 10 dias
+      
     }//GEN-LAST:event_MODIFICACIÓNActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
@@ -146,7 +144,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // baja:
-        new MenuBajas().setVisible(true);
+        new MenuAbonos().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
