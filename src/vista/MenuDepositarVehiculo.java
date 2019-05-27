@@ -13,6 +13,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -23,21 +24,21 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     /**
      * Creates new form MenuDepositarVehiculo
      */
-    private Vehiculo vehiculo;
+    private VehiculoVO vehiculo;
     private int contadorCaravanas;
     private int contadorTurismos;
     private int contadorMotocicletas;
-
+    
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(575, 462);
-
-       panel.setLayout(new GridLayout(7, 7));
+        
+        panel.setLayout(new GridLayout(7, 7));
         for (int i = 0; i < graficoPlazas.matriz.length; i++) {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
-                if(graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)){
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
+                panel.add(graficoPlazas.recuperarBoton(i, j));
+                if (graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)) {
                     
                 }
             }
@@ -46,12 +47,12 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         turismosLibres.setText(String.valueOf(PlazaVO.turismosLibres()));
         turismosLibres.setForeground(Color.yellow);
         
-        motosLibres.setText(String.valueOf( PlazaVO.motocicletasLibres()));
+        motosLibres.setText(String.valueOf(PlazaVO.motocicletasLibres()));
         motosLibres.setForeground(Color.blue);
         
         caravanasLibres.setText(String.valueOf(PlazaVO.caravanasLibres()));
         caravanasLibres.setForeground(Color.green);
-        
+
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
@@ -59,13 +60,14 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 introducirMatriculaTextField.setText("");
                 
             }
-
+            
             public void focusLost(FocusEvent e) {
-                if (introducirMatriculaTextField.getText().equalsIgnoreCase(""))
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Matricula");
+                }
             }
         });
-        
+
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirTipoVehiculoTextField.addFocusListener(new FocusListener() {
@@ -73,10 +75,11 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 introducirTipoVehiculoTextField.setText("");
                 
             }
-
+            
             public void focusLost(FocusEvent e) {
-                if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase(""))
+                if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("")) {
                     introducirTipoVehiculoTextField.setText("Introduzca El Tipo De Vehículo");
+                }
             }
         });
         
@@ -234,11 +237,14 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
     private void introducirTipoVehiculoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirTipoVehiculoTextFieldActionPerformed
-        vehiculo.setTipoDeVehiculo(Vehiculo.conversion(introducirTipoVehiculoTextField.getText()));//Método que convierte el tipo introducido (string) en el tipo de vehiculo, tiene encuenta mayusculas y minusculas
+        if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
+            vehiculo.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
+        }
+        
     }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-            System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
@@ -248,7 +254,9 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
-    
+        if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
+            EnviarDatos.insertarVehiculo(vehiculo);
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
