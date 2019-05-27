@@ -260,7 +260,7 @@ public class TicketDAO implements ITicket {
         ArrayList<TicketVO>tickets = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Ticket where year(fecha) = ?";
+        String sql = "select * from Ticket where year(fecha)=?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
