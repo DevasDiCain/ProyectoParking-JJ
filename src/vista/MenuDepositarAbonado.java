@@ -9,6 +9,7 @@ import funcionalidad.Abonado;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -197,7 +198,8 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_atrasActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
-        // TODO add your handling code here:
+        // Depositar:
+         JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
         jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
 
     }//GEN-LAST:event_retirarActionPerformed
