@@ -81,6 +81,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         introducirMatriculaTextField = new javax.swing.JTextField();
         introducirDniTextField = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -178,7 +179,10 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         getContentPane().add(introducirDniTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 140, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -400, 600, 950));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 600, 950));
+
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +253,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondo1;
     private javax.swing.JTextField introducirDniTextField;
     private javax.swing.JTextField introducirMatriculaTextField;
     private javax.swing.JLabel jLabel1;

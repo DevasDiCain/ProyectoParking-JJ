@@ -23,41 +23,6 @@ import modelo.VehiculoVO;
 public class restaurarCopiaDeSeguridad {
 
 
-    // Método que se encarga de abrir el fichero de ruta "idFichero"
-    // y carga los objetos Persona en una lista, que devuelve
-    public static ArrayList<AbonadoVO> leerAbonados(String idFichero) {
-
-        ArrayList<AbonadoVO> abonados = new ArrayList<>();
-        FileInputStream fich = null;
-        
-        try {
-            fich = new FileInputStream(idFichero);
-
-            // A partir del fichero anterior se crea el flujo para leer objetos
-            // Estructura try-with-resources
-            try (ObjectInputStream flujo = new ObjectInputStream(fich)) {
-                
-                AbonadoVO cliente;
-		// El método available() devuelve un número de bytes que quedan por leer
-                while (fich.available() > 0) {
-                    // Se hace un casting explícito del objeto devuelto
-                    // por readObject()
-                    cliente = (AbonadoVO) flujo.readObject();
-                    // Añade el objeto a la lista
-                    abonados.add(cliente);
-                }
-
-            } catch (ClassNotFoundException | IOException e) { // Multicatch
-                System.out.println(e.getMessage());
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("EL fichero a leer no existe.");
-        }
-
-        return abonados;
-
-    }
-
 
 
 
