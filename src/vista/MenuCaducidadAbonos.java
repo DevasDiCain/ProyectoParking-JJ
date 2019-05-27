@@ -5,6 +5,7 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 
 /**
@@ -148,7 +149,6 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Enviar Email 1 mes:
         EnviarDatos.enviarEmailUnMes(EnviarDatos.unMesCaducan());
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

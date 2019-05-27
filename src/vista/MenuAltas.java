@@ -9,6 +9,7 @@ import funcionalidad.Abonado;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
 
@@ -62,7 +63,8 @@ public class MenuAltas extends javax.swing.JFrame {
         Tmatricula = new javax.swing.JLabel();
         Tabono = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,9 +179,11 @@ public class MenuAltas extends javax.swing.JFrame {
         jLabel10.setText("By... Devas & Kanche");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, 20));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, -40, -1, -1));
+        jButton1.setText("Comprobar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +228,7 @@ public class MenuAltas extends javax.swing.JFrame {
         this.setVisible(false);
         new ZonaAdministrador().setVisible(true);
         // FIN TEMPORAL
+        JOptionPane.showMessageDialog(null, "Alta realizada con éxito");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void TabonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TabonoActionPerformed
@@ -282,12 +287,13 @@ public class MenuAltas extends javax.swing.JFrame {
     private javax.swing.JLabel Tmatricula;
     private javax.swing.JTextField Tnombre;
     private javax.swing.JTextField Ttarjeta;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
