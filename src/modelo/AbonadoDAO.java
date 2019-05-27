@@ -241,7 +241,7 @@ public class AbonadoDAO implements IAbonado {
             return res.getInt(1);
         }
     }
-      public  ArrayList<AbonadoVO>  diezDiasParaCaducar() throws SQLException{
+      public  ArrayList<AbonadoVO>  unaSemanaParaCaducar() throws SQLException{
         ArrayList<AbonadoVO>abonados = new ArrayList();
         ResultSet res = null;
 

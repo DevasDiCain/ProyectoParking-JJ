@@ -93,8 +93,19 @@ public class EnviarDatos {
         return resultado;
     }
 
+    public static ArrayList<AbonadoVO> unaSemanaCaducan() {
+        AbonadoDAO x = new AbonadoDAO();
+        ArrayList<AbonadoVO> abonados = new ArrayList();
+        try {
+            abonados = x.unaSemanaParaCaducar();
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido encontrar los abonos que caducan en 1 semana");
+            System.out.println(sqle.getMessage());
+        }
+        return abonados;
+    }
+
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA VEHÍCULO">
     public static void insertarVehiculo(VehiculoVO vehiculo) {
         VehiculoDAO estandar = new VehiculoDAO();
@@ -105,7 +116,7 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-    
+
     public static VehiculoVO obtenerVehiculoSegunPk(String pk) {
         VehiculoDAO vehiculo = new VehiculoDAO();
         VehiculoVO obtenido = new VehiculoVO();
@@ -117,7 +128,7 @@ public class EnviarDatos {
         }
         return obtenido;
     }
-    
+
     public static List<VehiculoVO> obtenerVehiculos() {
         List<VehiculoVO> listado = new ArrayList();
         try {
@@ -128,7 +139,7 @@ public class EnviarDatos {
         }
         return listado;
     }
-    
+
     public static void borrarTablaVehiculo() {
         try {
             new VehiculoDAO().deleteVehiculo();
@@ -138,7 +149,7 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-    
+
     public static void borrarVehiculo(VehiculoVO vehiculo) {
         try {
             new VehiculoDAO().deleteVehiculo(vehiculo);
@@ -147,7 +158,7 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-    
+
     public static void cambiarVehiculo(String pk, VehiculoVO nuevosDatos) {
         try {
             new VehiculoDAO().updateVehiculo(pk, nuevosDatos);
@@ -245,7 +256,7 @@ public class EnviarDatos {
         return resultado;
     }
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA PLAZA">
     public static void insertarPlaza(PlazaVO plaza) {
         PlazaDAO estandar = new PlazaDAO();
@@ -320,27 +331,30 @@ public class EnviarDatos {
         }
         return resultado;
     }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="ENVIAR EMAILS">
-    public static void enviarEmailUnaSemana(ArrayList<AbonadoVO> abonados){
+    public static void enviarEmailUnaSemana(ArrayList<AbonadoVO> abonados) {
         // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
         String email;
-        for (AbonadoVO x : abonados){
+        for (AbonadoVO x : abonados) {
             email = x.getEmail();
-            System.out.println("Enviando email a "+email);
+            System.out.println("Enviando email a " + email);
         }
         JOptionPane.showConfirmDialog(null, "Emails enviados");
     }
-     public static void enviarEmailUnMes(ArrayList<AbonadoVO> abonados){
+
+    public static void enviarEmailUnMes(ArrayList<AbonadoVO> abonados) {
         // ESTE MÉTODO ENVIARÁ UN EMAIL A LOS ABONADOS QUE ESTÉN APUNTO DE CADUCAR
         String email;
-        for (AbonadoVO x : abonados){
+        for (AbonadoVO x : abonados) {
             email = x.getEmail();
-            System.out.println("Enviando email a "+email);
+            System.out.println("Enviando email a " + email);
         }
         JOptionPane.showMessageDialog(null, "Email enviado");
     }
-     //</editor-fold>
+    //</editor-fold>
+
     public static void main(String[] args) {
         AbonadoVO x = new AbonadoVO("Eva", "ANUAL", LocalDate.of(1995, Month.MARCH, 10), LocalDate.of(1995, Month.MARCH, 10), "", "", "", LocalDate.of(1995, Month.MARCH, 10), "abc 1234");
         EnviarDatos.insertarAbonado(x);
