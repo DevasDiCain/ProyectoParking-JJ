@@ -11,6 +11,9 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import modelo.EnviarDatos;
+import modelo.TicketVO;
 
 /**
  *
@@ -19,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusListener {
 
     private double precio;
+
     /**
      * Creates new form MenuRetirarVehículo
      */
@@ -205,65 +209,77 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
-        
+
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
         String matricula = introducirMatriculaTextField.getText();
         String identificador = introducirIdentificadorTextField.getText();
         String pin = introducirPinTextField.getText();
-        this.precio = 0;
-        int minutosTotalesAparcado = 0;
-        LocalDate hoy = LocalDate.now();
-        // Hace falta determinar el LocalDate del ticket en la base de datos,
-        // en base a la información introducida por el cliente
-        LocalDate yesterday = hoy.minusDays(3);
-        long diasEntreDepositoYRetiro = Duration.between(yesterday.atStartOfDay(), hoy.atStartOfDay()).toDays();
-        System.out.println(diasEntreDepositoYRetiro);
-        LocalTime horaActual = LocalTime.now();
-        LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
-        int minutosTotalesHoy = (horaActual.getHour() * 60) + horaActual.getMinute();
-        System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
-        int minutosTotalesTicket = (horaTicket.getHour() * 60) + horaTicket.getMinute();
-        System.out.println("minutosTotalesTicket " + minutosTotalesTicket);
-        if (minutosTotalesTicket < minutosTotalesHoy) {
-            minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
-            System.out.println("minutosTotalesAparcado primer if: " + minutosTotalesAparcado);
-        } else {
-            int minutosEntre = minutosTotalesTicket - minutosTotalesHoy;
-            minutosTotalesAparcado = 1440 - minutosEntre;
-            System.out.println("minutosTotalesAparcado segundo if: " + minutosTotalesAparcado);
+        List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
+        for (TicketVO ticket : listaDeTickets) {
+            if (ticket.getMatricula().equalsIgnoreCase(matricula) || Integer.toString(ticket.getCodTicket()).equalsIgnoreCase(identificador) || ticket.getPin().equalsIgnoreCase(pin)) {
+                int minutosTotalesAparcado = 0;
+                LocalDate hoy = LocalDate.now();
+                LocalDate diaDeTicket = ticket.getFecha();
+                long diasEntreDepositoYRetiro = Duration.between(diaDeTicket.atStartOfDay(), hoy.atStartOfDay()).toDays();
+                System.out.println(diasEntreDepositoYRetiro);
+                LocalTime horaActual = LocalTime.now();
+                //LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
+                LocalTime horaTicket = ticket.getHoraEntrada();
+                int minutosTotalesHoy = (horaActual.getHour() * 60) + horaActual.getMinute();
+                System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
+                int minutosTotalesTicket = (horaTicket.getHour() * 60) + horaTicket.getMinute();
+                System.out.println("minutosTotalesTicket " + minutosTotalesTicket);
+                if (minutosTotalesTicket < minutosTotalesHoy) {
+                    minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
+                    System.out.println("minutosTotalesAparcado primer if: " + minutosTotalesAparcado);
+                } else {
+                    int minutosEntre = minutosTotalesTicket - minutosTotalesHoy;
+                    minutosTotalesAparcado = 1440 - minutosEntre;
+                    System.out.println("minutosTotalesAparcado segundo if: " + minutosTotalesAparcado);
+                }
+                System.out.println(minutosTotalesAparcado);
+                String tipoCoche = "turismo";
+                if (diasEntreDepositoYRetiro > 1) {
+                    switch (tipoCoche) {
+                        case "turismo":
+                            this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
+                            break;
+                        case "motocicletas":
+                            this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
+                            break;
+                        case "caravanas":
+                            this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    switch (tipoCoche) {
+                        case "turismo":
+                            this.precio = (minutosTotalesAparcado * 0.12);
+                            break;
+                        case "motocicletas":
+                            this.precio = (minutosTotalesAparcado * 0.08);
+                            break;
+                        case "caravanas":
+                            this.precio = (minutosTotalesAparcado * 0.45);
+                            break;
+                        default:
+                            break;
+                    }
+                    precioJLabel.setText(Double.toString(precio));
+                }
+            }
+//        if (ticketBuscado == null){
+//            JOptionPane.showMessageDialog(null, "No se ha encontrado un ticket con la información indicada");
+//        }
+            this.precio = 0;
+
+            // Hace falta determinar el LocalDate del ticket en la base de datos,
+            // en base a la información introducida por el cliente
         }
-        System.out.println(minutosTotalesAparcado);
-        // Hay que extraer el tipo de coche desde la base de datos, y guardarlo
-        // en minúsculas en la variable "tipoCoche"
-        String tipoCoche = "turismo";
-        switch (tipoCoche) {
-            case "turismo":
-                if (diasEntreDepositoYRetiro > 1){
-                this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
-                } else {
-                this.precio = (minutosTotalesAparcado * 0.12);
-                }     
-                break;
-            case "motocicletas":
-                if (diasEntreDepositoYRetiro > 1){
-                this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
-                } else {
-                this.precio = (minutosTotalesAparcado * 0.08);
-                }  
-                break;
-            case "caravanas":
-                if (diasEntreDepositoYRetiro > 1){
-                this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
-                } else {
-                this.precio = (minutosTotalesAparcado * 0.45);
-                }  
-                break;
-            default:
-                break;
-        }
-        precioJLabel.setText(Double.toString(precio));
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
 
