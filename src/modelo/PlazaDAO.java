@@ -80,7 +80,7 @@ public class PlazaDAO implements IPlaza {
                 return plaza;
             }
 
-            return null;
+            return plaza;
         }
     }
 
@@ -88,7 +88,7 @@ public class PlazaDAO implements IPlaza {
     public int insertPlaza(PlazaVO plaza) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Plaza values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Plaza values (?,?,?,?)";
 
         if (findByPk(plaza.getCodPlaza()) != null) {
             // Existe un registro con esa pk
@@ -104,6 +104,7 @@ public class PlazaDAO implements IPlaza {
                 prest.setInt(1, plaza.getCodPlaza());
                 prest.setBoolean(2, plaza.isOcupado());
                 prest.setBoolean(3, plaza.isReservado());
+                prest.setString(4, plaza.getTipoPlaza());
 
                 numFilas = prest.executeUpdate();
             }
@@ -162,8 +163,7 @@ public class PlazaDAO implements IPlaza {
     public int updatePlaza(int codPlaza, PlazaVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Plaza set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ? where codplaza=?";
-
+        String sql = "update Plaza set codplaza= ?, ocupado = ?, reservado= ?, tipoPlaza= ?";
         if (findByPk(codPlaza) == null) {
             // La persona a actualizar no existe
             return numFilas;
@@ -177,6 +177,7 @@ public class PlazaDAO implements IPlaza {
                 prest.setInt(1, nuevosDatos.getCodPlaza());
                 prest.setBoolean(2, nuevosDatos.isOcupado());
                 prest.setBoolean(3, nuevosDatos.isReservado());
+                prest.setString(4, nuevosDatos.getTipoPlaza());
 
                 numFilas = prest.executeUpdate();
             }
