@@ -24,7 +24,7 @@ public class InfoCaducidadMensual extends javax.swing.JFrame {
 
         ArrayList<AbonadoVO> lista = new ArrayList();
         
-    public InfoCaducidadMensual(LocalDate mes) {
+    public InfoCaducidadMensual(int mes) {
         initComponents();
         lista = EnviarDatos.unMesCaducan(mes);
         info.setText(lista.toString());

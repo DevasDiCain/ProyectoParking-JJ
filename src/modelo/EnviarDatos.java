@@ -104,7 +104,7 @@ public class EnviarDatos {
         }
         return abonados;
     }
-       public static ArrayList<AbonadoVO> unMesCaducan(LocalDate mes) {
+       public static ArrayList<AbonadoVO> unMesCaducan(int mes) {
         AbonadoDAO x = new AbonadoDAO();
         ArrayList<AbonadoVO> abonados = new ArrayList();
         try {

@@ -116,7 +116,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Caducidad de  Abonados");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 190, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 200, -1));
 
         jButton2.setText("Enviar Email ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -142,17 +142,14 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed
         // Caducidad Mensual
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+       String [] x = introducirMatriculaTextField.getText().split("/");
+       Integer [] y = new Integer[3];
+       for(int i = 0; i < x.length ; i++){
+           y[i] = Integer.parseInt(x[i]);
+       }
+        System.out.println(y[1]);
 
-	
-	
-	//convert String to LocalDate
-	
-
-        
-        
-        LocalDate localDate = LocalDate.parse(introducirMatriculaTextField.getText(), formatter);
-        new InfoCaducidadMensual(LocalDate.parse(introducirMatriculaTextField.getText())).setVisible(true);
+        new InfoCaducidadMensual(y[1]).setVisible(true);
     }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
