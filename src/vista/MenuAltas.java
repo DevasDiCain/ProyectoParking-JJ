@@ -18,6 +18,7 @@ import modelo.EnviarDatos;
  * @author jose
  */
 public class MenuAltas extends javax.swing.JFrame {
+    public boolean comprobacionCorrecta = false;
 
     /**
      * Creates new form MenuAltas
@@ -215,25 +216,28 @@ public class MenuAltas extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE ALTA
  
-        AbonadoVO registrado = new AbonadoVO();
-        LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
-        
-                          
-        registrado.setNombre(Tnombre.getText());
-        registrado.setFeciniabo(tiempo);
-        registrado.setFecfinabo(tiempo);
-        registrado.setFechaNacimiento(tiempo);
-        registrado.setDni(Tdni.getText());
-        registrado.setEmail(Temail.getText());
-        registrado.setNumTarjeta(Ttarjeta.getText());
-        registrado.setMatricula(tMatricula.getText());
-        registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
-        
-        EnviarDatos.insertarAbonado(registrado);
-        this.setVisible(false);
-        new ZonaAdministrador().setVisible(true);
-        // FIN TEMPORAL
-        JOptionPane.showMessageDialog(null, "Alta realizada con éxito");
+        if (comprobacionCorrecta) {
+            AbonadoVO registrado = new AbonadoVO();
+            LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
+
+            registrado.setNombre(Tnombre.getText());
+            registrado.setFeciniabo(tiempo);
+            registrado.setFecfinabo(tiempo);
+            registrado.setFechaNacimiento(tiempo);
+            registrado.setDni(Tdni.getText());
+            registrado.setEmail(Temail.getText());
+            registrado.setNumTarjeta(Ttarjeta.getText());
+            registrado.setMatricula(tMatricula.getText());
+            registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
+
+            EnviarDatos.insertarAbonado(registrado);
+            this.setVisible(false);
+            new ZonaAdministrador().setVisible(true);
+            // FIN TEMPORAL
+            JOptionPane.showMessageDialog(null, "Alta realizada con éxito");
+        } else {
+            JOptionPane.showMessageDialog(null, "No podrá realizar esta acción si no se han comprobado los datos correctamente antes");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void TabonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TabonoActionPerformed
@@ -262,7 +266,8 @@ public class MenuAltas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Dimensión del numero de tarjeta incorrecto");
         }
          else{
-         JOptionPane.showMessageDialog(null, "Formato correcto");}
+         JOptionPane.showMessageDialog(null, "Formato correcto");
+         comprobacionCorrecta = true;}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
