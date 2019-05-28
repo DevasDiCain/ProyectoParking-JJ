@@ -307,7 +307,7 @@ public class AbonadoDAO implements IAbonado {
                 //Añadimos el objeto a la lista
                 abonados.add(p);
             }
-            return null;
+            return abonados;
         }
       
     }
