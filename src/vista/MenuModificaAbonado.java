@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.time.LocalDate;
 import java.time.Month;
 import javax.swing.JOptionPane;
@@ -23,6 +25,20 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
     public MenuModificaAbonado() {
         initComponents();
         this.setSize(630, 550);
+        // Al estar el textField en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        Tfecnac.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                Tfecnac.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (Tfecnac.getText().equalsIgnoreCase("")) {
+                    Tfecnac.setText("Formato-> xxxx/xx/xx");
+                }
+            }
+        });
     }
 
     /**

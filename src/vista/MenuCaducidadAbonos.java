@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 
@@ -20,6 +22,20 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
     public MenuCaducidadAbonos() {
         initComponents();
         this.setSize(580, 420);
+        // Al estar el textField en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirMatriculaTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirMatriculaTextField.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
+                    introducirMatriculaTextField.setText("Introduzca un mes");
+                }
+            }
+        });
     }
 
     /**

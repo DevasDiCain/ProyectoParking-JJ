@@ -6,6 +6,8 @@
 package vista;
 
 import java.awt.GridLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  *
@@ -18,14 +20,50 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
      */
     public MenuRetirarAbonado() {
         initComponents();
-         this.setSize(598, 462);
-          panel.setLayout(new GridLayout(7, 7));
+        this.setSize(598, 462);
+        panel.setLayout(new GridLayout(7, 7));
         for (int i = 0; i < graficoPlazas.matriz.length; i++) {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
+                panel.add(graficoPlazas.recuperarBoton(i, j));
             }
         }
+        jTextField1.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                jTextField1.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (jTextField1.getText().equalsIgnoreCase("")) {
+                    jTextField1.setText("Matricula");
+                }
+            }
+        });
+        jTextField2.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                jTextField2.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (jTextField2.getText().equalsIgnoreCase("")) {
+                    jTextField2.setText("Dni");
+                }
+            }
+        });
+        jTextField3.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                jTextField3.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (jTextField3.getText().equalsIgnoreCase("")) {
+                    jTextField3.setText("Pin");
+                }
+            }
+        });
     }
 
     /**
@@ -166,7 +204,7 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_retirarActionPerformed
 

@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -19,7 +21,33 @@ public class MenuFacturacion extends javax.swing.JFrame {
      */
     public MenuFacturacion() {
         initComponents();
-         this.setSize(499, 380);
+        this.setSize(499, 380);
+        // Al estar el textField en foco, se borrará el texto interior
+        // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        desde.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                desde.setText("");
+
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (desde.getText().equalsIgnoreCase("")) {
+                    desde.setText("Desde");
+                }
+            }
+        });
+        hasta.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                hasta.setText("");
+
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (hasta.getText().equalsIgnoreCase("")) {
+                    hasta.setText("Hasta");
+                }
+            }
+        });
     }
 
     /**
@@ -87,6 +115,11 @@ public class MenuFacturacion extends javax.swing.JFrame {
         getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         desde.setText("Desde");
+        desde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                desdeActionPerformed(evt);
+            }
+        });
         getContentPane().add(desde, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 70, -1));
 
         hasta.setText("Hasta");
@@ -116,6 +149,10 @@ public class MenuFacturacion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Facturacion por abonados
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void desdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desdeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_desdeActionPerformed
 
     /**
      * @param args the command line arguments

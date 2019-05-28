@@ -71,6 +71,18 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
+        introducirMatriculaTextField.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                introducirMatriculaTextField.setText("");
+                
+            }
+            
+            public void focusLost(FocusEvent e) {
+                if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
+                    introducirMatriculaTextField.setText("Introduzca Su Matricula");
+                }
+            }
+        });
         introducirTipoVehiculoTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirTipoVehiculoTextField.setText("");
@@ -83,7 +95,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 }
             }
         });
-        
     }
 
     /**
@@ -258,7 +269,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
             EnviarDatos.insertarVehiculo(vehiculo);
         } else {
-           JOptionPane.showMessageDialog(null, "");
+           JOptionPane.showMessageDialog(null, "El tipo de vehículo es incorrecto.");
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed

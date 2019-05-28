@@ -35,7 +35,7 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
 
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
-                    introducirMatriculaTextField.setText("Introduzca Su Identificación");
+                    introducirMatriculaTextField.setText("Introduzca Su Matrícula");
                 }
             }
         });
