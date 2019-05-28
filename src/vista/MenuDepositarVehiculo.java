@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
 import modelo.VehiculoVO;
@@ -256,6 +257,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
             EnviarDatos.insertarVehiculo(vehiculo);
+        } else {
+           JOptionPane.showMessageDialog(null, "");
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
