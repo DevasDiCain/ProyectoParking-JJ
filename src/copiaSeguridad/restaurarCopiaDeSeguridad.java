@@ -5,6 +5,7 @@
  */
 package copiaSeguridad;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,8 +27,9 @@ public class restaurarCopiaDeSeguridad {
     public static ArrayList<AbonadoVO> restaurarTablaAbonados() {
         ArrayList<AbonadoVO> abonados = new ArrayList<>();
         AbonadoVO abonado = new AbonadoVO();
+        
         // Fichero a leer
-        String idFichero = "./backup/2019-05-2814:08:16.738/Abonado.txt";
+        String idFichero = "./backup/"+restaurarCopiaDeSeguridad.hallarUltimaCarpeta()+"/Abonado.txt";
 
         // Variables para guardar los datos que se van leyendo
         String[] tokens;
@@ -79,8 +81,18 @@ public class restaurarCopiaDeSeguridad {
         return abonados;
     }
 
+    public static String hallarUltimaCarpeta() {
+        File f = new File("./backup");
+        File[] ficheros = f.listFiles();
+      
+
+        return ficheros[ficheros.length - 1].getName();
+    }
+
     public static void main(String[] args) {
-        System.out.println(restaurarCopiaDeSeguridad.restaurarTablaAbonados());
+//        System.out.println(restaurarCopiaDeSeguridad.restaurarTablaAbonados());
+        System.out.println(restaurarCopiaDeSeguridad.hallarUltimaCarpeta());
+   
 
         
     }
