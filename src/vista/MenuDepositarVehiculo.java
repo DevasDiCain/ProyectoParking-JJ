@@ -266,7 +266,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
-        if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
+        if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta") || !introducirMatriculaTextField.equals("") || !introducirMatriculaTextField.equals("Introduzca El Tipo De Vehículo")) {
             EnviarDatos.insertarVehiculo(vehiculo);
         } else {
            JOptionPane.showMessageDialog(null, "El tipo de vehículo es incorrecto.");
