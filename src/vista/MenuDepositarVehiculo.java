@@ -30,35 +30,35 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private int contadorCaravanas;
     private int contadorTurismos;
     private int contadorMotocicletas;
-    
+
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(575, 462);
-        
+
         panel.setLayout(new GridLayout(7, 7));
         for (int i = 0; i < graficoPlazas.matriz.length; i++) {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
                 graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
                 panel.add(graficoPlazas.recuperarBoton(i, j));
-                
+
             }
         }
-        
-       turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
-       turismosLibres.setForeground(Color.green);
-       motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
-       motosLibres.setForeground(Color.yellow);
-       caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
-       caravanasLibres.setForeground(Color.blue);
+
+        turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
+        turismosLibres.setForeground(Color.green);
+        motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
+        motosLibres.setForeground(Color.yellow);
+        caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
+        caravanasLibres.setForeground(Color.blue);
 
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Matricula");
@@ -71,9 +71,9 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Matricula");
@@ -83,9 +83,9 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         introducirTipoVehiculoTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirTipoVehiculoTextField.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("")) {
                     introducirTipoVehiculoTextField.setText("Introduzca El Tipo De Vehículo");
@@ -249,7 +249,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
             vehiculo.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
         }
-        
+
     }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -264,13 +264,21 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta") || !introducirMatriculaTextField.equals("") || !introducirMatriculaTextField.equals("Introduzca El Tipo De Vehículo")) {
+            VehiculoVO x = new VehiculoVO();
+            if (introducirMatriculaTextField.getText().length() == 7) {
+                x.setMatricula(introducirMatriculaTextField.getText());
+                x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
+                x.setCodPlaza(EnviarDatos.ultimoVehiculo());
+                EnviarDatos.insertarVehiculo(x);
+                JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "La matricula solo puede tener 7 caracteres");
+            }
 
-            EnviarDatos.insertarVehiculo(vehiculo);
-            
         } else {
-           JOptionPane.showMessageDialog(null, "El tipo de vehículo es incorrecto.");
+            JOptionPane.showMessageDialog(null, "El tipo de vehículo es incorrecto.");
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
