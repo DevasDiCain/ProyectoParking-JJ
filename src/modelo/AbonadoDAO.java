@@ -276,16 +276,16 @@ public class AbonadoDAO implements IAbonado {
         }
       
     }
-       public  ArrayList<AbonadoVO>  unMesParaCaducar() throws SQLException{
+       public  ArrayList<AbonadoVO>  unMesParaCaducar(LocalDate fecha) throws SQLException{
         ArrayList<AbonadoVO>abonados = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Abonados where fecfinabo = curdate()";// PREPARAR BIEN ESTA SENTENCIA
+        String sql = "select * from Abonado where month(fecfinabo) = month(?)";// PREPARAR BIEN ESTA SENTENCIA
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
           
-
+            prest.setDate(1, Date.valueOf(fecha));
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
 

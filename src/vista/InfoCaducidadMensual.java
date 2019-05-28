@@ -6,6 +6,7 @@
 package vista;
 
 import funcionalidad.Abonado;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.AbonadoVO;
@@ -20,15 +21,12 @@ public class InfoCaducidadMensual extends javax.swing.JFrame {
     /**
      * Creates new form InfoCaducidadMensual
      */
-    Abonado x = new Abonado();
-     Abonado y = new Abonado();
-      Abonado r = new Abonado();
-       Abonado a = new Abonado();
-        Abonado b = new Abonado();
-        List<Abonado> lista = new ArrayList();
+
+        ArrayList<AbonadoVO> lista = new ArrayList();
         
-    public InfoCaducidadMensual() {
+    public InfoCaducidadMensual(LocalDate mes) {
         initComponents();
+        lista = EnviarDatos.unMesCaducan(mes);
         info.setText(lista.toString());
     }
 
@@ -101,7 +99,7 @@ public class InfoCaducidadMensual extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InfoCaducidadMensual().setVisible(true);
+              
             }
         });
     }

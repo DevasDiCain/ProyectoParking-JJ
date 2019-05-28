@@ -7,6 +7,8 @@ package vista;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 
@@ -37,7 +39,6 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
             }
         });
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,7 +142,17 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed
         // Caducidad Mensual
-        new InfoCaducidadMensual().setVisible(true);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+
+	
+	
+	//convert String to LocalDate
+	
+
+        
+        
+        LocalDate localDate = LocalDate.parse(introducirMatriculaTextField.getText(), formatter);
+        new InfoCaducidadMensual(LocalDate.parse(introducirMatriculaTextField.getText())).setVisible(true);
     }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
@@ -164,7 +175,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Enviar Email 1 mes:
-        EnviarDatos.enviarEmailUnMes(EnviarDatos.unMesCaducan());
+        EnviarDatos.enviarEmailUnMes(EnviarDatos.unMesCaducan(LocalDate.parse(introducirMatriculaTextField.getText())));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
