@@ -227,7 +227,7 @@ public class MenuAltas extends javax.swing.JFrame {
         registrado.setEmail(Temail.getText());
         registrado.setNumTarjeta(Ttarjeta.getText());
         registrado.setMatricula(tMatricula.getText());
-        registrado.setTipoDeAbono(Tabono.getToolTipText());
+        registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
         
         EnviarDatos.insertarAbonado(registrado);
         this.setVisible(false);
