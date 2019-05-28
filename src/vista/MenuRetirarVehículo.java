@@ -13,6 +13,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
 import modelo.TicketVO;
 
 /**
@@ -224,61 +225,46 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                 LocalDate diaDeTicket = ticket.getFecha();
                 long diasEntreDepositoYRetiro = Duration.between(diaDeTicket.atStartOfDay(), hoy.atStartOfDay()).toDays();
                 System.out.println(diasEntreDepositoYRetiro);
-                LocalTime horaActual = LocalTime.now();
                 //LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
-                LocalTime horaTicket = ticket.getHoraEntrada();
-                int minutosTotalesHoy = (horaActual.getHour() * 60) + horaActual.getMinute();
+                int minutosTotalesHoy = (LocalTime.now().getHour() * 60) + LocalTime.now().getMinute();
                 System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
-                int minutosTotalesTicket = (horaTicket.getHour() * 60) + horaTicket.getMinute();
+                int minutosTotalesTicket = (ticket.getHoraEntrada().getHour() * 60) + ticket.getHoraEntrada().getMinute();
                 System.out.println("minutosTotalesTicket " + minutosTotalesTicket);
                 if (minutosTotalesTicket < minutosTotalesHoy) {
                     minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
                     System.out.println("minutosTotalesAparcado primer if: " + minutosTotalesAparcado);
                 } else {
-                    int minutosEntre = minutosTotalesTicket - minutosTotalesHoy;
-                    minutosTotalesAparcado = 1440 - minutosEntre;
+                    minutosTotalesAparcado = 1440 - (minutosTotalesTicket - minutosTotalesHoy);
                     System.out.println("minutosTotalesAparcado segundo if: " + minutosTotalesAparcado);
                 }
                 System.out.println(minutosTotalesAparcado);
-                String tipoCoche = "turismo";
-                if (diasEntreDepositoYRetiro > 1) {
-                    switch (tipoCoche) {
-                        case "turismo":
-                            this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
-                            break;
-                        case "motocicletas":
-                            this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
-                            break;
-                        case "caravanas":
-                            this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
-                            break;
-                        default:
-                            break;
-                    }
-                } else {
-                    switch (tipoCoche) {
-                        case "turismo":
+                PlazaVO plaza = EnviarDatos.obtenerPlazaSegunPk(ticket.getCodPlaza());
+                switch (plaza.getTipoPlaza()) {
+                    case "turismo":
+                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
                             this.precio = (minutosTotalesAparcado * 0.12);
-                            break;
-                        case "motocicletas":
+                        } else {
+                            this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
+                        }
+                        break;
+                    case "motocicletas":
+                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
                             this.precio = (minutosTotalesAparcado * 0.08);
-                            break;
-                        case "caravanas":
+                        } else {
+                            this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
+                        }
+                        break;
+                    case "caravanas":
+                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
                             this.precio = (minutosTotalesAparcado * 0.45);
-                            break;
-                        default:
-                            break;
-                    }
-                    precioJLabel.setText(Double.toString(precio));
+                        } else {
+                            this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
-//        if (ticketBuscado == null){
-//            JOptionPane.showMessageDialog(null, "No se ha encontrado un ticket con la información indicada");
-//        }
-            this.precio = 0;
-
-            // Hace falta determinar el LocalDate del ticket en la base de datos,
-            // en base a la información introducida por el cliente
         }
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
