@@ -104,46 +104,4 @@ public class PlazaVO {
         return true;
     }
 
-    public static int turismosLibres() {
-        List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
-       int turismos = 0;
-        for (PlazaVO x : lista) {
-            if (x.getTipoPlaza().equals("turismo")) {
-                if (!x.isOcupado()) {
-                    turismos++;
-                }
-            }
-        }
-        return turismos;
-    }
-
-    public static int caravanasLibres( ) {
-       List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
-        int caravanas = 0;
-        System.out.println(lista.size());
-        for (PlazaVO x : lista) {
-            System.out.println(x);
-            if (x.getTipoPlaza().equals("caravana")) {
-                if (!x.isOcupado()) {
-                    caravanas++;
-                }
-            }
-        }
-        return caravanas;
-    }
-
-    public static int motocicletasLibres() {
-        List<PlazaVO> lista = EnviarDatos.obtenerPlazas();
-        int motos = 0;
-        for (PlazaVO x : lista) {
-            if (x.getTipoPlaza().equals("motocicleta")) {
-                if (!x.isOcupado()) {
-                    motos++;
-                }
-            }
-        }
-        return motos;
-    }
-   
-
 }

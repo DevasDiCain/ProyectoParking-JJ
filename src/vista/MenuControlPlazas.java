@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.PlazaVO;
+import modelo.VehiculoDAO;
 
 /**
  *
@@ -36,14 +37,12 @@ public class MenuControlPlazas extends javax.swing.JFrame {
             }
         }
         
-       turismosLibres.setText(String.valueOf(PlazaVO.turismosLibres()));
-        turismosLibres.setForeground(Color.yellow);
-        
-        motosLibres.setText(String.valueOf( PlazaVO.motocicletasLibres()));
-        motosLibres.setForeground(Color.blue);
-        
-        caravanasLibres.setText(String.valueOf(PlazaVO.caravanasLibres()));
-        caravanasLibres.setForeground(Color.green);
+       turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
+       turismosLibres.setForeground(Color.green);
+       motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
+       motosLibres.setForeground(Color.yellow);
+       caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
+       caravanasLibres.setForeground(Color.blue);
 
     }
 

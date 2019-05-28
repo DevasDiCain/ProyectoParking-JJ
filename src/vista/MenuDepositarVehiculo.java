@@ -14,6 +14,7 @@ import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
+import modelo.VehiculoDAO;
 import modelo.VehiculoVO;
 
 /**
@@ -39,20 +40,16 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
                 graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
                 panel.add(graficoPlazas.recuperarBoton(i, j));
-                if (graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)) {
-                    
-                }
+                
             }
         }
         
-        turismosLibres.setText(String.valueOf(PlazaVO.turismosLibres()));
-        turismosLibres.setForeground(Color.yellow);
-        
-        motosLibres.setText(String.valueOf(PlazaVO.motocicletasLibres()));
-        motosLibres.setForeground(Color.blue);
-        
-        caravanasLibres.setText(String.valueOf(PlazaVO.caravanasLibres()));
-        caravanasLibres.setForeground(Color.green);
+       turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
+       turismosLibres.setForeground(Color.green);
+       motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
+       motosLibres.setForeground(Color.yellow);
+       caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
+       caravanasLibres.setForeground(Color.blue);
 
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto

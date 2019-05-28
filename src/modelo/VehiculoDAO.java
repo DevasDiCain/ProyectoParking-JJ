@@ -16,7 +16,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author jose
@@ -53,8 +52,6 @@ public class VehiculoDAO implements IVehiculo {
 
         return lista;
     }
-
-
 
     @Override
     public VehiculoVO findByPk(String pk) throws SQLException {
@@ -202,13 +199,47 @@ public class VehiculoDAO implements IVehiculo {
         }
         return res;
     }
+
+    public static int turismosLibres() {
+        List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
+        int numeroVehiculosLibres = 0;
+        for (int x = 1; x < listaDePlazas.size(); x++) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("turismo")){
+                numeroVehiculosLibres++;
+            }
+        }
+        return numeroVehiculosLibres;
+    }
+    
+    public static int motocicletasLibres() {
+        List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
+        int numeroVehiculosLibres = 0;
+        for (int x = 1; x < listaDePlazas.size(); x++) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("motocicleta")){
+                numeroVehiculosLibres++;
+            }
+        }
+        return numeroVehiculosLibres;
+    }
+    
+    public static int caravanasLibres() {
+        List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
+        int numeroVehiculosLibres = 0;
+        for (int x = 1; x < listaDePlazas.size(); x++) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("caravana")){
+                numeroVehiculosLibres++;
+            }
+        }
+        return numeroVehiculosLibres;
+    }
+
     @Override
-     public int hallarPlaza() throws SQLException{
+    public int hallarPlaza() throws SQLException {
         int r = 0;
-            try (Statement st = con.createStatement()) {
+        try (Statement st = con.createStatement()) {
             ResultSet res = st.executeQuery("select ifnull(max(codplaza),0)+1 from Vehiculo");
             res.next();
             return res.getInt(1);
-        }    
+        }
     }
 }
