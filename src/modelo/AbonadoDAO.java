@@ -285,7 +285,7 @@ public class AbonadoDAO implements IAbonado {
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
           
-            prest.setDate(1, Date.valueOf(String.valueOf(mes)));
+            prest.setInt(1, mes);
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
 

@@ -27,7 +27,8 @@ public class InfoCaducidadMensual extends javax.swing.JFrame {
     public InfoCaducidadMensual(int mes) {
         initComponents();
         lista = EnviarDatos.unMesCaducan(mes);
-        info.setText(lista.toString());
+        
+//        info.setText(lista.toString());
     }
 
     /**
