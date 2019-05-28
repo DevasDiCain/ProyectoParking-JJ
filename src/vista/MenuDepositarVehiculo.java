@@ -34,15 +34,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(575, 462);
-
-        panel.setLayout(new GridLayout(7, 7));
-        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
-            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
-                panel.add(graficoPlazas.recuperarBoton(i, j));
-
-            }
-        }
+        panel = graficoPlazas.crearPanelParking();
 
         turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
         turismosLibres.setForeground(Color.green);
@@ -56,7 +48,6 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-
             }
 
             public void focusLost(FocusEvent e) {

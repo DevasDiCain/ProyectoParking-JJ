@@ -23,21 +23,13 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     public MenuDepositarAbonado() {
         initComponents();
         this.setSize(578, 462);
-        panel.setLayout(new GridLayout(7, 7));
-        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
-            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
-                panel.add(graficoPlazas.recuperarBoton(i, j));
-            }
-        }
+        panel = graficoPlazas.crearPanelParking();
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-
             }
-
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Identificación");
@@ -49,7 +41,6 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             public void focusGained(FocusEvent e) {
                 introducirDniTextField.setText("");
             }
-
             public void focusLost(FocusEvent e) {
                 if (introducirDniTextField.getText().equalsIgnoreCase("")) {
                     introducirDniTextField.setText("Dni");
@@ -199,14 +190,14 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // Depositar:
-        if(introducirDniTextField.getText().length() == 9){
+        if (introducirDniTextField.getText().length() == 9) {
             JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
-        jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
-        }else{
-         JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
-                 + "Porfavor Únicamente 9 Carácteres");
+            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
+                    + "Porfavor Únicamente 9 Carácteres");
         }
-         
+
 
     }//GEN-LAST:event_retirarActionPerformed
 

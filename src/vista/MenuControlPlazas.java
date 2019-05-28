@@ -22,27 +22,18 @@ public class MenuControlPlazas extends javax.swing.JFrame {
     private int contadorCaravanas;
     private int contadorMotocicletas;
     private int contadorTurismos;
+
     public MenuControlPlazas() {
         initComponents();
         this.setSize(655, 462);
+        panel = graficoPlazas.crearPanelParking();
 
-         panel.setLayout(new GridLayout(7, 7));
-        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
-            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
-                if(graficoPlazas.recuperarBoton(i, j).getBackground().equals(Color.green)){
-                    
-                }
-            }
-        }
-        
-       turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
-       turismosLibres.setForeground(Color.green);
-       motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
-       motosLibres.setForeground(Color.yellow);
-       caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
-       caravanasLibres.setForeground(Color.blue);
+        turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
+        turismosLibres.setForeground(Color.green);
+        motosLibres.setText(String.valueOf(VehiculoDAO.motocicletasLibres()));
+        motosLibres.setForeground(Color.yellow);
+        caravanasLibres.setText(String.valueOf(VehiculoDAO.caravanasLibres()));
+        caravanasLibres.setForeground(Color.blue);
 
     }
 
@@ -193,7 +184,7 @@ public class MenuControlPlazas extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // Marcador plaza 1
-        
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -211,16 +202,20 @@ public class MenuControlPlazas extends javax.swing.JFrame {
         JOptionPane x = new JOptionPane();
         String y = String.valueOf(x.showInputDialog(new JFrame(), "Elija una plaza", "Plazas", JOptionPane.QUESTION_MESSAGE, null, aparcamientos.toArray(), "Titan"));
         jTextField1.setText(y);
-       //TEMPORAL
+        //TEMPORAL
         if (ZonaAdministrador.plazas.getPlaza(y.charAt(0), y.charAt(2)).estaOcupada()) {
             jLabel7.setText("Está ocupada");
-        }else{jLabel7.setText("Está vacía");}
-        if (ZonaAdministrador.plazas.getPlaza(y.charAt(0), y.charAt(2)).estaReservada()){
+        } else {
+            jLabel7.setText("Está vacía");
+        }
+        if (ZonaAdministrador.plazas.getPlaza(y.charAt(0), y.charAt(2)).estaReservada()) {
             jLabel8.setText("Está reservada");
-        }else{jLabel8.setText("No está reservada");}
-     // FIN TEMPORAL
+        } else {
+            jLabel8.setText("No está reservada");
+        }
+        // FIN TEMPORAL
 
-     
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
