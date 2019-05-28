@@ -271,6 +271,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 x.setCodPlaza(EnviarDatos.ultimoVehiculo());
                 EnviarDatos.insertarVehiculo(x);
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente");
+                
             } else {
                 JOptionPane.showMessageDialog(null, "La matricula solo puede tener 7 caracteres");
             }
