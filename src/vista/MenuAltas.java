@@ -231,6 +231,7 @@ public class MenuAltas extends javax.swing.JFrame {
             registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
 
             EnviarDatos.insertarAbonado(registrado);
+            
             this.setVisible(false);
             new ZonaAdministrador().setVisible(true);
             // FIN TEMPORAL

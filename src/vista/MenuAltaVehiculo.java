@@ -94,7 +94,7 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
         x.setCodPlaza(EnviarDatos.ultimoVehiculo());
         EnviarDatos.insertarVehiculo(x);
         
-        EnviarDatos.cambiarPlaza(EnviarDatos.ultimaPlaza(), nuevosDatos);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
