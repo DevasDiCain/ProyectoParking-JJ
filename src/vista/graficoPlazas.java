@@ -5,7 +5,9 @@
  */
 package vista;
 
+import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.JPanel;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
 
@@ -51,6 +53,19 @@ public class graficoPlazas {
                 }
             }
         }
+
+    }
+
+    public static JPanel crearPanelParking() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(7, 7));
+        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
+            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
+                panel.add(graficoPlazas.recuperarBoton(i,j));
+            }
+        }
+        return panel;
     }
 
     public static botonPlaza recuperarBoton(int i, int j) {

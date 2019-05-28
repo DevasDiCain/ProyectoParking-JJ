@@ -23,13 +23,7 @@ public class ZonaClientes extends javax.swing.JFrame {
     public ZonaClientes() {
         initComponents();
         this.setSize(578, 462);
-        panel.setLayout(new GridLayout(7, 7));
-        for (int i = 0; i < graficoPlazas.matriz.length; i++) {
-            for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
-            }
-        }
+        panel = graficoPlazas.crearPanelParking();
     }
 
     public static void main(String[] args) {
