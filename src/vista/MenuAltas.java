@@ -197,7 +197,7 @@ public class MenuAltas extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Atras
         new MenuAbonos().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -239,6 +239,8 @@ public class MenuAltas extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No podrá realizar esta acción si no se han comprobado los datos correctamente antes");
         }
+        new MenuAbonos().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void TabonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TabonoActionPerformed

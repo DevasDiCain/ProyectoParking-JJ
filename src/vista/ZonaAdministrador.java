@@ -14,17 +14,17 @@ import static vista.ZonaClientes.plazas;
  */
 public class ZonaAdministrador extends javax.swing.JFrame {
 
-       public static  graficoPlazas plazas;
-       private int contador;
-       
+    public static graficoPlazas plazas;
+    private int contador;
+
     public ZonaAdministrador() {
         initComponents();
-         this.setSize(578, 462);
-         panel.setLayout(new GridLayout(7, 7));
+        this.setSize(578, 462);
+        panel.setLayout(new GridLayout(7, 7));
         for (int i = 0; i < graficoPlazas.matriz.length; i++) {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
+                panel.add(graficoPlazas.recuperarBoton(i, j));
             }
         }
     }
@@ -148,13 +148,13 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Facturacion:
         new MenuFacturacion().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // ControlPlazas:
         new MenuControlPlazas().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -165,20 +165,20 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Atras
         new Menu().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // MENU ABONO
         new MenuAbonos().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Copia se seguridad
         new MenuCopiaSeguridad().setVisible(true);
-        this.setVisible(false);
-        
+        dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

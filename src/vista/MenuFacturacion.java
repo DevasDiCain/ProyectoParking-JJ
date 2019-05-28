@@ -133,7 +133,7 @@ public class MenuFacturacion extends javax.swing.JFrame {
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         new ZonaAdministrador().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_atrasActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed

@@ -173,7 +173,7 @@ public class MenuBajas extends javax.swing.JFrame {
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         new MenuAbonos().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_atrasActionPerformed
 
     /**

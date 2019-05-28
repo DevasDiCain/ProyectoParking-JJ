@@ -98,7 +98,7 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Atras
         new ZonaAdministrador().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

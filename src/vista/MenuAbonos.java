@@ -108,7 +108,7 @@ public class MenuAbonos extends javax.swing.JFrame {
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         new ZonaAdministrador().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_atrasActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -136,7 +136,7 @@ public class MenuAbonos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // baja:
         new MenuBajas().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

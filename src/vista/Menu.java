@@ -96,15 +96,13 @@ public class Menu extends javax.swing.JFrame {
     private void botonZonaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaAdminActionPerformed
         // Zona Administrador
         new ZonaAdministrador().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_botonZonaAdminActionPerformed
 
     private void botonZonaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaClienteActionPerformed
        //Zona Clientes
-        new ZonaClientes().setVisible(true);
-       
-       this.setVisible(false);
-      
+       new ZonaClientes().setVisible(true);
+       dispose();
     }//GEN-LAST:event_botonZonaClienteActionPerformed
 
 

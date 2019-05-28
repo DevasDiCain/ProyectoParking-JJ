@@ -194,7 +194,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         new ZonaClientes().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_atrasActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed

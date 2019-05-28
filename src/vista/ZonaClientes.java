@@ -173,35 +173,34 @@ public class ZonaClientes extends javax.swing.JFrame {
 
     private void menuDepositarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDepositarVehiculoActionPerformed
         new MenuDepositarVehiculo().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_menuDepositarVehiculoActionPerformed
 
     private void botonRetirarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetirarVehiculoActionPerformed
-        this.setVisible(false);
         new MenuRetirarVehículo().setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonRetirarVehiculoActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-            System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         new Menu().setVisible(true);
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_atrasActionPerformed
 
     private void botonMenuDepositarAbonadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMenuDepositarAbonadosActionPerformed
         // DepositarAbonado
         new MenuDepositarAbonado().setVisible(true);
-        this.setVisible(false);
+        dispose();
         
     }//GEN-LAST:event_botonMenuDepositarAbonadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Retirar Abonado
          new MenuRetirarAbonado().setVisible(true);
-         this.setVisible(false);
-        
+         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

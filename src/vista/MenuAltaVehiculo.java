@@ -87,14 +87,12 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // DAR DE ALTA
         new MenuAltas().setVisible(true);
-        this.setVisible(false);
         VehiculoVO x = new VehiculoVO();
         x.setMatricula(tMatricula.getText());
         x.setTipoVehiculo(String.valueOf(Tabono.getSelectedItem()));
         x.setCodPlaza(EnviarDatos.ultimoVehiculo());
         EnviarDatos.insertarVehiculo(x);
-        
-        
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
