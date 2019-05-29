@@ -84,6 +84,6 @@ public class VehiculoVO {
 
     @Override
     public String toString() {
-        return "VehiculoVO{" + "matricula=" + matricula + ", tipoVehiculo=" + tipoVehiculo + ", codPlaza=" + codPlaza + '}';
+        return "matricula=" + matricula + "| tipoVehiculo=" + tipoVehiculo + "| codPlaza=" + codPlaza ;
     }
 }

@@ -64,7 +64,7 @@ public class PlazaVO {
 
     @Override
     public String toString() {
-        return "PlazaVO{" + "codPlaza=" + codPlaza + ", ocupado=" + ocupado + ", reservado=" + reservado + ", tipoPlaza=" + tipoPlaza + '}';
+        return  "codPlaza=" + codPlaza + "| ocupado=" + ocupado + "| reservado=" + reservado + "| tipoPlaza=" + tipoPlaza;
     }
 
     @Override
