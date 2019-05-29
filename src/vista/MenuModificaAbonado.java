@@ -30,9 +30,9 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
         Tfecnac.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 Tfecnac.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (Tfecnac.getText().equalsIgnoreCase("")) {
                     Tfecnac.setText("Formato-> xxxx/xx/xx");
@@ -257,19 +257,19 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Comprobar
-        if(Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1")|| Tnombre.getText().contains("2")|| Tnombre.getText().contains("3")|| Tnombre.getText().contains("4")
-            || Tnombre.getText().contains("5")|| Tnombre.getText().contains("6")|| Tnombre.getText().contains("7")|| Tnombre.getText().contains("8")|| Tnombre.getText().contains("9")|| Tnombre.getText().contains("=")|| Tnombre.getText().contains("&")|| Tnombre.getText().contains("%")){
+        if (Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1") || Tnombre.getText().contains("2") || Tnombre.getText().contains("3") || Tnombre.getText().contains("4")
+                || Tnombre.getText().contains("5") || Tnombre.getText().contains("6") || Tnombre.getText().contains("7") || Tnombre.getText().contains("8") || Tnombre.getText().contains("9") || Tnombre.getText().contains("=") || Tnombre.getText().contains("&") || Tnombre.getText().contains("%")) {
             JOptionPane.showMessageDialog(null, "Carácteres incorrectos"
-                + "Carácteres Inválidos: {-/*123456789=&}");
+                    + "Carácteres Inválidos: {-/*123456789=&}");
         }
-        if(Tdni.getText().length() > 9 || Tdni.getText().length() < 9){
+        if (Tdni.getText().length() > 9 || Tdni.getText().length() < 9) {
             JOptionPane.showMessageDialog(null, "Dimensión del Dni incorrecta");
         }
-        if(Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16){
+        if (Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16) {
             JOptionPane.showMessageDialog(null, "Dimensión del numero de tarjeta incorrecto");
+        } else {
+            JOptionPane.showMessageDialog(null, "Formato correcto");
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Formato correcto");}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

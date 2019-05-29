@@ -19,9 +19,10 @@ public class InfoCaducidadSemanal extends javax.swing.JFrame {
      * Creates new form InfoCaducidadSemanal
      */
     List<Abonado> lista = new ArrayList();
+
     public InfoCaducidadSemanal() {
         initComponents();
-             info.setText(lista.toString());
+        info.setText(lista.toString());
 
     }
 

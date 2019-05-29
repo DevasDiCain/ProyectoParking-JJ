@@ -25,9 +25,9 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
         jTextField1.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 jTextField1.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (jTextField1.getText().equalsIgnoreCase("")) {
                     jTextField1.setText("Matricula");
@@ -37,9 +37,9 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
         jTextField2.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 jTextField2.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (jTextField2.getText().equalsIgnoreCase("")) {
                     jTextField2.setText("Dni");
@@ -49,9 +49,9 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
         jTextField3.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 jTextField3.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (jTextField3.getText().equalsIgnoreCase("")) {
                     jTextField3.setText("Pin");

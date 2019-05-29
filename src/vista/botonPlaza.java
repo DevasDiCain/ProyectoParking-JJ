@@ -28,8 +28,8 @@ public class botonPlaza extends JButton {
 
     private final Border reservado = new LineBorder(Color.red);
     private final Border noReservado = new LineBorder(Color.black);
-    
-    public botonPlaza(){
+
+    public botonPlaza() {
         this.setBackground(Color.black);
     }
 
@@ -51,14 +51,18 @@ public class botonPlaza extends JButton {
                 this.setBackground(Color.blue);
                 break;
         }
-        
+
         if (plaza.isOcupado()) {
             this.setText("X");
-        } else this.setText("O");
-        
+        } else {
+            this.setText("O");
+        }
+
         if (plaza.isReservado()) {
             this.setBorder(reservado);
-        } else this.setBorder(noReservado);
+        } else {
+            this.setBorder(noReservado);
+        }
     }
 
     // Hará que el estado de una plaza cambie a ocupado (a no ser que ya esté ocupado)

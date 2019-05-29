@@ -29,9 +29,9 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
-                
+
             }
-            
+
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca un mes");
@@ -39,6 +39,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
             }
         });
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,11 +143,11 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void darAltaAbonadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darAltaAbonadoActionPerformed
         // Caducidad Mensual
-       String [] x = introducirMatriculaTextField.getText().split("/");
-       Integer [] y = new Integer[3];
-       for(int i = 0; i < x.length ; i++){
-           y[i] = Integer.parseInt(x[i]);
-       }
+        String[] x = introducirMatriculaTextField.getText().split("/");
+        Integer[] y = new Integer[3];
+        for (int i = 0; i < x.length; i++) {
+            y[i] = Integer.parseInt(x[i]);
+        }
         System.out.println(y[1]);
 
         new InfoCaducidadMensual(y[1]).setVisible(true);
@@ -154,7 +155,7 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed
         // Caducidad 10 dias
-      new InfoCaducidadSemanal().setVisible(true);
+        new InfoCaducidadSemanal().setVisible(true);
     }//GEN-LAST:event_MODIFICACIÓNActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed

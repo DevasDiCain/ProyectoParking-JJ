@@ -102,15 +102,15 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-             // Crear copia de seguridad
+        // Crear copia de seguridad
         crearCopiaDeSeguridad.crearCopiaSeguridad();
         JOptionPane.showMessageDialog(null, "Copia De Seguridad realizada con éxito");
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Restaurar
-         JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?");
+        JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

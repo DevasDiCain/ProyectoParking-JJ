@@ -18,6 +18,7 @@ import modelo.EnviarDatos;
  * @author jose
  */
 public class MenuAltas extends javax.swing.JFrame {
+
     public boolean comprobacionCorrecta = false;
 
     /**
@@ -25,14 +26,14 @@ public class MenuAltas extends javax.swing.JFrame {
      */
     public MenuAltas() {
         initComponents();
-         this.setSize(630, 550);
+        this.setSize(630, 550);
     }
 
-    
-    public static LocalDate convertirStringFecha(String cadena){
-       LocalDate localDate1 = LocalDate.parse(cadena, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-       return localDate1;
+    public static LocalDate convertirStringFecha(String cadena) {
+        LocalDate localDate1 = LocalDate.parse(cadena, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        return localDate1;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -215,7 +216,7 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE ALTA
- 
+
         if (comprobacionCorrecta) {
             AbonadoVO registrado = new AbonadoVO();
             LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
@@ -231,7 +232,7 @@ public class MenuAltas extends javax.swing.JFrame {
             registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
 
             EnviarDatos.insertarAbonado(registrado);
-            
+
             this.setVisible(false);
             new ZonaAdministrador().setVisible(true);
             // FIN TEMPORAL
@@ -257,20 +258,20 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Comprobar
-        if(Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1")|| Tnombre.getText().contains("2")|| Tnombre.getText().contains("3")|| Tnombre.getText().contains("4")
-                || Tnombre.getText().contains("5")|| Tnombre.getText().contains("6")|| Tnombre.getText().contains("7")|| Tnombre.getText().contains("8")|| Tnombre.getText().contains("9")|| Tnombre.getText().contains("=")|| Tnombre.getText().contains("&")|| Tnombre.getText().contains("%")){
+        if (Tnombre.getText().contains("-") || Tnombre.getText().contains("/") || Tnombre.getText().contains("*") || Tnombre.getText().contains("1") || Tnombre.getText().contains("2") || Tnombre.getText().contains("3") || Tnombre.getText().contains("4")
+                || Tnombre.getText().contains("5") || Tnombre.getText().contains("6") || Tnombre.getText().contains("7") || Tnombre.getText().contains("8") || Tnombre.getText().contains("9") || Tnombre.getText().contains("=") || Tnombre.getText().contains("&") || Tnombre.getText().contains("%")) {
             JOptionPane.showMessageDialog(null, "Carácteres incorrectos"
                     + "Carácteres Inválidos: {-/*123456789=&}");
         }
-        if(Tdni.getText().length() > 9 || Tdni.getText().length() < 9){
+        if (Tdni.getText().length() > 9 || Tdni.getText().length() < 9) {
             JOptionPane.showMessageDialog(null, "Dimensión del Dni incorrecta");
         }
-         if(Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16){
+        if (Ttarjeta.getText().length() > 16 || Ttarjeta.getText().length() < 16) {
             JOptionPane.showMessageDialog(null, "Dimensión del numero de tarjeta incorrecto");
+        } else {
+            JOptionPane.showMessageDialog(null, "Formato correcto");
+            comprobacionCorrecta = true;
         }
-         else{
-         JOptionPane.showMessageDialog(null, "Formato correcto");
-         comprobacionCorrecta = true;}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -19,7 +19,7 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
      */
     public MenuAltaVehiculo() {
         initComponents();
-       this.setSize(439, 340);
+        this.setSize(439, 340);
     }
 
     /**

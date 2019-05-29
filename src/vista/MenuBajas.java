@@ -20,7 +20,7 @@ public class MenuBajas extends javax.swing.JFrame {
      */
     public MenuBajas() {
         initComponents();
-         this.setSize(499, 380);
+        this.setSize(499, 380);
     }
 
     /**
@@ -146,10 +146,10 @@ public class MenuBajas extends javax.swing.JFrame {
         // DAR DE BAJA
 
         AbonadoVO registrado = new AbonadoVO("especial");
-       registrado.setPk(Integer.parseInt(tCodigo.getText()));
-           JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere borrar los datos del abonado?");
+        registrado.setPk(Integer.parseInt(tCodigo.getText()));
+        JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere borrar los datos del abonado?");
         EnviarDatos.borrarAbonado(registrado);
-         JOptionPane.showMessageDialog(null, "Abonado Borrado con Exito");
+        JOptionPane.showMessageDialog(null, "Abonado Borrado con Exito");
         this.setVisible(false);
         new ZonaAdministrador().setVisible(true);
         // FIN TEMPORAL
@@ -160,10 +160,10 @@ public class MenuBajas extends javax.swing.JFrame {
     }//GEN-LAST:event_tCodigoActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-         JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere borrar los datos de los abonados?");
+        JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere borrar los datos de los abonados?");
         EnviarDatos.borrarTablaAbonado();
         JOptionPane.showMessageDialog(null, "Abonados Borrados con Exito");
-       
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -24,11 +24,11 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
-
             }
         });
         graficoPlazas.graficoParking(7);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,9 +100,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_botonZonaAdminActionPerformed
 
     private void botonZonaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZonaClienteActionPerformed
-       //Zona Clientes
-       new ZonaClientes().setVisible(true);
-       dispose();
+        //Zona Clientes
+        new ZonaClientes().setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonZonaClienteActionPerformed
 
 

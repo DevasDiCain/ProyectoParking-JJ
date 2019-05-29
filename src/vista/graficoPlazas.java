@@ -19,28 +19,18 @@ public class graficoPlazas {
 
     // Atributos
     public static botonPlaza[][] matriz = new botonPlaza[1][1];
+    private int contador;
 
     static Object matriz() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private int contador;
-
-    // Método para dibujar las plazas
-    public graficoPlazas(int plazas) {
-        matriz = new botonPlaza[plazas][plazas];
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                botonPlaza tmp = new botonPlaza(1);
-                ponerPlaza(i, j, tmp);
-            }
-        }
-    }
 
     public static void graficoParking(int numeroDePlazas) {
+        // Usará el parámetro para determinar el tamaño del array bidimensional. 
+        // Hace un contador que cuenta desde el 1 hasta el 45, el cual se usa para seleccionar (según clave primaria)
+        // las plazas correctas. Como solo hay 1-45, a partir de la 46 se hará un botón por defecto "apagado".
         int contador = 1;
-        List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
         matriz = new botonPlaza[numeroDePlazas][numeroDePlazas];
-
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
                 if (contador < 46) {
@@ -53,16 +43,16 @@ public class graficoPlazas {
                 }
             }
         }
-
     }
 
     public static JPanel crearPanelParking() {
+        // Devolverá un JPanel con todos los botones según la matriz estática creada
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(7, 7));
         for (int i = 0; i < graficoPlazas.matriz.length; i++) {
             for (int j = 0; j < graficoPlazas.matriz.length; j++) {
-                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i+1)) + "," + Integer.toString((j+1)));
-                panel.add(graficoPlazas.recuperarBoton(i,j));
+                graficoPlazas.matriz[i][j].setToolTipText(Integer.toString((i + 1)) + "," + Integer.toString((j + 1)));
+                panel.add(graficoPlazas.recuperarBoton(i, j));
             }
         }
         return panel;

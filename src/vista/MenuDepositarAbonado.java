@@ -30,6 +30,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             public void focusGained(FocusEvent e) {
                 introducirMatriculaTextField.setText("");
             }
+
             public void focusLost(FocusEvent e) {
                 if (introducirMatriculaTextField.getText().equalsIgnoreCase("")) {
                     introducirMatriculaTextField.setText("Introduzca Su Identificación");
@@ -41,6 +42,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             public void focusGained(FocusEvent e) {
                 introducirDniTextField.setText("");
             }
+
             public void focusLost(FocusEvent e) {
                 if (introducirDniTextField.getText().equalsIgnoreCase("")) {
                     introducirDniTextField.setText("Dni");

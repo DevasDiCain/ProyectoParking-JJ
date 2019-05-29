@@ -17,7 +17,7 @@ import javax.swing.border.LineBorder;
  */
 public class ZonaClientes extends javax.swing.JFrame {
 
-    public static  graficoPlazas plazas;
+    public static graficoPlazas plazas;
     private int contador;
 
     public ZonaClientes() {
@@ -187,13 +187,13 @@ public class ZonaClientes extends javax.swing.JFrame {
         // DepositarAbonado
         new MenuDepositarAbonado().setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_botonMenuDepositarAbonadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Retirar Abonado
-         new MenuRetirarAbonado().setVisible(true);
-         dispose();
+        new MenuRetirarAbonado().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
