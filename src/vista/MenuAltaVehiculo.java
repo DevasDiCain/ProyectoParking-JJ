@@ -90,9 +90,9 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
         VehiculoVO x = new VehiculoVO();
         x.setMatricula(tMatricula.getText());
         x.setTipoVehiculo(String.valueOf(Tabono.getSelectedItem()));
-        x.setCodPlaza(EnviarDatos.ultimoVehiculo());
+        x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
         EnviarDatos.insertarVehiculo(x);
-        dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

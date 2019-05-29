@@ -38,8 +38,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(575, 462);
-         panel.setLayout(new BorderLayout(7, 7));
-       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
+        panel.setLayout(new BorderLayout(7, 7));
+        panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
 
         turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
         turismosLibres.setForeground(Color.green);
@@ -238,13 +238,11 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void introducirMatriculaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirMatriculaTextFieldActionPerformed
-        vehiculo.setMatricula(introducirMatriculaTextField.getText());// Recogemos la matricula del coche 
+        
     }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
     private void introducirTipoVehiculoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirTipoVehiculoTextFieldActionPerformed
-        if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta")) {
-            vehiculo.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
-        }
+        
 
     }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
@@ -263,21 +261,13 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
             VehiculoVO x = new VehiculoVO();
             TicketVO y = new TicketVO();
             if (introducirMatriculaTextField.getText().length() == 7) {
+
                 x.setMatricula(introducirMatriculaTextField.getText());
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
-                x.setCodPlaza(EnviarDatos.ultimoVehiculo()
-                );
+                x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
                 EnviarDatos.insertarVehiculo(x);
-                JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->"+x.getCodPlaza());
-                
-                y.setCodTicket(EnviarDatos.ultimoTicket());
-                y.setCodPlaza(x.getCodPlaza());
-                y.setMatricula(x.getMatricula());
-                y.setFecha(LocalDate.now());
-                y.setPin(Abonado.generarPin(x.getMatricula()));
-                EnviarDatos.insertarTicket(y);
-                new InfoTicket().setVisible(true);
-                
+                JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->" + x.getCodPlaza());
+
             } else {
                 JOptionPane.showMessageDialog(null, "La matricula solo puede tener 7 caracteres");
             }

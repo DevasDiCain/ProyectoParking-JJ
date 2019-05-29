@@ -177,7 +177,7 @@ public class PlazaDAO implements IPlaza {
                 
                 prest.setBoolean(1, nuevosDatos.isOcupado());
                 prest.setBoolean(2, nuevosDatos.isReservado());
-                prest.setInt(4, nuevosDatos.getCodPlaza());
+                prest.setInt(3, nuevosDatos.getCodPlaza());
 
                 numFilas = prest.executeUpdate();
             }

@@ -124,9 +124,10 @@ public class EnviarDatos {
         PlazaVO ocupada = new PlazaVO();
         try {
             estandar.insertVehiculo(vehiculo);
+            
             ocupada.setCodPlaza(vehiculo.getCodPlaza());
             ocupada.setOcupado(true);
-            ocupada.setTipoPlaza(vehiculo.getTipoVehiculo());
+            
             
             
             ocupar.updatePlaza(vehiculo.getCodPlaza(), ocupada);
@@ -187,11 +188,11 @@ public class EnviarDatos {
         }
     }
 
-    public static int ultimoVehiculo() {
+    public static int ultimoVehiculo(VehiculoVO y) {
         VehiculoDAO x = new VehiculoDAO();
         int resultado = 0;
         try {
-            resultado = x.hallarPlaza();
+            resultado = x.hallarPlaza(y);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido encontrar la ultima plaza");
             System.out.println(sqle.getMessage());
@@ -376,9 +377,10 @@ public class EnviarDatos {
 
     public static void main(String[] args) {
         VehiculoVO x = new VehiculoVO();
-        x.setCodPlaza(EnviarDatos.ultimoVehiculo());
-        x.setMatricula("2467812");
+        x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
+        x.setMatricula("prueba9");
         x.setTipoVehiculo("turismo");
+        
         EnviarDatos.insertarVehiculo(x);
 
     }

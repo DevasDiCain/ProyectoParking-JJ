@@ -35,5 +35,5 @@ public interface IVehiculo {
     // con los nuevos datos que traiga la persona 'nuevosDatos'
     int updateVehiculo (String matricula, VehiculoVO nuevosDatos) throws SQLException;
     
-    int hallarPlaza() throws SQLException;
+    int hallarPlaza(VehiculoVO x) throws SQLException;
 }
