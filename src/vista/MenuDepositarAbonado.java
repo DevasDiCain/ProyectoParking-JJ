@@ -194,7 +194,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         // Depositar:
         if (introducirDniTextField.getText().length() == 9) {
             JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
-            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(), introducirDniTextField.getText()));
+            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
         } else {
             JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
                     + "Porfavor Únicamente 9 Carácteres");

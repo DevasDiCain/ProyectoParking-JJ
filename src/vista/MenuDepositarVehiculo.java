@@ -5,15 +5,18 @@
  */
 package vista;
 
+import funcionalidad.Abonado;
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
+import modelo.TicketVO;
 import modelo.VehiculoDAO;
 import modelo.VehiculoVO;
 
@@ -256,13 +259,21 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta") || !introducirMatriculaTextField.equals("") || !introducirMatriculaTextField.equals("Introduzca El Tipo De Vehículo")) {
             VehiculoVO x = new VehiculoVO();
+             TicketVO y = new TicketVO();
             if (introducirMatriculaTextField.getText().length() == 7) {
                 x.setMatricula(introducirMatriculaTextField.getText());
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
                 x.setCodPlaza(EnviarDatos.ultimoVehiculo()
                 );
                 EnviarDatos.insertarVehiculo(x);
-                JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente");
+                JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->"+x.getCodPlaza());
+                y.setCodTicket(EnviarDatos.ultimoTicket());
+                y.setCodPlaza(x.getCodPlaza());
+                y.setMatricula(x.getMatricula());
+                y.setFecha(LocalDate.now());
+                y.setPin(Abonado.generarPin(x.getMatricula()));
+                EnviarDatos.insertarTicket(y);
+                new InfoTicket().setVisible(true);
                 
             } else {
                 JOptionPane.showMessageDialog(null, "La matricula solo puede tener 7 caracteres");
