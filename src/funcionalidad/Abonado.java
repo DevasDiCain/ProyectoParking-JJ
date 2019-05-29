@@ -5,6 +5,12 @@
  */
 package funcionalidad;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 
 /**
@@ -27,15 +33,29 @@ public class Abonado {
         ANUAL
     }
 
-    public static String generarPin(String matricula) {
+    public static String generarPin(String matricula, String dni) {
         String pin;
         pin = String.valueOf(matricula.charAt(0));
         pin = pin + String.valueOf(matricula.charAt(4));
         pin = pin + String.valueOf(matricula.charAt(5));
         pin = pin + String.valueOf(matricula.charAt(2));
         pin = pin + String.valueOf(matricula.charAt(3));
-        pin = pin + String.valueOf(matricula.charAt(4));
-       
+        pin = pin + String.valueOf(matricula.charAt(4)); 
+        File archivo = new File("pin/" + dni + ".txt");
+        File directorio = new File("pin");
+
+        if (!directorio.exists()){
+            new File("/path/directory").mkdirs();
+        }
+        if (!archivo.exists()){
+            String idfichero = "pin/" + dni + ".txt";
+            try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
+                flujo.write(pin);
+                flujo.flush();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
         return pin.toUpperCase();
     }
 
