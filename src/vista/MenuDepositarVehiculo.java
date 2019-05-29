@@ -267,6 +267,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 );
                 EnviarDatos.insertarVehiculo(x);
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->"+x.getCodPlaza());
+                
                 y.setCodTicket(EnviarDatos.ultimoTicket());
                 y.setCodPlaza(x.getCodPlaza());
                 y.setMatricula(x.getMatricula());

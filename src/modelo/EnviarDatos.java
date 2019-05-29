@@ -120,8 +120,16 @@ public class EnviarDatos {
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA VEHÍCULO">
     public static void insertarVehiculo(VehiculoVO vehiculo) {
         VehiculoDAO estandar = new VehiculoDAO();
+        PlazaDAO ocupar = new PlazaDAO();
+        PlazaVO ocupada = new PlazaVO();
         try {
             estandar.insertVehiculo(vehiculo);
+            ocupada.setCodPlaza(vehiculo.getCodPlaza());
+            ocupada.setOcupado(true);
+            ocupada.setTipoPlaza(vehiculo.getTipoVehiculo());
+            
+            
+            ocupar.updatePlaza(vehiculo.getCodPlaza(), ocupada);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido introducir el vehiculo:");
             System.out.println(sqle.getMessage());
@@ -367,8 +375,11 @@ public class EnviarDatos {
     //</editor-fold>
 
     public static void main(String[] args) {
-        AbonadoVO x = new AbonadoVO("Eva", "ANUAL", LocalDate.of(1995, Month.MARCH, 10), LocalDate.of(1995, Month.MARCH, 10), "", "", "", LocalDate.of(1995, Month.MARCH, 10), "abc 1234");
-        EnviarDatos.insertarAbonado(x);
+        VehiculoVO x = new VehiculoVO();
+        x.setCodPlaza(EnviarDatos.ultimoVehiculo());
+        x.setMatricula("2467812");
+        x.setTipoVehiculo("turismo");
+        EnviarDatos.insertarVehiculo(x);
 
     }
 
