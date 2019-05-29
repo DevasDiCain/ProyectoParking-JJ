@@ -14,6 +14,7 @@ import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
@@ -266,6 +267,17 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
                 x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
                 EnviarDatos.insertarVehiculo(x);
+                
+                y.setCodTicket(EnviarDatos.ultimoTicket());
+                y.setCodPlaza(x.getCodPlaza());
+                y.setFecha(LocalDate.now());
+                y.setHoraEntrada(LocalTime.now());
+                y.setMatricula(x.getMatricula());
+                y.setPin(Abonado.generarPin(introducirMatriculaTextField.getText()));
+                y.setHoraSalida(LocalTime.MIN);
+                y.setImporte(0);
+                EnviarDatos.insertarTicket(y);
+                
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->" + x.getCodPlaza());
 
             } else {

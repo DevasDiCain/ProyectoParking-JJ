@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +95,7 @@ public class TicketDAO implements ITicket {
     public int insertTicket(TicketVO ticket) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?)";
 
         if (findByPk(ticket.getCodTicket()) != null) {
             // Existe un registro con esa pk
@@ -113,6 +114,8 @@ public class TicketDAO implements ITicket {
                 prest.setDate(4, Date.valueOf(ticket.getFecha()));
                 prest.setInt(5, ticket.getImporte());
                 prest.setString(6, ticket.getPin());
+                prest.setTime(7, Time.valueOf(ticket.getHoraEntrada()));
+                prest.setTime(8, Time.valueOf(ticket.getHoraSalida()));
   
                 numFilas = prest.executeUpdate();
             }

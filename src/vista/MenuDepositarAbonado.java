@@ -26,8 +26,8 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     public MenuDepositarAbonado() {
         initComponents();
         this.setSize(578, 462);
-         panel.setLayout(new BorderLayout(7, 7));
-       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
+        panel.setLayout(new BorderLayout(7, 7));
+        panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirMatriculaTextField.addFocusListener(new FocusListener() {
@@ -199,10 +199,17 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         if (introducirDniTextField.getText().length() == 9) {
             JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
             VehiculoVO x = new VehiculoVO();
+<<<<<<< Updated upstream
             jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(),  introducirDniTextField.getText()));
            x.setMatricula(introducirMatriculaTextField.getText());
            x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
+=======
+            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
+            x.setMatricula(introducirMatriculaTextField.getText());
+            x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
+>>>>>>> Stashed changes
             EnviarDatos.insertarVehiculo(x);
+           
         } else {
             JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
                     + "Porfavor Únicamente 9 Carácteres");
