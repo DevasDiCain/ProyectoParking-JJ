@@ -11,6 +11,8 @@ import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
+import modelo.EnviarDatos;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -196,7 +198,11 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         // Depositar:
         if (introducirDniTextField.getText().length() == 9) {
             JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
+            VehiculoVO x = new VehiculoVO();
             jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
+           x.setMatricula(introducirMatriculaTextField.getText());
+           x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
+            EnviarDatos.insertarVehiculo(x);
         } else {
             JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
                     + "Porfavor Únicamente 9 Carácteres");

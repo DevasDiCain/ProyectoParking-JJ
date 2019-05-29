@@ -30,7 +30,7 @@ public class Abonado {
     public static String generarPin(String matricula) {
         String pin;
         pin = String.valueOf(matricula.charAt(0));
-        pin = pin + String.valueOf(matricula.charAt(7));
+        pin = pin + String.valueOf(matricula.charAt(4));
         pin = pin + String.valueOf(matricula.charAt(5));
         pin = pin + String.valueOf(matricula.charAt(2));
         pin = pin + String.valueOf(matricula.charAt(3));

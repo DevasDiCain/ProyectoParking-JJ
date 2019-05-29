@@ -78,7 +78,7 @@ public class VehiculoDAO implements IVehiculo {
                 return vehiculo;
             }
 
-            return vehiculo;
+            return null;
         }
     }
 
@@ -204,29 +204,29 @@ public class VehiculoDAO implements IVehiculo {
         List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
         int numeroVehiculosLibres = 0;
         for (int x = 1; x < listaDePlazas.size(); x++) {
-            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("turismo")) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("turismo")){
                 numeroVehiculosLibres++;
             }
         }
         return numeroVehiculosLibres;
     }
-
+    
     public static int motocicletasLibres() {
         List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
         int numeroVehiculosLibres = 0;
         for (int x = 1; x < listaDePlazas.size(); x++) {
-            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("motocicleta")) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("motocicleta")){
                 numeroVehiculosLibres++;
             }
         }
         return numeroVehiculosLibres;
     }
-
+    
     public static int caravanasLibres() {
         List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
         int numeroVehiculosLibres = 0;
         for (int x = 1; x < listaDePlazas.size(); x++) {
-            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("caravana")) {
+            if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("caravana")){
                 numeroVehiculosLibres++;
             }
         }
@@ -236,22 +236,22 @@ public class VehiculoDAO implements IVehiculo {
     @Override
     public int hallarPlaza(VehiculoVO x) throws SQLException {
 
-        ResultSet res = null;
+        int numFilas = 0;
 
-        String sql = "select ifnull(max(codplaza),0)+1 as Ultimo from Plaza where tipoPlaza = ?";
+        String sql = "select ifnull(max(codplaza),0) as Ultimo from Plaza where tipoPlaza = ?";
 
+        // Sentencia parametrizada
         try (PreparedStatement prest = con.prepareStatement(sql)) {
-            // Preparamos la sentencia parametrizada
-            prest.setString(1, String.valueOf(x.getCodPlaza()));
 
-            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            res = prest.executeQuery();
-
-
-          
-            return res.getInt(0);
+            // Establecemos los parámetros de la sentencia
+            prest.setString(1, x.getTipoVehiculo());
+            // Ejecutamos la sentencia
+            ResultSet r = prest.executeQuery();
+            r.next();
+            numFilas = r.getInt("Ultimo");
         }
-
+        return numFilas;
     }
-
 }
+    
+       
