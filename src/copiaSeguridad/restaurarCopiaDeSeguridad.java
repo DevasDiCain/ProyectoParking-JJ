@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import modelo.AbonadoVO;
+import modelo.PlazaVO;
 import modelo.VehiculoVO;
 
 /**
@@ -109,11 +110,7 @@ public class restaurarCopiaDeSeguridad {
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
                 linea = datosFichero.nextLine();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
-
-             
-
-                
+       
                 System.out.println(linea);
                 tokens = linea.split("\\|");
                  
@@ -131,6 +128,53 @@ public class restaurarCopiaDeSeguridad {
             System.out.println(e.getMessage());
         }
         return vehiculos;
+    }
+     
+     public static ArrayList<PlazaVO> restaurarTablaPlazas() {
+        ArrayList<PlazaVO> plazas = new ArrayList<>();
+        PlazaVO plaza = new PlazaVO();
+        
+        // Fichero a leer
+        String idFichero = "./backup/"+restaurarCopiaDeSeguridad.hallarUltimaCarpeta()+"/Plaza.txt";
+
+        // Variables para guardar los datos que se van leyendo
+        String[] tokens;
+        String linea = "";
+
+        System.out.println("Leyendo el fichero: " + idFichero);
+
+        // Inicialización del flujo "datosFichero" en función del archivo llamado "idFichero"
+        // Estructura try-with-resources. Permite cerrar los recursos una vez finalizadas
+        // las operaciones con el archivo
+        try (Scanner datosFichero = new Scanner(new FileReader(idFichero))) {
+
+            // Mientras haya líneas por leer
+            while (datosFichero.hasNextLine()) {
+                linea = datosFichero.nextLine();
+             
+
+             
+
+                //convert String to LocalDate
+                System.out.println(linea);
+                tokens = linea.split("\\|");
+          
+                
+                   plaza.setCodPlaza(Integer.parseInt(tokens[0]));
+                   plaza.setOcupado(Boolean.parseBoolean(tokens[1]));
+                   plaza.setReservado(Boolean.parseBoolean(tokens[2]));
+                   plaza.setTipoPlaza(tokens[3]);
+                   
+                
+                
+
+            }
+            plazas.add(plaza);
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        return plazas;
     }
 
     public static void main(String[] args) {

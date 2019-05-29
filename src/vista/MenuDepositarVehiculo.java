@@ -259,7 +259,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
             if (introducirMatriculaTextField.getText().length() == 7) {
                 x.setMatricula(introducirMatriculaTextField.getText());
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
-                x.setCodPlaza(EnviarDatos.ultimoVehiculo());
+                x.setCodPlaza(EnviarDatos.ultimoVehiculo()
+                );
                 EnviarDatos.insertarVehiculo(x);
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente");
                 
