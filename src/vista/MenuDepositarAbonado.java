@@ -6,6 +6,7 @@
 package vista;
 
 import funcionalidad.Abonado;
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -23,7 +24,8 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     public MenuDepositarAbonado() {
         initComponents();
         this.setSize(578, 462);
-        panel = graficoPlazas.crearPanelParking();
+         panel.setLayout(new BorderLayout(7, 7));
+       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
         // Al estar el textField de la matrícula en foco, se borrará el texto interior
         // Si sale el foco y no hay nada escrito, se volverá a escribir el texto por defecto
         introducirMatriculaTextField.addFocusListener(new FocusListener() {

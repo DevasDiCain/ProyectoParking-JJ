@@ -163,7 +163,7 @@ public class PlazaDAO implements IPlaza {
     public int updatePlaza(int codPlaza, PlazaVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Plaza set  ocupado = ?, reservado= ?, tipoPlaza= ? where codplaza=?";
+        String sql = "update Plaza set  ocupado = ?, reservado= ? where codplaza=?";
         if (findByPk(codPlaza) == null) {
             // La persona a actualizar no existe
             return numFilas;
@@ -177,7 +177,6 @@ public class PlazaDAO implements IPlaza {
                 
                 prest.setBoolean(1, nuevosDatos.isOcupado());
                 prest.setBoolean(2, nuevosDatos.isReservado());
-                prest.setString(3, nuevosDatos.getTipoPlaza());
                 prest.setInt(4, nuevosDatos.getCodPlaza());
 
                 numFilas = prest.executeUpdate();

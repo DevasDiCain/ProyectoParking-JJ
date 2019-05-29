@@ -57,7 +57,7 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
         jLabel1.setText("TipoAbono:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 90, 40));
 
-        Tabono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARAVANA\t", "MOTOCICLETA", "TURISMO" }));
+        Tabono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "caravana", "motocicleta", "turismo" }));
         Tabono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TabonoActionPerformed(evt);

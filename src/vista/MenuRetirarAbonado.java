@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -21,7 +22,8 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
     public MenuRetirarAbonado() {
         initComponents();
         this.setSize(598, 462);
-        panel = graficoPlazas.crearPanelParking();
+        panel.setLayout(new BorderLayout(7, 7));
+       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
         jTextField1.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 jTextField1.setText("");

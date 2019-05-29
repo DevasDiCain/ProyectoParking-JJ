@@ -8,6 +8,7 @@ package vista;
 import funcionalidad.Abonado;
 import funcionalidad.Plaza;
 import funcionalidad.Vehiculo;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
@@ -37,7 +38,8 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     public MenuDepositarVehiculo() {
         initComponents();
         this.setSize(575, 462);
-        panel = graficoPlazas.crearPanelParking();
+         panel.setLayout(new BorderLayout(7, 7));
+       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
 
         turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
         turismosLibres.setForeground(Color.green);

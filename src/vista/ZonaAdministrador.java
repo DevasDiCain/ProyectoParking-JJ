@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import static vista.ZonaClientes.plazas;
 
@@ -20,7 +21,8 @@ public class ZonaAdministrador extends javax.swing.JFrame {
     public ZonaAdministrador() {
         initComponents();
         this.setSize(578, 462);
-        panel = graficoPlazas.crearPanelParking();
+         panel.setLayout(new BorderLayout(7, 7));
+       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
     }
 
     /**

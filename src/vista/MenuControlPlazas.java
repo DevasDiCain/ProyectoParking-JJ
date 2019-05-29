@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class MenuControlPlazas extends javax.swing.JFrame {
     public MenuControlPlazas() {
         initComponents();
         this.setSize(655, 462);
-        panel = graficoPlazas.crearPanelParking();
+         panel.setLayout(new BorderLayout(7, 7));
+       panel.add(graficoPlazas.crearPanelParking(), BorderLayout.CENTER);
 
         turismosLibres.setText(String.valueOf(VehiculoDAO.turismosLibres()));
         turismosLibres.setForeground(Color.green);
