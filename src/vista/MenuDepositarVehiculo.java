@@ -259,7 +259,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         // AQUÍ  MANDAREMOS LA INFO AL MODELO
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta") || !introducirMatriculaTextField.equals("") || !introducirMatriculaTextField.equals("Introduzca El Tipo De Vehículo")) {
             VehiculoVO x = new VehiculoVO();
-             TicketVO y = new TicketVO();
+            TicketVO y = new TicketVO();
             if (introducirMatriculaTextField.getText().length() == 7) {
                 x.setMatricula(introducirMatriculaTextField.getText());
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
