@@ -24,7 +24,7 @@ public class CalcularPrecio {
         int minutosTotalesAparcado = 0;
         List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
         for (TicketVO ticket : listaDeTickets) {
-            if (ticket.getImporte() == 0  && ticket.getMatricula().equalsIgnoreCase(matricula) && Integer.toString(ticket.getCodPlaza()).equalsIgnoreCase(identificador) && ticket.getPin().equalsIgnoreCase(pin)) {
+            if (ticket.getMatricula().equalsIgnoreCase(matricula)) {
                 int diasEntreDepositoYRetiro = (int) Duration.between(ticket.getFecha().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays();
                 int minutosTotalesHoy = (LocalTime.now().getHour() * 60) + LocalTime.now().getMinute();
                 int minutosTotalesTicket = (ticket.getHoraEntrada().getHour() * 60) + ticket.getHoraEntrada().getMinute();

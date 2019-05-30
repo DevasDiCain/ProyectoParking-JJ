@@ -223,12 +223,13 @@ public class MenuAltas extends javax.swing.JFrame {
             AbonadoVO registrado = new AbonadoVO();
             VehiculoVO x = new VehiculoVO();
             LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
-            
+            LocalDate inicio = LocalDate.parse(Tfecini.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+             LocalDate nacimiento = LocalDate.parse(Tfecnac.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             
             registrado.setNombre(Tnombre.getText());
-            registrado.setFeciniabo(tiempo);
+            registrado.setFeciniabo(inicio);
             registrado.setFecfinabo(tiempo);
-            registrado.setFechaNacimiento(tiempo);
+            registrado.setFechaNacimiento(nacimiento);
             registrado.setDni(Tdni.getText());
             registrado.setEmail(Temail.getText());
             registrado.setNumTarjeta(Ttarjeta.getText());

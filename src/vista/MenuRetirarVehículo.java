@@ -229,10 +229,10 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
-        String matricula = introducirMatriculaTextField.getText();
-        String identificador = introducirIdentificadorTextField.getText();
-        String pin = introducirPinTextField.getText();
-        jLabel5.setText(String.valueOf(CalcularPrecio.calcularPrecioTicket(matricula, identificador, pin)));
+//        String matricula = introducirMatriculaTextField.getText();
+//        String identificador = introducirIdentificadorTextField.getText();
+//        String pin = introducirPinTextField.getText();
+//        jLabel5.setText(String.valueOf(CalcularPrecio.calcularPrecioTicket(matricula, identificador, pin)));
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
 
