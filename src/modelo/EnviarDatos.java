@@ -232,7 +232,15 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-
+     public static void reservar(int codplaza) {
+        PlazaDAO estandar = new PlazaDAO();
+        try {
+            estandar.reservar(codplaza);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido introducir el ticket:");
+            System.out.println(sqle.getMessage());
+        }
+    }
 
     public static TicketVO obtenerTicketSegunPk(int pk) {
         TicketDAO ticket = new TicketDAO();

@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -219,8 +221,10 @@ public class MenuAltas extends javax.swing.JFrame {
 
         if (comprobacionCorrecta) {
             AbonadoVO registrado = new AbonadoVO();
+            VehiculoVO x = new VehiculoVO();
             LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
-
+            
+            
             registrado.setNombre(Tnombre.getText());
             registrado.setFeciniabo(tiempo);
             registrado.setFecfinabo(tiempo);
@@ -232,6 +236,10 @@ public class MenuAltas extends javax.swing.JFrame {
             registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
 
             EnviarDatos.insertarAbonado(registrado);
+            
+            x = EnviarDatos.obtenerVehiculoSegunPk(tMatricula.getText());
+            
+            EnviarDatos.reservar(x.getCodPlaza());
 
             this.setVisible(false);
             new ZonaAdministrador().setVisible(true);

@@ -259,6 +259,24 @@ public class PlazaDAO implements IPlaza {
             return numFilas;
         }
     }
+      public void reservar(int codPlaza) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Plaza set   reservado= true where codplaza=?";
+        
+       
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+
+                prest.setInt(1, codPlaza);
+                numFilas = prest.executeUpdate();
+            }
+           
+        }
+    
 
     public int cambiarNombres(String newName, String oldName) throws SQLException {
 
