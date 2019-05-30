@@ -199,15 +199,12 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
         if (introducirDniTextField.getText().length() == 9) {
             JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
             VehiculoVO x = new VehiculoVO();
-<<<<<<< Updated upstream
-            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText(),  introducirDniTextField.getText()));
+
+            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
            x.setMatricula(introducirMatriculaTextField.getText());
            x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
-=======
-            jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
-            x.setMatricula(introducirMatriculaTextField.getText());
-            x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
->>>>>>> Stashed changes
+
+
             EnviarDatos.insertarVehiculo(x);
            
         } else {

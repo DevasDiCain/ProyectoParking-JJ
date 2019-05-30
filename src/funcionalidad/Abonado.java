@@ -33,7 +33,7 @@ public class Abonado {
         ANUAL
     }
 
-    public static String generarPin(String matricula, String dni) {
+    public static String generarPin(String matricula) {
         String pin;
         pin = String.valueOf(matricula.charAt(0));
         pin = pin + String.valueOf(matricula.charAt(4));
@@ -41,14 +41,14 @@ public class Abonado {
         pin = pin + String.valueOf(matricula.charAt(2));
         pin = pin + String.valueOf(matricula.charAt(3));
         pin = pin + String.valueOf(matricula.charAt(4)); 
-        File archivo = new File("pin/" + dni + ".txt");
+        File archivo = new File("pin/" + matricula + ".txt");
         File directorio = new File("pin");
 
         if (!directorio.exists()){
             new File("/path/directory").mkdirs();
         }
         if (!archivo.exists()){
-            String idfichero = "pin/" + dni + ".txt";
+            String idfichero = "pin/" + matricula + ".txt";
             try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
                 flujo.write(pin);
                 flujo.flush();

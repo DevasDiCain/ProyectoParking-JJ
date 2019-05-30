@@ -277,7 +277,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 y.setHoraSalida(LocalTime.MIN);
                 y.setImporte(0);
                 EnviarDatos.insertarTicket(y);
-                
+                JOptionPane.showMessageDialog(null, "Su pin es : "+y.getPin()+" guardelo, lo necesitará para extraer su vehículo");
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->" + x.getCodPlaza());
 
             } else {

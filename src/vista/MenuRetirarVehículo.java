@@ -214,18 +214,20 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
+        
         String matricula = introducirMatriculaTextField.getText();
         String identificador = introducirIdentificadorTextField.getText();
         String pin = introducirPinTextField.getText();
         List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
         for (TicketVO ticket : listaDeTickets) {
             if (ticket.getMatricula().equalsIgnoreCase(matricula) || Integer.toString(ticket.getCodTicket()).equalsIgnoreCase(identificador) || ticket.getPin().equalsIgnoreCase(pin)) {
+                ticket.setHoraSalida(LocalTime.now());
                 int minutosTotalesAparcado = 0;
                 LocalDate hoy = LocalDate.now();
                 LocalDate diaDeTicket = ticket.getFecha();
                 long diasEntreDepositoYRetiro = Duration.between(diaDeTicket.atStartOfDay(), hoy.atStartOfDay()).toDays();
                 System.out.println(diasEntreDepositoYRetiro);
-                //LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
+                LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
                 int minutosTotalesHoy = (LocalTime.now().getHour() * 60) + LocalTime.now().getMinute();
                 System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
                 int minutosTotalesTicket = (ticket.getHoraEntrada().getHour() * 60) + ticket.getHoraEntrada().getMinute();
@@ -265,6 +267,8 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
                         break;
                 }
             }
+            jLabel5.setText(String.valueOf(precio));
+            ticket.setImporte(Integer.parseInt(String.valueOf(precio)));
         }
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
