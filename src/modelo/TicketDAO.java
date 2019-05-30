@@ -231,7 +231,7 @@ public class TicketDAO implements ITicket {
         ArrayList<TicketVO>tickets = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Ticket where horaEntrada=? and horaSalida=?";
+        String sql = "select * from Ticket where fecha  between ? and ?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada

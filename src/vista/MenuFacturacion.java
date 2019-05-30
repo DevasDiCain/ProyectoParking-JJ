@@ -148,6 +148,7 @@ public class MenuFacturacion extends javax.swing.JFrame {
         // Facturacion por fechas
         LocalDate primeraFecha = LocalDate.parse(desde.getText());
         LocalDate segundaFecha = LocalDate.parse(hasta.getText());
+        new InfoFacturacionFechas(primeraFecha,segundaFecha).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

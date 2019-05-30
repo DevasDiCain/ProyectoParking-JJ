@@ -256,6 +256,17 @@ public class EnviarDatos {
         }
         return obtenido;
     }
+       public static List<TicketVO> obtenerTicketEntreDosFechas(LocalDate x , LocalDate y ) {
+        TicketDAO ticket = new TicketDAO();
+        List<TicketVO> obtenidos = new ArrayList();
+        try {
+            return obtenidos = ticket.hallarTicketsPorFechas(x, y);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido obtener el ticket según la pk");
+            System.out.println(sqle.getMessage());
+        }
+        return obtenidos;
+    }
 
     public static List<TicketVO> obtenerTickets() {
         List<TicketVO> listado = new ArrayList();
