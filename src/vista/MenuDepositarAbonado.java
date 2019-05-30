@@ -201,7 +201,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // Depositar:
         if (introducirDniTextField.getText().length() == 9) {
-           
+          
             VehiculoVO x = new VehiculoVO();
             AbonadoVO y = new AbonadoVO();
             TicketVO r = new TicketVO();
@@ -209,6 +209,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
           
            
+          if(EnviarDatos.obtenerAbonadoSegunMatricula(introducirMatriculaTextField.getText())!=null){
           y = EnviarDatos.obtenerAbonadoSegunMatricula(introducirMatriculaTextField.getText());
           r.setCodTicket(EnviarDatos.ultimoTicket());
           r.setCodPlaza(x.getCodPlaza());
@@ -222,6 +223,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
           EnviarDatos.insertarTicket(r);
            JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
            JOptionPane.showMessageDialog(null, "Su Pin es "+r.getPin());
+          }else{JOptionPane.showMessageDialog(null, "Abonado introducido no existe");}
            
         } else {
             JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."

@@ -339,7 +339,7 @@ public class AbonadoDAO implements IAbonado {
                 return abonado;
             }
 
-            return abonado;
+            return null;
         }
     }
 }

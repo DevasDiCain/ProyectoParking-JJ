@@ -9,6 +9,10 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import modelo.EnviarDatos;
+import modelo.TicketVO;
 
 /**
  *
@@ -148,6 +152,9 @@ public class MenuFacturacion extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Facturacion por abonados
+       new InfoFacturacion().setVisible(true);
+       
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void desdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desdeActionPerformed
