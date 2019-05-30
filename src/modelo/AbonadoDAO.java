@@ -243,7 +243,7 @@ public class AbonadoDAO implements IAbonado {
         ArrayList<AbonadoVO>abonados = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Abonados where fecfinabo = curdate()";// PREPARAR BIEN ESTA SENTENCIA
+        String sql = "select * from Abonado where dayofweek(fecfinabo) = dayofweek(curdate()) or dayofweek(curdate())+1";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
@@ -270,7 +270,7 @@ public class AbonadoDAO implements IAbonado {
                 //Añadimos el objeto a la lista
                 abonados.add(p);
             }
-            return null;
+            return abonados;
         }
       
     }

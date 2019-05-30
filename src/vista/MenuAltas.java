@@ -242,8 +242,9 @@ public class MenuAltas extends javax.swing.JFrame {
             
             EnviarDatos.reservar(x.getCodPlaza());
 
-            this.setVisible(false);
+           
             new ZonaAdministrador().setVisible(true);
+             dispose();
             // FIN TEMPORAL
             JOptionPane.showMessageDialog(null, "Alta realizada con éxito");
         } else {

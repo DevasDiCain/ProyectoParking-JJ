@@ -203,7 +203,7 @@ public class VehiculoDAO implements IVehiculo {
 
     public static int turismosLibres() {
         List<PlazaVO> listaDePlazas = EnviarDatos.obtenerPlazas();
-        int numeroVehiculosLibres = 0;
+        int numeroVehiculosLibres = 1;
         for (int x = 1; x < listaDePlazas.size(); x++) {
             if (!listaDePlazas.get(x).isOcupado() && !listaDePlazas.get(x).isReservado() && listaDePlazas.get(x).getTipoPlaza().equals("turismo")){
                 numeroVehiculosLibres++;

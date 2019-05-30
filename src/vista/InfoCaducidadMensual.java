@@ -21,12 +21,12 @@ public class InfoCaducidadMensual extends javax.swing.JFrame {
     /**
      * Creates new form InfoCaducidadMensual
      */
-    ArrayList<AbonadoVO> lista = new ArrayList();
+    
 
     public InfoCaducidadMensual(int mes) {
         initComponents();
-        lista = EnviarDatos.unMesCaducan(mes);
-
+        List<AbonadoVO> lista = EnviarDatos.unMesCaducan(mes);
+      
         info.setText(lista.toString());
     }
 

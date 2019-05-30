@@ -8,6 +8,8 @@ package vista;
 import funcionalidad.Abonado;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.AbonadoVO;
+import modelo.EnviarDatos;
 
 /**
  *
@@ -18,7 +20,7 @@ public class InfoCaducidadSemanal extends javax.swing.JFrame {
     /**
      * Creates new form InfoCaducidadSemanal
      */
-    List<Abonado> lista = new ArrayList();
+    List<AbonadoVO> lista = EnviarDatos.unaSemanaCaducan();
 
     public InfoCaducidadSemanal() {
         initComponents();
