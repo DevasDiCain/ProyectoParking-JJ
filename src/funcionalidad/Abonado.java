@@ -41,21 +41,8 @@ public class Abonado {
         pin = pin + String.valueOf(matricula.charAt(2));
         pin = pin + String.valueOf(matricula.charAt(3));
         pin = pin + String.valueOf(matricula.charAt(4)); 
-        File archivo = new File("pin/" + matricula + ".txt");
-        File directorio = new File("pin");
-
-        if (!directorio.exists()){
-            new File("/path/directory").mkdirs();
-        }
-        if (!archivo.exists()){
-            String idfichero = "pin/" + matricula + ".txt";
-            try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
-                flujo.write(pin);
-                flujo.flush();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+       
+       
         return pin.toUpperCase();
     }
     
@@ -71,7 +58,7 @@ public class Abonado {
         File archivo = new File("pin/" + dni + ".txt");
         File directorio = new File("pin");
         if (!directorio.exists()){
-            new File("/path/directory").mkdirs();
+            directorio.mkdirs();
         }
         if (!archivo.exists()){
             String idfichero = "pin/" + dni + ".txt";
