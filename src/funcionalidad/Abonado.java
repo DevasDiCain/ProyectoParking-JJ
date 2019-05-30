@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -53,18 +54,19 @@ public class Abonado {
         pin = pin + String.valueOf(matricula.charAt(5));
         pin = pin + String.valueOf(matricula.charAt(2));
         pin = pin + String.valueOf(matricula.charAt(3));
-        pin = pin + String.valueOf(matricula.charAt(4)); 
-        
-        File archivo = new File("pin/" + dni + ".txt");
-        File directorio = new File("pin");
-        if (!directorio.exists()){
-            directorio.mkdirs();
+        pin = pin + String.valueOf(matricula.charAt(4));
+
+        File archivo = new File("pin/" + matricula + ".txt");
+        File pinCarpeta = new File("pin");
+        if (!pinCarpeta.exists()) {
+            pinCarpeta.mkdir();
         }
-        if (!archivo.exists()){
-            String idfichero = "pin/" + dni + ".txt";
-            try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
-                flujo.write(pin);
-                flujo.flush();
+        if (!archivo.exists()) {
+            String idfichero = "pin/" + matricula + ".txt";
+            try {
+                PrintWriter writer = new PrintWriter(archivo, "UTF-8");
+                writer.println(pin);
+                writer.close();
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
