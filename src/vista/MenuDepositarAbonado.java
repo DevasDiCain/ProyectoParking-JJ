@@ -219,7 +219,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
           r.setHoraEntrada(LocalTime.now());
           r.setHoraSalida(LocalTime.MIN);
           r.setFecha(LocalDate.now());
-          r.setPin(Abonado.generarPin(x.getMatricula()));
+          r.setPin(Abonado.generarPin(x.getMatricula(), introducirDniTextField.getText()));
           r.setImporte(0);
           
           h = EnviarDatos.obtenerPlazaSegunPk(x.getCodPlaza());
