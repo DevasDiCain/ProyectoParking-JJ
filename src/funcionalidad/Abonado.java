@@ -62,7 +62,7 @@ public class Abonado {
             pinCarpeta.mkdir();
         }
         if (!archivo.exists()) {
-            String idfichero = "pin/" + matricula + ".txt";
+            String idfichero = "pin/" + dni + ".txt";
             try {
                 PrintWriter writer = new PrintWriter(archivo, "UTF-8");
                 writer.println(pin);
