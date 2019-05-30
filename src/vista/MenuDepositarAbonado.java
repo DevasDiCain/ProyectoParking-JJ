@@ -205,7 +205,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
           
             VehiculoVO x = new VehiculoVO();
             AbonadoVO y = new AbonadoVO();
-            TicketVO r = new TicketVO();
+
             PlazaVO h = new PlazaVO();
             jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
             x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
@@ -213,26 +213,19 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
            
           if(EnviarDatos.obtenerAbonadoSegunMatricula(introducirMatriculaTextField.getText())!=null){
           y = EnviarDatos.obtenerAbonadoSegunMatricula(introducirMatriculaTextField.getText());
-          r.setCodTicket(EnviarDatos.ultimoTicket());
-          r.setCodPlaza(x.getCodPlaza());
-          r.setMatricula(x.getMatricula());
-          r.setHoraEntrada(LocalTime.now());
-          r.setHoraSalida(LocalTime.now());
-          r.setFechaEntrada(LocalDate.now());
-          r.setFechaSalida(LocalDate.now());
-          r.setPin(Abonado.generarPin(x.getMatricula(), introducirDniTextField.getText()));
-          r.setImporte(0);
+          
           
           h = EnviarDatos.obtenerPlazaSegunPk(x.getCodPlaza());
           h.setOcupado(true);
           h.setReservado(true);
               System.out.println(h.toString());
           
+              
           EnviarDatos.insertarVehiculo(x);
-          EnviarDatos.insertarTicket(r);
+          
           EnviarDatos.cambiarPlaza(h.getCodPlaza(), h);
            JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
-           JOptionPane.showMessageDialog(null, "Su Pin es "+r.getPin());
+          
           }else{JOptionPane.showMessageDialog(null, "Abonado introducido no existe");}
            
         } else {

@@ -6,6 +6,7 @@
 package vista;
 
 import funcionalidad.Abonado;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -251,7 +252,10 @@ public class MenuAltas extends javax.swing.JFrame {
             registrado.setNumTarjeta(Ttarjeta.getText());
             registrado.setMatricula(tMatricula.getText());
             registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
-
+        
+            System.out.println(registrado.getFecfinabo());
+            String u = Abonado.generarPin(registrado.getMatricula(), registrado.getDni());
+            JOptionPane.showMessageDialog(null, "Su Pin es -> "+u);
             EnviarDatos.insertarAbonado(registrado);
 
             x = EnviarDatos.obtenerVehiculoSegunPk(tMatricula.getText());
