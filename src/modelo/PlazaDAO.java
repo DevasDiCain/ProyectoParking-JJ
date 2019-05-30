@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -180,13 +181,13 @@ public class PlazaDAO implements IPlaza {
         }
     }
 
-    public int sacarVehiculoParkingNormal(int codPlaza, VehiculoVO x) throws SQLException {
+    public void sacarVehiculoParkingNormal(int codPlaza, VehiculoVO x) throws SQLException {
 
         int numFilas = 0;
         String sql = "update Plaza set  ocupado = ?, reservado= ? where codplaza=?";
         if (findByPk(codPlaza) == null) {
             // La persona a actualizar no existe
-            return numFilas;
+            JOptionPane.showMessageDialog(null, "El vehículo introducido no existe");
         } else {
             // Instanciamos el objeto PreparedStatement para inserción
             // de datos. Sentencia parametrizada
@@ -199,9 +200,43 @@ public class PlazaDAO implements IPlaza {
 
                 numFilas = prest.executeUpdate();
             }
-            return numFilas;
+            
         }
     }
+     public void vaciarParkingCompletamente() throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Plaza set  ocupado = false ";
+       
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+                
+
+                numFilas = prest.executeUpdate();
+            }
+            
+        
+    }
+      public void vaciarParkingSinQuitarReservas() throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Plaza set  ocupado = ?, reservado= ? where codplaza=?";
+       
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+                
+
+                numFilas = prest.executeUpdate();
+            }
+            
+        }
+    
      public int sacarVehiculoParkingAbonado(int codPlaza, VehiculoVO x) throws SQLException {
 
         int numFilas = 0;

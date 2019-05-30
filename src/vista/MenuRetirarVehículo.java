@@ -223,7 +223,8 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
      r.setImporte(10);
      EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
      JOptionPane.showMessageDialog(null, "Vehículo con matricula "+x.getMatricula()+" retirado con éxito");
-     
+     this.setVisible(false);
+     new ZonaClientes().setVisible(true);
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed

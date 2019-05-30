@@ -383,6 +383,22 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
+    public static void vaciarParkingCompletamente() {
+        try {
+            new PlazaDAO().vaciarParkingCompletamente();
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido modificar al abonado:");
+            System.out.println(sqle.getMessage());
+        }
+    }
+    public static void vaciarParkingSinAbonados() {
+        try {
+            new PlazaDAO().vaciarParkingSinQuitarReservas();
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido modificar al abonado:");
+            System.out.println(sqle.getMessage());
+        }
+    }
      public static void sacarVehiculoPlaza(int pk, VehiculoVO x) {
         try {
             new PlazaDAO().sacarVehiculoParkingNormal(pk, x);
@@ -437,12 +453,7 @@ public class EnviarDatos {
     //</editor-fold>
 
     public static void main(String[] args) {
-        VehiculoVO x = new VehiculoVO();
-        x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
-        x.setMatricula("prueba9");
-        x.setTipoVehiculo("turismo");
-        
-        EnviarDatos.insertarVehiculo(x);
+     EnviarDatos.vaciarParkingCompletamente();
 
     }
 
