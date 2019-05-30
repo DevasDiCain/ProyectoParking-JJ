@@ -12,9 +12,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.EnviarDatos;
 import modelo.PlazaVO;
 import modelo.TicketVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -210,7 +212,18 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
-
+     //retirar
+     VehiculoVO x = new VehiculoVO();
+     TicketVO r = new TicketVO();
+     x.setCodPlaza(Integer.parseInt(introducirIdentificadorTextField.getText()));
+     x.setMatricula(introducirMatriculaTextField.getText());
+     x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
+     r = EnviarDatos.obtenerTicketSegunMatricula(x.getMatricula());
+     r.setHoraSalida(LocalTime.now());
+     r.setImporte(10);
+     EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
+     JOptionPane.showMessageDialog(null, "Vehículo con matricula "+x.getMatricula()+" retirado con éxito");
+     
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed

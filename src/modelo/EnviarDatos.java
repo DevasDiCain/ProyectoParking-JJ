@@ -383,6 +383,22 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
+     public static void sacarVehiculoPlaza(int pk, VehiculoVO x) {
+        try {
+            new PlazaDAO().sacarVehiculoParkingNormal(pk, x);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido modificar al abonado:");
+            System.out.println(sqle.getMessage());
+        }
+    } public static void sacarVehiculoAbonadoPlaza(int pk, VehiculoVO x) {
+        try {
+            new PlazaDAO().sacarVehiculoParkingAbonado(pk, x);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido modificar al abonado:");
+            System.out.println(sqle.getMessage());
+        }
+    }
+
 
     public static int ultimaPlaza() {
         PlazaDAO x = new PlazaDAO();

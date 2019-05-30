@@ -16,7 +16,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author jose
@@ -25,7 +24,7 @@ public class PlazaDAO implements IPlaza {
 
     private Connection con = null;
 
-    public PlazaDAO(){
+    public PlazaDAO() {
         con = Conexion.getInstance();
     }
 
@@ -52,7 +51,6 @@ public class PlazaDAO implements IPlaza {
         return lista;
     }
 
-   
     @Override
     public PlazaVO findByPk(int codPlaza) throws SQLException {
 
@@ -76,7 +74,7 @@ public class PlazaDAO implements IPlaza {
                 plaza.setOcupado(res.getBoolean("ocupado"));
                 plaza.setReservado(res.getBoolean("reservado"));
                 plaza.setTipoPlaza(res.getString("tipoPlaza"));
-                
+
                 return plaza;
             }
 
@@ -100,7 +98,6 @@ public class PlazaDAO implements IPlaza {
             try (PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-          
                 prest.setInt(1, plaza.getCodPlaza());
                 prest.setBoolean(2, plaza.isOcupado());
                 prest.setBoolean(3, plaza.isReservado());
@@ -173,11 +170,54 @@ public class PlazaDAO implements IPlaza {
             try (PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-               
-                
                 prest.setBoolean(1, nuevosDatos.isOcupado());
                 prest.setBoolean(2, nuevosDatos.isReservado());
                 prest.setInt(3, nuevosDatos.getCodPlaza());
+
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        }
+    }
+
+    public int sacarVehiculoParkingNormal(int codPlaza, VehiculoVO x) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Plaza set  ocupado = ?, reservado= ? where codplaza=?";
+        if (findByPk(codPlaza) == null) {
+            // La persona a actualizar no existe
+            return numFilas;
+        } else {
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+                prest.setBoolean(1,false);
+                prest.setBoolean(2, false);
+                prest.setInt(3, x.getCodPlaza());
+
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        }
+    }
+     public int sacarVehiculoParkingAbonado(int codPlaza, VehiculoVO x) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "update Plaza set  ocupado = ?, reservado= ? where codplaza=?";
+        if (findByPk(codPlaza) == null) {
+            // La persona a actualizar no existe
+            return numFilas;
+        } else {
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+                prest.setBoolean(1,false);
+                prest.setBoolean(2, true);
+                prest.setInt(3, x.getCodPlaza());
 
                 numFilas = prest.executeUpdate();
             }
@@ -199,12 +239,12 @@ public class PlazaDAO implements IPlaza {
             call.setString(2, oldName);
             // Ejecutamos el procedimiento
             res = call.executeUpdate();
-            
+
         }
         return res;
     }
 
-    public int hallarCodPlaza()throws SQLException{
+    public int hallarCodPlaza() throws SQLException {
         int r = 0;
         try (Statement st = con.createStatement()) {
             ResultSet res = st.executeQuery("select max(codplaza)+1 from Plaza");
@@ -213,4 +253,3 @@ public class PlazaDAO implements IPlaza {
         }
     }
 }
-
