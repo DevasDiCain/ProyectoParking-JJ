@@ -224,8 +224,24 @@ public class MenuAltas extends javax.swing.JFrame {
             VehiculoVO x = new VehiculoVO();
             LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
             LocalDate inicio = LocalDate.parse(Tfecini.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-             LocalDate nacimiento = LocalDate.parse(Tfecnac.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            
+            LocalDate nacimiento = LocalDate.parse(Tfecnac.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+            switch (String.valueOf(Tabono.getSelectedItem())) {
+                case "MENSUAL": registrado.setDuracion(30);
+                        break;
+                case 
+                    "TRIMESTRAL"
+                    :           registrado.setDuracion(90);
+                    break;
+                case 
+                    "SEMESTRAL"
+                    :           registrado.setDuracion(180);
+                    break;
+                case 
+                    "ANUAL"
+                    :           registrado.setDuracion(360);
+                    break;
+            }
             registrado.setNombre(Tnombre.getText());
             registrado.setFeciniabo(inicio);
             registrado.setFecfinabo(tiempo);
@@ -237,14 +253,13 @@ public class MenuAltas extends javax.swing.JFrame {
             registrado.setTipoDeAbono(String.valueOf(Tabono.getSelectedItem()));
 
             EnviarDatos.insertarAbonado(registrado);
-            
+
             x = EnviarDatos.obtenerVehiculoSegunPk(tMatricula.getText());
-            
+
             EnviarDatos.reservar(x.getCodPlaza());
 
-           
             new ZonaAdministrador().setVisible(true);
-             dispose();
+            dispose();
             // FIN TEMPORAL
             JOptionPane.showMessageDialog(null, "Alta realizada con éxito");
         } else {
