@@ -23,6 +23,7 @@ public class AbonadoVO {
     private LocalDate feciniabo;
     private LocalDate fecfinabo;
     private String matricula;
+    private int duracion;
 
   
 
@@ -31,7 +32,7 @@ public class AbonadoVO {
     }
     public AbonadoVO(String especial){}
         
-    public AbonadoVO(String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula) {
+    public AbonadoVO(String nombre,String tipoDeAbono, LocalDate fecfinabo,LocalDate FechaNacimiento, String dni, String email, String numTarjeta,LocalDate feciniabo, String matricula, int duracion) {
         this.pk = EnviarDatos.ultimoAbonado();
         this.FechaNacimiento = FechaNacimiento;
         this.dni = dni;
@@ -42,12 +43,21 @@ public class AbonadoVO {
         this.feciniabo = feciniabo;
         this.fecfinabo = fecfinabo;
         this.matricula = matricula;
+        this.duracion = duracion;
     }
 
    
     // Getters y Setters
     public String getDni() {
         return dni;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
     }
 
     public String getMatricula() {

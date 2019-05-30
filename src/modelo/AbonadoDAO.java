@@ -51,6 +51,7 @@ public class AbonadoDAO implements IAbonado {
                 p.setDni(res.getString("dni"));
                 p.setEmail(res.getString("email"));
                 p.setNumTarjeta(res.getString("numTarjeta"));
+                p.setDuracion(res.getInt("duracion"));
 
                 //Añadimos el objeto a la lista
                 lista.add(p);
@@ -89,6 +90,7 @@ public class AbonadoDAO implements IAbonado {
                 abonado.setDni(res.getString("dni"));
                 abonado.setEmail(res.getString("email"));
                 abonado.setNumTarjeta(res.getString("numTarjeta"));
+                abonado.setDuracion(res.getInt("duracion"));
                 return abonado;
             }
 
@@ -100,7 +102,7 @@ public class AbonadoDAO implements IAbonado {
     public int insertPersona(AbonadoVO abonado) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Abonado values (?,?,?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(abonado.getPk()) != null) {
             // Existe un registro con esa pk
@@ -123,6 +125,7 @@ public class AbonadoDAO implements IAbonado {
                 prest.setString(8, abonado.getEmail());
                 prest.setString(9, abonado.getNumTarjeta());
                 prest.setString(10, abonado.getMatricula());
+                prest.setInt(11, abonado.getDuracion());
         
 
                 numFilas = prest.executeUpdate();
@@ -183,7 +186,7 @@ public class AbonadoDAO implements IAbonado {
     public int updatePersona(int pk, AbonadoVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ? where codabonado=?";
+        String sql = "update Abonado set nombre = ?,abono = ?, feciniabo = ? , fecfinabo = ?, fecnacimiento = ? , dni = ? , email = ?, numTarjeta = ? , matricula = ?, duracion = ? where codabonado=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe
@@ -195,17 +198,18 @@ public class AbonadoDAO implements IAbonado {
 
                 // Establecemos los parámetros de la sentencia
                
-                prest.setInt(1, nuevosDatos.getPk());
-                prest.setString(2, nuevosDatos.getNombre());
-                prest.setString(3, nuevosDatos.getTipoDeAbono());
-                prest.setDate(4, Date.valueOf(nuevosDatos.getFeciniabo()));
-                prest.setDate(5, Date.valueOf(nuevosDatos.getFecfinabo()));
-                prest.setDate(6, Date.valueOf(nuevosDatos.getFechaNacimiento()));
-                prest.setString(7, nuevosDatos.getDni());
-                prest.setString(8, nuevosDatos.getEmail());
-                prest.setString(9, nuevosDatos.getNumTarjeta());
-                prest.setString(10, nuevosDatos.getMatricula());
-
+                
+                prest.setString(1, nuevosDatos.getNombre());
+                prest.setString(2, nuevosDatos.getTipoDeAbono());
+                prest.setDate(3, Date.valueOf(nuevosDatos.getFeciniabo()));
+                prest.setDate(4, Date.valueOf(nuevosDatos.getFecfinabo()));
+                prest.setDate(5, Date.valueOf(nuevosDatos.getFechaNacimiento()));
+                prest.setString(6, nuevosDatos.getDni());
+                prest.setString(7, nuevosDatos.getEmail());
+                prest.setString(8, nuevosDatos.getNumTarjeta());
+                prest.setString(9, nuevosDatos.getMatricula());
+                prest.setInt(10, nuevosDatos.getDuracion());
+                prest.setInt(11, nuevosDatos.getPk());
                 numFilas = prest.executeUpdate();
             }
             return numFilas;
@@ -265,6 +269,7 @@ public class AbonadoDAO implements IAbonado {
                 p.setDni(res.getString("dni"));
                 p.setEmail(res.getString("email"));
                 p.setNumTarjeta(res.getString("numTarjeta"));
+                p.setDuracion(res.getInt("duracion"));
 
 
                 //Añadimos el objeto a la lista
@@ -300,6 +305,7 @@ public class AbonadoDAO implements IAbonado {
                 p.setDni(res.getString("dni"));
                 p.setEmail(res.getString("email"));
                 p.setNumTarjeta(res.getString("numTarjeta"));
+                p.setDuracion(res.getInt("duracion"));
 
 
                 //Añadimos el objeto a la lista
@@ -336,6 +342,7 @@ public class AbonadoDAO implements IAbonado {
                 abonado.setDni(res.getString("dni"));
                 abonado.setEmail(res.getString("email"));
                 abonado.setNumTarjeta(res.getString("numTarjeta"));
+                abonado.setDuracion(res.getInt("duracion"));
                 return abonado;
             }
 
