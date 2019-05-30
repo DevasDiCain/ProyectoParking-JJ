@@ -66,7 +66,7 @@ public class EnviarDatos {
 
     public static void borrarTablaAbonado() {
         try {
-            new AbonadoDAO().deletePersona();
+            new AbonadoDAO().deleteFullPersona();
 
         } catch (SQLException sqle) {
             System.out.println("No se ha podido borrar la tabla:");

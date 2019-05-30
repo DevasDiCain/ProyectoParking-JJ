@@ -8,6 +8,8 @@ package vista;
 import javax.swing.JOptionPane;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -144,11 +146,22 @@ public class MenuBajas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE BAJA
-
-        AbonadoVO registrado = new AbonadoVO("especial");
-        registrado.setPk(Integer.parseInt(tCodigo.getText()));
+        PlazaVO x = new PlazaVO();
+        VehiculoVO r = new VehiculoVO();
+        
+        AbonadoVO registrado = EnviarDatos.obtenerAbonadoSegunPk(Integer.parseInt(tCodigo.getText()));
+        System.out.println(registrado.toString());
         JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere borrar los datos del abonado?");
+        
+        r = EnviarDatos.obtenerVehiculoSegunPk(registrado.getMatricula());
+        
+        x.setCodPlaza(r.getCodPlaza());
+        x.setOcupado(false);
+        x.setReservado(false);
+        x.setTipoPlaza(r.getTipoVehiculo());
+        
         EnviarDatos.borrarAbonado(registrado);
+        EnviarDatos.cambiarPlaza(x.getCodPlaza(), x);
         JOptionPane.showMessageDialog(null, "Abonado Borrado con Exito");
         this.setVisible(false);
         new ZonaAdministrador().setVisible(true);

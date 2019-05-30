@@ -206,7 +206,7 @@ public class PlazaDAO implements IPlaza {
      public void vaciarParkingCompletamente() throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Plaza set  ocupado = false ";
+        String sql = "update Plaza set  ocupado = false, reservado= false";
        
             // Instanciamos el objeto PreparedStatement para inserción
             // de datos. Sentencia parametrizada
@@ -262,7 +262,7 @@ public class PlazaDAO implements IPlaza {
       public void reservar(int codPlaza) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Plaza set   reservado= true where codplaza=?";
+        String sql = "update Plaza set   ocupado =false , reservado= true where codplaza=?";
         
        
             // Instanciamos el objeto PreparedStatement para inserción

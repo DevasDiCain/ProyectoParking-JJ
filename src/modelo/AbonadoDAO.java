@@ -144,7 +144,7 @@ public class AbonadoDAO implements IAbonado {
     }
 
     @Override
-    public int deletePersona() throws SQLException {
+    public int deleteFullPersona() throws SQLException {
 
         String sql = "delete from Abonado";
 
@@ -166,7 +166,7 @@ public class AbonadoDAO implements IAbonado {
     public int deletePersona(AbonadoVO abonado) throws SQLException {
         int numFilas = 0;
 
-        String sql = "delete from Abonado where codabonado = ?";
+        String sql = "delete * from Abonado where codabonado = ?";
 
         // Sentencia parametrizada
         try (PreparedStatement prest = con.prepareStatement(sql)) {

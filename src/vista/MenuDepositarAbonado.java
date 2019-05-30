@@ -15,6 +15,7 @@ import java.time.LocalTime;
 import javax.swing.JOptionPane;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
+import modelo.PlazaVO;
 import modelo.TicketVO;
 import modelo.VehiculoVO;
 
@@ -205,6 +206,7 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
             VehiculoVO x = new VehiculoVO();
             AbonadoVO y = new AbonadoVO();
             TicketVO r = new TicketVO();
+            PlazaVO h = new PlazaVO();
             jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
             x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
           
@@ -220,7 +222,14 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
           r.setPin(Abonado.generarPin(x.getMatricula()));
           r.setImporte(0);
           
+          h = EnviarDatos.obtenerPlazaSegunPk(x.getCodPlaza());
+          h.setOcupado(true);
+          h.setReservado(true);
+              System.out.println(h.toString());
+          
+          EnviarDatos.insertarVehiculo(x);
           EnviarDatos.insertarTicket(r);
+          EnviarDatos.cambiarPlaza(h.getCodPlaza(), h);
            JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
            JOptionPane.showMessageDialog(null, "Su Pin es "+r.getPin());
           }else{JOptionPane.showMessageDialog(null, "Abonado introducido no existe");}

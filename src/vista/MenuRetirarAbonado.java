@@ -9,6 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JOptionPane;
+import modelo.AbonadoVO;
+import modelo.EnviarDatos;
+import modelo.PlazaVO;
+import modelo.VehiculoVO;
 
 /**
  *
@@ -200,7 +205,21 @@ public class MenuRetirarAbonado extends javax.swing.JFrame {
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // TODO add your handling code here:
-
+        AbonadoVO x = new AbonadoVO();
+        VehiculoVO y = new VehiculoVO();
+        PlazaVO r = new PlazaVO();
+        y = EnviarDatos.obtenerVehiculoSegunPk(jTextField1.getText());
+        x = EnviarDatos.obtenerAbonadoSegunMatricula(jTextField1.getText());
+        r = EnviarDatos.obtenerPlazaSegunPk(y.getCodPlaza());
+        
+        r.setOcupado(false);
+        r.setReservado(true);
+        
+        EnviarDatos.cambiarPlaza(r.getCodPlaza(), r);
+        JOptionPane.showMessageDialog(null, "Vehiculo retirado con éxito");
+        this.setVisible(false);
+        new ZonaClientes().setVisible(true);
+        
 
     }//GEN-LAST:event_retirarActionPerformed
 
