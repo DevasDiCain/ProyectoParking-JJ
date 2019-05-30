@@ -255,7 +255,7 @@ public class TicketDAO implements ITicket {
                 //Añadimos el objeto a la lista
                 tickets.add(p);
             }
-            return null;
+            return tickets;
         }
       
     }
@@ -289,5 +289,93 @@ public class TicketDAO implements ITicket {
             return null;
         }
       
+    }
+     
+      public int insertTicketAbonado(TicketVO ticket) throws SQLException {
+
+        int numFilas = 0;
+        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?)";
+
+        if (findByPk(ticket.getCodTicket()) != null) {
+            // Existe un registro con esa pk
+            // No se hace la inserción
+            return numFilas;
+        } else {
+            // Instanciamos el objeto PreparedStatement para inserción
+            // de datos. Sentencia parametrizada
+            try (PreparedStatement prest = con.prepareStatement(sql)) {
+
+                // Establecemos los parámetros de la sentencia
+          
+                prest.setInt(1, ticket.getCodTicket());
+                prest.setInt(2, ticket.getCodPlaza());
+                prest.setString(3, ticket.getMatricula());
+                prest.setDate(4, Date.valueOf(ticket.getFecha()));
+                prest.setInt(5, ticket.getImporte());
+                prest.setString(6, ticket.getPin());
+                prest.setTime(7, Time.valueOf(ticket.getHoraEntrada()));
+                prest.setTime(8, Time.valueOf(ticket.getHoraSalida()));
+  
+                numFilas = prest.executeUpdate();
+            }
+            return numFilas;
+        }
+
+    }
+       public TicketVO buscarSegunMatricula(String matricula) throws SQLException {
+
+        ResultSet res = null;
+        TicketVO ticket = new TicketVO();
+
+        String sql = "select * from Ticket where matricula = ?";
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+            prest.setString(1, matricula);
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+            // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
+            // si existe esa pk
+            if (res.first()) {
+                // Recogemos los datos de la persona, guardamos en un objeto
+                ticket.setCodTicket(res.getInt("codticket"));
+                ticket.setCodPlaza(res.getInt("codplaza"));
+                ticket.setMatricula(res.getString("matricula"));
+                ticket.setFecha(res.getDate("fecha").toLocalDate());
+                ticket.setImporte(res.getInt("importe"));
+                ticket.setPin(res.getString("pin"));
+                return ticket;
+            }
+
+            return ticket;
+        }
+    }
+        public int ultimoTicket() throws SQLException {
+
+        ResultSet res = null;
+        TicketVO ticket = new TicketVO();
+
+        String sql = "select max(codticket) from Ticket ";
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+         
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+            // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
+            // si existe esa pk
+            if (res.first()) {
+                // Recogemos los datos de la persona, guardamos en un objeto
+                ticket.setCodTicket(res.getInt("codticket"));
+               
+                return ticket.getCodTicket();
+            }
+
+            return ticket.getCodTicket();
+        }
     }
 }

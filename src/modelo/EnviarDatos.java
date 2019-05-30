@@ -40,6 +40,18 @@ public class EnviarDatos {
         }
         return obtenido;
     }
+    public static AbonadoVO obtenerAbonadoSegunMatricula(String matricula) {
+        AbonadoDAO abonado = new AbonadoDAO();
+        AbonadoVO obtenido = new AbonadoVO();
+        try {
+            return obtenido = abonado.findByMatricula(matricula);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido obtener al abonado según la matricula");
+            System.out.println(sqle.getMessage());
+        }
+        return obtenido;
+    }
+
 
     public static List<AbonadoVO> obtenerAbonados() {
         List<AbonadoVO> listado = new ArrayList();
@@ -211,12 +223,33 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
+     public static void insertarTicketAbonado(TicketVO ticket) {
+        TicketDAO estandar = new TicketDAO();
+        try {
+            estandar.insertTicketAbonado(ticket);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido introducir el ticket:");
+            System.out.println(sqle.getMessage());
+        }
+    }
+
 
     public static TicketVO obtenerTicketSegunPk(int pk) {
         TicketDAO ticket = new TicketDAO();
         TicketVO obtenido = new TicketVO();
         try {
             return obtenido = ticket.findByPk(pk);
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido obtener el ticket según la pk");
+            System.out.println(sqle.getMessage());
+        }
+        return obtenido;
+    }
+     public static TicketVO obtenerTicketSegunMatricula(String matricula) {
+        TicketDAO ticket = new TicketDAO();
+        TicketVO obtenido = new TicketVO();
+        try {
+            return obtenido = ticket.buscarSegunMatricula(matricula);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido obtener el ticket según la pk");
             System.out.println(sqle.getMessage());
@@ -233,6 +266,18 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
         return listado;
+    }
+     public static int obtenerUltimoTicket() {
+        TicketDAO x = new TicketDAO();
+        int y = 0;
+        try {
+             y = x.ultimoTicket();
+            return y;
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido obtener el Tickets");
+            System.out.println(sqle.getMessage());
+        }
+        return y;
     }
 
     public static void borrarTicketAbonado() {

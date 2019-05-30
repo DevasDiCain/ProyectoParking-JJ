@@ -309,4 +309,37 @@ public class AbonadoDAO implements IAbonado {
         }
       
     }
+        public AbonadoVO findByMatricula(String matricula) throws SQLException {
+
+        ResultSet res = null;
+        AbonadoVO abonado = new AbonadoVO();
+
+        String sql = "select * from Abonado where matricula=?";
+
+        try (PreparedStatement prest = con.prepareStatement(sql)) {
+            // Preparamos la sentencia parametrizada
+            prest.setString(1, matricula);
+
+            // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
+            res = prest.executeQuery();
+
+            // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
+            // si existe esa pk
+            if (res.first()) {
+                // Recogemos los datos de la persona, guardamos en un objeto
+                abonado.setPk(res.getInt("codabonado"));
+                abonado.setNombre(res.getString("nombre"));
+                abonado.setTipoDeAbono(res.getString(2));
+                abonado.setFeciniabo(res.getDate("feciniabo").toLocalDate());
+                abonado.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
+                abonado.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
+                abonado.setDni(res.getString("dni"));
+                abonado.setEmail(res.getString("email"));
+                abonado.setNumTarjeta(res.getString("numTarjeta"));
+                return abonado;
+            }
+
+            return abonado;
+        }
+    }
 }

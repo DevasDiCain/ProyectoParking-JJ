@@ -10,8 +10,12 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.swing.JOptionPane;
+import modelo.AbonadoVO;
 import modelo.EnviarDatos;
+import modelo.TicketVO;
 import modelo.VehiculoVO;
 
 /**
@@ -197,15 +201,27 @@ public class MenuDepositarAbonado extends javax.swing.JFrame implements FocusLis
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         // Depositar:
         if (introducirDniTextField.getText().length() == 9) {
-            JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
+           
             VehiculoVO x = new VehiculoVO();
-
+            AbonadoVO y = new AbonadoVO();
+            TicketVO r = new TicketVO();
             jLabel7.setText(Abonado.generarPin(introducirMatriculaTextField.getText()));
-           x.setMatricula(introducirMatriculaTextField.getText());
-           x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
-
-
-            EnviarDatos.insertarVehiculo(x);
+            x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
+          
+           
+          y = EnviarDatos.obtenerAbonadoSegunMatricula(introducirMatriculaTextField.getText());
+          r.setCodTicket(EnviarDatos.ultimoTicket());
+          r.setCodPlaza(x.getCodPlaza());
+          r.setMatricula(x.getMatricula());
+          r.setHoraEntrada(LocalTime.now());
+          r.setHoraSalida(LocalTime.MIN);
+          r.setFecha(LocalDate.now());
+          r.setPin(Abonado.generarPin(x.getMatricula()));
+          r.setImporte(0);
+          
+          EnviarDatos.insertarTicket(r);
+           JOptionPane.showMessageDialog(null, "Vehículo introducido con éxito");
+           JOptionPane.showMessageDialog(null, "Su Pin es "+r.getPin());
            
         } else {
             JOptionPane.showMessageDialog(null, "Formato Del Dni Inválido."
