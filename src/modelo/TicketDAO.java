@@ -46,9 +46,12 @@ public class TicketDAO implements ITicket {
                 p.setCodTicket(res.getInt("codticket"));
                 p.setCodPlaza(res.getInt("codplaza"));
                 p.setMatricula(res.getString("matricula"));
-                p.setFecha(res.getDate("fecha").toLocalDate());
+                p.setFechaEntrada(res.getDate("fechaEntrada").toLocalDate());
                 p.setImporte(res.getInt("importe"));
                 p.setPin(res.getString("pin"));
+                p.setFechaSalida(res.getDate("fechaSalida").toLocalDate());
+                p.setHoraEntrada(res.getTime("horaEntrada").toLocalTime());
+                p.setHoraSalida(res.getTime("horaSalida").toLocalTime());
 
                 //Añadimos el objeto a la lista
                 lista.add(p);
@@ -81,9 +84,12 @@ public class TicketDAO implements ITicket {
                 ticket.setCodTicket(res.getInt("codticket"));
                 ticket.setCodPlaza(res.getInt("codplaza"));
                 ticket.setMatricula(res.getString("matricula"));
-                ticket.setFecha(res.getDate("fecha").toLocalDate());
+                ticket.setFechaEntrada(res.getDate("fechaEntrada").toLocalDate());
                 ticket.setImporte(res.getInt("importe"));
                 ticket.setPin(res.getString("pin"));
+                ticket.setFechaSalida(res.getDate("fechaSalida").toLocalDate());
+                ticket.setHoraEntrada(res.getTime("horaEntrada").toLocalTime());
+                ticket.setHoraSalida(res.getTime("horaSalida").toLocalTime());
                 return ticket;
             }
 
@@ -95,7 +101,7 @@ public class TicketDAO implements ITicket {
     public int insertTicket(TicketVO ticket) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(ticket.getCodTicket()) != null) {
             // Existe un registro con esa pk
@@ -111,11 +117,12 @@ public class TicketDAO implements ITicket {
                 prest.setInt(1, ticket.getCodTicket());
                 prest.setInt(2, ticket.getCodPlaza());
                 prest.setString(3, ticket.getMatricula());
-                prest.setDate(4, Date.valueOf(ticket.getFecha()));
+                prest.setDate(4, Date.valueOf(ticket.getFechaEntrada()));
                 prest.setInt(5, ticket.getImporte());
                 prest.setString(6, ticket.getPin());
                 prest.setTime(7, Time.valueOf(ticket.getHoraEntrada()));
                 prest.setTime(8, Time.valueOf(ticket.getHoraSalida()));
+                prest.setDate(9, Date.valueOf(ticket.getFechaSalida()));
   
                 numFilas = prest.executeUpdate();
             }
@@ -175,7 +182,7 @@ public class TicketDAO implements ITicket {
     public int updateTicket(int pk, TicketVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Ticket set codticket = ?,codplaza = ?, matricula = ? , fecha = ?, importe = ? , pin = ? where codticket=?";
+        String sql = "update Ticket set codticket = ?,codplaza = ?, matricula = ? , fechaEntrada = ?, importe = ? , pin = ?, horaEntrada = ? , horaSalida = ? fecwhere codticket=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe
@@ -190,9 +197,11 @@ public class TicketDAO implements ITicket {
                 prest.setInt(1, nuevosDatos.getCodTicket());
                 prest.setInt(2, nuevosDatos.getCodPlaza());
                 prest.setString(3, nuevosDatos.getMatricula());
-                prest.setDate(4, Date.valueOf(nuevosDatos.getFecha()));
+                prest.setDate(4, Date.valueOf(nuevosDatos.getFechaEntrada()));
                 prest.setInt(5, nuevosDatos.getImporte());
                 prest.setString(6, nuevosDatos.getPin());
+                prest.setTime(7,Time.valueOf(nuevosDatos.getHoraEntrada()));
+                prest.setTime(8, Time.valueOf(nuevosDatos.getHoraSalida()));
 
                 numFilas = prest.executeUpdate();
             }
@@ -231,7 +240,7 @@ public class TicketDAO implements ITicket {
         ArrayList<TicketVO>tickets = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Ticket where fecha  between ? and ?";
+        String sql = "select * from Ticket where fechaEntrada  between ? and ?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
@@ -248,10 +257,12 @@ public class TicketDAO implements ITicket {
                 p.setCodTicket(res.getInt("codticket"));
                 p.setCodPlaza(res.getInt("codplaza"));
                 p.setMatricula(res.getString("matricula"));
-                p.setFecha(res.getDate("fecha").toLocalDate());
+                p.setFechaEntrada(res.getDate("fechaEntrada").toLocalDate());
                 p.setImporte(res.getInt("importe"));
                 p.setPin(res.getString("pin"));
-
+                p.setHoraEntrada(res.getTime("horaEntrada").toLocalTime());
+                p.setHoraSalida(res.getTime("horaSalida").toLocalTime());
+                p.setFechaSalida(res.getDate("fechaSalida").toLocalDate());
                 //Añadimos el objeto a la lista
                 tickets.add(p);
             }
@@ -263,7 +274,7 @@ public class TicketDAO implements ITicket {
         ArrayList<TicketVO>tickets = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Ticket where year(fecha)=?";
+        String sql = "select * from Ticket where year(fechaEntrada)=?";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
@@ -279,9 +290,12 @@ public class TicketDAO implements ITicket {
                 p.setCodTicket(res.getInt("codticket"));
                 p.setCodPlaza(res.getInt("codplaza"));
                 p.setMatricula(res.getString("matricula"));
-                p.setFecha(res.getDate("fecha").toLocalDate());
+                p.setFechaEntrada(res.getDate("fechaEntrada").toLocalDate());
                 p.setImporte(res.getInt("importe"));
                 p.setPin(res.getString("pin"));
+                p.setHoraEntrada(res.getTime("horaEntrada").toLocalTime());
+                p.setHoraSalida(res.getTime("horaSalida").toLocalTime());
+                p.setFechaSalida(res.getDate("fechaSalida").toLocalDate());
 
                 //Añadimos el objeto a la lista
                 tickets.add(p);
@@ -294,7 +308,7 @@ public class TicketDAO implements ITicket {
       public int insertTicketAbonado(TicketVO ticket) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into Ticket values (?,?,?,?,?,?,?,?,?)";
 
         if (findByPk(ticket.getCodTicket()) != null) {
             // Existe un registro con esa pk
@@ -310,11 +324,12 @@ public class TicketDAO implements ITicket {
                 prest.setInt(1, ticket.getCodTicket());
                 prest.setInt(2, ticket.getCodPlaza());
                 prest.setString(3, ticket.getMatricula());
-                prest.setDate(4, Date.valueOf(ticket.getFecha()));
+               prest.setDate(4, Date.valueOf(ticket.getFechaEntrada()));
                 prest.setInt(5, ticket.getImporte());
                 prest.setString(6, ticket.getPin());
                 prest.setTime(7, Time.valueOf(ticket.getHoraEntrada()));
                 prest.setTime(8, Time.valueOf(ticket.getHoraSalida()));
+                prest.setDate(9, Date.valueOf(ticket.getFechaSalida()));
   
                 numFilas = prest.executeUpdate();
             }
@@ -343,9 +358,12 @@ public class TicketDAO implements ITicket {
                 ticket.setCodTicket(res.getInt("codticket"));
                 ticket.setCodPlaza(res.getInt("codplaza"));
                 ticket.setMatricula(res.getString("matricula"));
-                ticket.setFecha(res.getDate("fecha").toLocalDate());
+                ticket.setFechaEntrada(res.getDate("fechaEntrada").toLocalDate());
                 ticket.setImporte(res.getInt("importe"));
                 ticket.setPin(res.getString("pin"));
+                ticket.setFechaSalida(res.getDate("fechaSalida").toLocalDate());
+                ticket.setHoraEntrada(res.getTime("horaEntrada").toLocalTime());
+                ticket.setHoraSalida(res.getTime("horaSalida").toLocalTime());
                 return ticket;
             }
 

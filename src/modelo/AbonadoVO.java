@@ -180,7 +180,7 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return pk+"|"+nombre+"|"+tipoDeAbono+"|"+feciniabo+"|"+fecfinabo+"|"+FechaNacimiento+"|"+dni+"|"+email+"|"+numTarjeta+"|"+matricula;
+        return pk+"|"+nombre+"|"+tipoDeAbono+"|"+feciniabo+"|"+fecfinabo+"|"+FechaNacimiento+"|"+dni+"|"+email+"|"+numTarjeta+"|"+matricula+" duracion= "+duracion;
     }
     public static void main(String[] args) {
         AbonadoVO apestoso = new AbonadoVO();

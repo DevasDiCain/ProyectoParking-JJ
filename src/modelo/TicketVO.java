@@ -16,11 +16,12 @@ public class TicketVO {
     private int codTicket;
     private int codPlaza;
     private String matricula;
-    private LocalDate fecha;
+    private LocalDate fechaEntrada;
     private int importe;
     private String pin;
     private LocalTime horaEntrada;
     private LocalTime horaSalida;
+    private LocalDate fechaSalida;
     
     public TicketVO(){
     }
@@ -29,15 +30,32 @@ public class TicketVO {
         this.codTicket = codTicket;
         this.codPlaza = codPlaza;
         this.matricula = matricula;
-        this.fecha = fecha;
+        this.fechaEntrada = fecha;
         this.importe = importe;
         this.pin = pin;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
+        this.fechaSalida = fechaSalida;
     }
 
     public int getCodTicket() {
         return codTicket;
+    }
+
+    public LocalDate getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public void setFechaEntrada(LocalDate fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    public LocalDate getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(LocalDate fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
 
     public void setCodTicket(int codTicket) {
@@ -60,13 +78,7 @@ public class TicketVO {
         this.matricula = matricula;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
+ 
 
     public int getImporte() {
         return importe;
@@ -106,7 +118,6 @@ public class TicketVO {
         hash = 79 * hash + this.codTicket;
         hash = 79 * hash + this.codPlaza;
         hash = 79 * hash + Objects.hashCode(this.matricula);
-        hash = 79 * hash + Objects.hashCode(this.fecha);
         hash = 79 * hash + this.importe;
         hash = 79 * hash + Objects.hashCode(this.pin);
         hash = 79 * hash + Objects.hashCode(this.horaEntrada);
@@ -141,9 +152,7 @@ public class TicketVO {
         if (!Objects.equals(this.pin, other.pin)) {
             return false;
         }
-        if (!Objects.equals(this.fecha, other.fecha)) {
-            return false;
-        }
+    
         if (!Objects.equals(this.horaEntrada, other.horaEntrada)) {
             return false;
         }
@@ -155,7 +164,7 @@ public class TicketVO {
 
     @Override
     public String toString() {
-        return "\n|codTicket=" + codTicket + "| codPlaza=" + codPlaza + "| matricula=" + matricula + "| fecha=" + fecha + "| importe=" + importe + "| pin=" + pin + "| horaEntrada=" + horaEntrada + "| horaSalida=" + horaSalida+"\n";
+        return "\n|codTicket=" + codTicket + "| codPlaza=" + codPlaza + "| matricula=" + matricula + "| fecha=" + fechaEntrada + "| importe=" + importe + "| pin=" + pin + "| horaEntrada=" + horaEntrada + "| horaSalida=" + horaSalida+" fechaSalida= "+fechaSalida +"\n";
     }
     
     
