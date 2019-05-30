@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.EnviarDatos;
@@ -146,8 +147,8 @@ public class MenuFacturacion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Facturacion por fechas
-        LocalDate primeraFecha = LocalDate.parse(desde.getText());
-        LocalDate segundaFecha = LocalDate.parse(hasta.getText());
+        LocalDate primeraFecha = LocalDate.parse(desde.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate segundaFecha = LocalDate.parse(hasta.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         new InfoFacturacionFechas(primeraFecha,segundaFecha).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
