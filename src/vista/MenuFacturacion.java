@@ -147,8 +147,8 @@ public class MenuFacturacion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Facturacion por fechas
-        LocalDate primeraFecha = LocalDate.parse(desde.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        LocalDate segundaFecha = LocalDate.parse(hasta.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate primeraFecha = LocalDate.parse(desde.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate segundaFecha = LocalDate.parse(hasta.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         new InfoFacturacionFechas(primeraFecha,segundaFecha).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

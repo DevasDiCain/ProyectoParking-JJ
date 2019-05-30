@@ -235,8 +235,8 @@ public class TicketDAO implements ITicket {
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
-            prest.setDate(7, Date.valueOf(desde));
-            prest.setDate(8, Date.valueOf(hasta));
+            prest.setDate(1, Date.valueOf(desde));
+            prest.setDate(2, Date.valueOf(hasta));
 
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
