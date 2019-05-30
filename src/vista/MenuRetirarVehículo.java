@@ -5,6 +5,7 @@
  */
 package vista;
 
+import funcionalidad.CalcularPrecio;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.time.Duration;
@@ -212,78 +213,26 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
-     //retirar
-     VehiculoVO x = new VehiculoVO();
-     TicketVO r = new TicketVO();
-     x.setCodPlaza(Integer.parseInt(introducirIdentificadorTextField.getText()));
-     x.setMatricula(introducirMatriculaTextField.getText());
-     x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
-     r = EnviarDatos.obtenerTicketSegunMatricula(x.getMatricula());
-     r.setHoraSalida(LocalTime.now());
-     r.setImporte(10);
-     EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
-     JOptionPane.showMessageDialog(null, "Vehículo con matricula "+x.getMatricula()+" retirado con éxito");
-     this.setVisible(false);
-     new ZonaClientes().setVisible(true);
+        //retirar
+        VehiculoVO x = new VehiculoVO();
+        TicketVO r = new TicketVO();
+        x.setCodPlaza(Integer.parseInt(introducirIdentificadorTextField.getText()));
+        x.setMatricula(introducirMatriculaTextField.getText());
+        x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
+        r = EnviarDatos.obtenerTicketSegunMatricula(x.getMatricula());
+        r.setHoraSalida(LocalTime.now());
+        r.setImporte(10);
+        EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
+        JOptionPane.showMessageDialog(null, "Vehículo con matricula " + x.getMatricula() + " retirado con éxito");
+        this.setVisible(false);
+        new ZonaClientes().setVisible(true);
     }//GEN-LAST:event_retirarActionPerformed
 
     private void CalcularTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTotalPagarActionPerformed
-        
         String matricula = introducirMatriculaTextField.getText();
         String identificador = introducirIdentificadorTextField.getText();
         String pin = introducirPinTextField.getText();
-        List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
-        for (TicketVO ticket : listaDeTickets) {
-            if (ticket.getMatricula().equalsIgnoreCase(matricula) || Integer.toString(ticket.getCodTicket()).equalsIgnoreCase(identificador) || ticket.getPin().equalsIgnoreCase(pin)) {
-                ticket.setHoraSalida(LocalTime.now());
-                int minutosTotalesAparcado = 0;
-                LocalDate hoy = LocalDate.now();
-                LocalDate diaDeTicket = ticket.getFecha();
-                long diasEntreDepositoYRetiro = Duration.between(diaDeTicket.atStartOfDay(), hoy.atStartOfDay()).toDays();
-                System.out.println(diasEntreDepositoYRetiro);
-                LocalTime horaTicket = LocalTime.parse("12:32:22", DateTimeFormatter.ISO_TIME);
-                int minutosTotalesHoy = (LocalTime.now().getHour() * 60) + LocalTime.now().getMinute();
-                System.out.println("minutosTotalesHoy " + minutosTotalesHoy);
-                int minutosTotalesTicket = (ticket.getHoraEntrada().getHour() * 60) + ticket.getHoraEntrada().getMinute();
-                System.out.println("minutosTotalesTicket " + minutosTotalesTicket);
-                if (minutosTotalesTicket < minutosTotalesHoy) {
-                    minutosTotalesAparcado = minutosTotalesHoy - minutosTotalesTicket;
-                    System.out.println("minutosTotalesAparcado primer if: " + minutosTotalesAparcado);
-                } else {
-                    minutosTotalesAparcado = 1440 - (minutosTotalesTicket - minutosTotalesHoy);
-                    System.out.println("minutosTotalesAparcado segundo if: " + minutosTotalesAparcado);
-                }
-                System.out.println(minutosTotalesAparcado);
-                PlazaVO plaza = EnviarDatos.obtenerPlazaSegunPk(ticket.getCodPlaza());
-                switch (plaza.getTipoPlaza()) {
-                    case "turismo":
-                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
-                            this.precio = (minutosTotalesAparcado * 0.12);
-                        } else {
-                            this.precio = (minutosTotalesAparcado * 0.12) + (diasEntreDepositoYRetiro * 1440);
-                        }
-                        break;
-                    case "motocicletas":
-                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
-                            this.precio = (minutosTotalesAparcado * 0.08);
-                        } else {
-                            this.precio = (minutosTotalesAparcado * 0.08) + (diasEntreDepositoYRetiro * 1440);
-                        }
-                        break;
-                    case "caravanas":
-                        if (minutosTotalesTicket < minutosTotalesHoy && diasEntreDepositoYRetiro < 1) {
-                            this.precio = (minutosTotalesAparcado * 0.45);
-                        } else {
-                            this.precio = (minutosTotalesAparcado * 0.45) + (diasEntreDepositoYRetiro * 1440);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-            jLabel5.setText(String.valueOf(precio));
-            ticket.setImporte(Integer.parseInt(String.valueOf(precio)));
-        }
+        jLabel5.setText(String.valueOf(CalcularPrecio.calcularPrecioTicket(matricula, identificador, pin)));
     }//GEN-LAST:event_CalcularTotalPagarActionPerformed
 
 
