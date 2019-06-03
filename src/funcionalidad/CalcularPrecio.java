@@ -22,10 +22,11 @@ public class CalcularPrecio {
     public static double calcularPrecioTicket(String matricula, String identificador, String pin) {
         double precio = 0;
         int minutosTotalesAparcado = 0;
+        int contador = 1;
         List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
         for (TicketVO ticket : listaDeTickets) {
-            if (ticket.getMatricula().equalsIgnoreCase(matricula)) {
-                int diasEntreDepositoYRetiro = (int) Duration.between(ticket.getFecha().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays();
+            if (ticket.getMatricula().equalsIgnoreCase(matricula) && ticket.getImporte() == 0) {
+                int diasEntreDepositoYRetiro = (int) Duration.between(ticket.getFechaEntrada().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays();
                 int minutosTotalesHoy = (LocalTime.now().getHour() * 60) + LocalTime.now().getMinute();
                 int minutosTotalesTicket = (ticket.getHoraEntrada().getHour() * 60) + ticket.getHoraEntrada().getMinute();
                 if (diasEntreDepositoYRetiro == 0) {
@@ -51,8 +52,9 @@ public class CalcularPrecio {
                 ticket.setImporte((int) precio);
                 EnviarDatos.cambiarTicket(ticket.getCodTicket(), ticket);
             } else {
-                JOptionPane.showMessageDialog(null, "No se ha encontrado el vehículo");
+                System.out.println("El ticket " + contador + " no era el correcto");
             }
+            contador++;
         }
         return precio;
     }
