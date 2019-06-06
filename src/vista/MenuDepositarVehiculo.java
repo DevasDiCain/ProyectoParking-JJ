@@ -274,7 +274,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 y.setHoraEntrada(LocalTime.now());
                 y.setMatricula(x.getMatricula());
                 y.setPin(Abonado.generarPin(introducirMatriculaTextField.getText()));
-                y.setHoraSalida(LocalTime.MIN);
+                y.setHoraSalida(LocalTime.now());
                 y.setImporte(0);
                 y.setFechaSalida(LocalDate.now());
                 EnviarDatos.insertarTicket(y);

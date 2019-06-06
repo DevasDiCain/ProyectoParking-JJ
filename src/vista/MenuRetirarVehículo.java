@@ -214,6 +214,9 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
         //retirar
+         String matricula = introducirMatriculaTextField.getText();
+        String identificador = introducirIdentificadorTextField.getText();
+        String pin = introducirPinTextField.getText();
         VehiculoVO x = new VehiculoVO();
         TicketVO r = new TicketVO();
         x.setCodPlaza(Integer.parseInt(introducirIdentificadorTextField.getText()));
@@ -221,8 +224,11 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
         r = EnviarDatos.obtenerTicketSegunMatricula(x.getMatricula());
         r.setHoraSalida(LocalTime.now());
-        r.setImporte(10);
+        r.setImporte(CalcularPrecio.calcularPrecioTicket(matricula, identificador, pin));
         EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
+       int ticket = EnviarDatos.obtenerTicketSegunMatricula(matricula).getCodTicket();
+        EnviarDatos.cambiarTicket(ticket, r);
+        
         JOptionPane.showMessageDialog(null, "Vehículo con matricula " + x.getMatricula() + " retirado con éxito");
         this.setVisible(false);
         new ZonaClientes().setVisible(true);

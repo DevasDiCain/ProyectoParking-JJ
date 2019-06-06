@@ -24,6 +24,7 @@ public class CalcularPrecio {
         int minutosTotalesAparcado = 0;
         int contador = 1;
         List<TicketVO> listaDeTickets = EnviarDatos.obtenerTickets();
+       
         for (TicketVO ticket : listaDeTickets) {
             if (ticket.getMatricula().equalsIgnoreCase(matricula) && ticket.getImporte() == 0) {
                 int diasEntreDepositoYRetiro = (int) Duration.between(ticket.getFechaEntrada().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays();

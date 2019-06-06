@@ -278,8 +278,10 @@ public class EnviarDatos {
 
     public static List<TicketVO> obtenerTickets() {
         List<TicketVO> listado = new ArrayList();
+        TicketDAO x = new TicketDAO();
         try {
-            return listado = new TicketDAO().getAll();
+            listado = x.getAll();
+            return  listado;
         } catch (SQLException sqle) {
             System.out.println("No se ha podido obtener la lista de Tickets");
             System.out.println(sqle.getMessage());

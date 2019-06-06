@@ -17,7 +17,7 @@ public class TicketVO {
     private int codPlaza;
     private String matricula;
     private LocalDate fechaEntrada;
-    private int importe;
+    private double importe;
     private String pin;
     private LocalTime horaEntrada;
     private LocalTime horaSalida;
@@ -26,7 +26,7 @@ public class TicketVO {
     public TicketVO(){
     }
 
-    public TicketVO(int codTicket, int codPlaza, String matricula, LocalDate fecha, int importe, String pin, LocalTime horaEntrada, LocalTime horaSalida) {
+    public TicketVO(int codTicket, int codPlaza, String matricula, LocalDate fecha, double importe, String pin, LocalTime horaEntrada, LocalTime horaSalida) {
         this.codTicket = codTicket;
         this.codPlaza = codPlaza;
         this.matricula = matricula;
@@ -80,11 +80,11 @@ public class TicketVO {
 
  
 
-    public int getImporte() {
+    public double getImporte() {
         return importe;
     }
 
-    public void setImporte(int importe) {
+    public void setImporte(double importe) {
         this.importe = importe;
     }
 
@@ -118,7 +118,6 @@ public class TicketVO {
         hash = 79 * hash + this.codTicket;
         hash = 79 * hash + this.codPlaza;
         hash = 79 * hash + Objects.hashCode(this.matricula);
-        hash = 79 * hash + this.importe;
         hash = 79 * hash + Objects.hashCode(this.pin);
         hash = 79 * hash + Objects.hashCode(this.horaEntrada);
         hash = 79 * hash + Objects.hashCode(this.horaSalida);
