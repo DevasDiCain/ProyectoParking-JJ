@@ -6,6 +6,7 @@
 package vista;
 
 import java.util.List;
+import modelo.AbonadoVO;
 import modelo.EnviarDatos;
 import modelo.TicketVO;
 
@@ -18,10 +19,14 @@ public class InfoFacturacion extends javax.swing.JFrame {
     /**
      * Creates new form InfoFacturacion
      */
-    List<TicketVO> tickets = EnviarDatos.obtenerTickets();
+    List<AbonadoVO> tickets = EnviarDatos.obtenerAbonados();
     public InfoFacturacion() {
         initComponents();
-        info.setText(tickets.toString());
+        String r  ="";
+        for (AbonadoVO x : tickets){
+            r = r + x.infoFacturacion();
+        }
+        info.setText(r);
     }
 
     /**

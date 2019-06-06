@@ -6,7 +6,10 @@
 package vista;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.EnviarDatos;
+import modelo.TicketVO;
 
 /**
  *
@@ -17,10 +20,15 @@ public class InfoFacturacionFechas extends javax.swing.JFrame {
     /**
      * Creates new form InfoFacturacionFechas
      */
+    List<TicketVO> tickets = new ArrayList();
     public InfoFacturacionFechas(LocalDate x , LocalDate y) {
         initComponents();
-        
-        info.setText(EnviarDatos.obtenerTicketEntreDosFechas(x, y).toString());
+        tickets = EnviarDatos.obtenerTicketEntreDosFechas(x, y);
+        String f = "";
+        for (TicketVO e : tickets){
+            f = f +e.infoTickets();
+        }
+        info.setText(f);
     }
 
     /**

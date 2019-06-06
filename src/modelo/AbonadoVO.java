@@ -180,12 +180,16 @@ public class AbonadoVO {
 
     @Override
     public String toString() {
-        return pk+"|"+nombre+"|"+tipoDeAbono+"|"+feciniabo+"|"+fecfinabo+"|"+FechaNacimiento+"|"+dni+"|"+email+"|"+numTarjeta+"|"+matricula+" duracion= "+duracion;
+        return "\n"+pk+"|"+nombre+"|"+tipoDeAbono+"|"+feciniabo+"|"+fecfinabo+"|"+FechaNacimiento+"|"+dni+"|"+email+"|"+numTarjeta+"|"+matricula+" duracion= "+duracion+"\n";
     }
     public static void main(String[] args) {
         AbonadoVO apestoso = new AbonadoVO();
         apestoso.setFecfinabo(LocalDate.of(1995, Month.MARCH, 12));
         System.out.println(apestoso.getFecfinabo());
+    }
+    
+    public String infoFacturacion(){
+        return "-"+nombre+"||"+tipoDeAbono+"\n";
     }
 
 }

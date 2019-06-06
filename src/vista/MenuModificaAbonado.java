@@ -246,7 +246,7 @@ public class MenuModificaAbonado extends javax.swing.JFrame {
         registrado.setTipoDeAbono(Tabono.getToolTipText());
 
         EnviarDatos.cambiarAbonado(EnviarDatos.ultimoAbonado(), registrado);
-        
+        JOptionPane.showMessageDialog(null, "Abonado Modificado con Éxito");
         new ZonaAdministrador().setVisible(true);
         dispose();
         // FIN TEMPORAL

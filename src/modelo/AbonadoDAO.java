@@ -247,7 +247,7 @@ public class AbonadoDAO implements IAbonado {
         ArrayList<AbonadoVO>abonados = new ArrayList();
         ResultSet res = null;
 
-        String sql = "select * from Abonado where dayofweek(fecfinabo) = dayofweek(curdate()) or dayofweek(curdate())+1";
+        String sql = "  select * from Abonado where fecfinabo between curdate() and date_add(curdate(), interval 10 day)";
 
         try (PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada

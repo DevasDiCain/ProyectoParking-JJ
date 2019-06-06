@@ -166,6 +166,10 @@ public class TicketVO {
         return "\n|codTicket=" + codTicket + "| codPlaza=" + codPlaza + "| matricula=" + matricula + "| fecha=" + fechaEntrada + "| importe=" + importe + "| pin=" + pin + "| horaEntrada=" + horaEntrada + "| horaSalida=" + horaSalida+" fechaSalida= "+fechaSalida +"\n";
     }
     
+    public String infoTickets(){
+        return "-"+codPlaza+"||"+matricula+"||"+importe+"\n";
+                
+    }
     
     
 }
