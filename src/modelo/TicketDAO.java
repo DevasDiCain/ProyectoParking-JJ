@@ -182,7 +182,7 @@ public class TicketDAO implements ITicket {
     public int updateTicket(int pk, TicketVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update Ticket set codplaza = ?, matricula = ? , fechaEntrada = ?, importe = ? , pin = ?, horaEntrada = ? , horaSalida = ? where codticket=?";
+        String sql = "update Ticket set codplaza = ?, matricula = ? , fechaEntrada = ?, importe = ? , pin = ?, horaEntrada = ? , horaSalida = ? where codticket = ?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe

@@ -223,7 +223,7 @@ public class MenuAltas extends javax.swing.JFrame {
         if (comprobacionCorrecta) {
             AbonadoVO registrado = new AbonadoVO();
             VehiculoVO x = new VehiculoVO();
-            LocalDate tiempo = LocalDate.of(1995, Month.MARCH, 12);
+            
             LocalDate inicio = LocalDate.parse(Tfecini.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             LocalDate nacimiento = LocalDate.parse(Tfecnac.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
@@ -243,6 +243,7 @@ public class MenuAltas extends javax.swing.JFrame {
                     :           registrado.setDuracion(360);
                     break;
             }
+            LocalDate tiempo = inicio.plusDays(registrado.getDuracion());
             registrado.setNombre(Tnombre.getText());
             registrado.setFeciniabo(inicio);
             registrado.setFecfinabo(tiempo);

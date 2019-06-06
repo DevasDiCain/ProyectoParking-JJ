@@ -4,9 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/vista/MenuDepositarVehiculo.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/modelo/TicketVO.java</file>
             <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/vista/MenuAltas.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/funcionalidad/CalcularPrecio.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/modelo/Conexion.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/modelo/EnviarDatos.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/modelo/AbonadoDAO.java</file>
             <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/vista/MenuDepositarAbonado.java</file>
             <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/funcionalidad/Abonado.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/vista/MenuRetirarVehículo.java</file>
+            <file>file:/home/jose/NetBeansProjects1/ProyectoParking-JJ1/src/modelo/TicketDAO.java</file>
         </group>
     </open-files>
 </project-private>
