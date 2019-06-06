@@ -6,6 +6,7 @@
 package vista;
 
 import copiaSeguridad.crearCopiaDeSeguridad;
+import copiaSeguridad.restaurarCopiaDeSeguridad;
 import javax.swing.JOptionPane;
 
 /**
@@ -111,6 +112,7 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Restaurar
         JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?");
+        restaurarCopiaDeSeguridad.restaurarBaseDeDatos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

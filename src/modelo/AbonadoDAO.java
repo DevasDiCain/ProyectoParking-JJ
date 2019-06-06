@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,7 +113,8 @@ public class AbonadoDAO implements IAbonado {
             try (PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-             
+                System.out.println(Date.valueOf(abonado.getFecfinabo()));
+                
                 prest.setInt(1, abonado.getPk());
                 prest.setString(2, abonado.getNombre());
                 prest.setString(3, abonado.getTipoDeAbono());

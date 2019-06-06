@@ -40,6 +40,7 @@ public class EnviarDatos {
         }
         return obtenido;
     }
+
     public static AbonadoVO obtenerAbonadoSegunMatricula(String matricula) {
         AbonadoDAO abonado = new AbonadoDAO();
         AbonadoVO obtenido = new AbonadoVO();
@@ -51,7 +52,6 @@ public class EnviarDatos {
         }
         return obtenido;
     }
-
 
     public static List<AbonadoVO> obtenerAbonados() {
         List<AbonadoVO> listado = new ArrayList();
@@ -116,7 +116,8 @@ public class EnviarDatos {
         }
         return abonados;
     }
-       public static ArrayList<AbonadoVO> unMesCaducan(int mes) {
+
+    public static ArrayList<AbonadoVO> unMesCaducan(int mes) {
         AbonadoDAO x = new AbonadoDAO();
         ArrayList<AbonadoVO> abonados = new ArrayList();
         try {
@@ -136,12 +137,10 @@ public class EnviarDatos {
         PlazaVO ocupada = new PlazaVO();
         try {
             estandar.insertVehiculo(vehiculo);
-            
+
             ocupada.setCodPlaza(vehiculo.getCodPlaza());
             ocupada.setOcupado(true);
-            
-            
-            
+
             ocupar.updatePlaza(vehiculo.getCodPlaza(), ocupada);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido introducir el vehiculo:");
@@ -223,7 +222,8 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-     public static void insertarTicketAbonado(TicketVO ticket) {
+
+    public static void insertarTicketAbonado(TicketVO ticket) {
         TicketDAO estandar = new TicketDAO();
         try {
             estandar.insertTicketAbonado(ticket);
@@ -232,7 +232,8 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-     public static void reservar(int codplaza) {
+
+    public static void reservar(int codplaza) {
         PlazaDAO estandar = new PlazaDAO();
         try {
             estandar.reservar(codplaza);
@@ -253,7 +254,8 @@ public class EnviarDatos {
         }
         return obtenido;
     }
-     public static TicketVO obtenerTicketSegunMatricula(String matricula) {
+
+    public static TicketVO obtenerTicketSegunMatricula(String matricula) {
         TicketDAO ticket = new TicketDAO();
         TicketVO obtenido = new TicketVO();
         try {
@@ -264,7 +266,8 @@ public class EnviarDatos {
         }
         return obtenido;
     }
-       public static List<TicketVO> obtenerTicketEntreDosFechas(LocalDate x , LocalDate y ) {
+
+    public static List<TicketVO> obtenerTicketEntreDosFechas(LocalDate x, LocalDate y) {
         TicketDAO ticket = new TicketDAO();
         List<TicketVO> obtenidos = new ArrayList();
         try {
@@ -281,18 +284,19 @@ public class EnviarDatos {
         TicketDAO x = new TicketDAO();
         try {
             listado = x.getAll();
-            return  listado;
+            return listado;
         } catch (SQLException sqle) {
             System.out.println("No se ha podido obtener la lista de Tickets");
             System.out.println(sqle.getMessage());
         }
         return listado;
     }
-     public static int obtenerUltimoTicket() {
+
+    public static int obtenerUltimoTicket() {
         TicketDAO x = new TicketDAO();
         int y = 0;
         try {
-             y = x.ultimoTicket();
+            y = x.ultimoTicket();
             return y;
         } catch (SQLException sqle) {
             System.out.println("No se ha podido obtener el Tickets");
@@ -404,6 +408,7 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
+
     public static void vaciarParkingCompletamente() {
         try {
             new PlazaDAO().vaciarParkingCompletamente();
@@ -412,6 +417,7 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
+
     public static void vaciarParkingSinAbonados() {
         try {
             new PlazaDAO().vaciarParkingSinQuitarReservas();
@@ -420,14 +426,17 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-     public static void sacarVehiculoPlaza(int pk, VehiculoVO x) {
+
+    public static void sacarVehiculoPlaza(int pk, VehiculoVO x) {
         try {
             new PlazaDAO().sacarVehiculoParkingNormal(pk, x);
         } catch (SQLException sqle) {
             System.out.println("No se ha podido modificar al abonado:");
             System.out.println(sqle.getMessage());
         }
-    } public static void sacarVehiculoAbonadoPlaza(int pk, VehiculoVO x) {
+    }
+
+    public static void sacarVehiculoAbonadoPlaza(int pk, VehiculoVO x) {
         try {
             new PlazaDAO().sacarVehiculoParkingAbonado(pk, x);
         } catch (SQLException sqle) {
@@ -435,7 +444,6 @@ public class EnviarDatos {
             System.out.println(sqle.getMessage());
         }
     }
-
 
     public static int ultimaPlaza() {
         PlazaDAO x = new PlazaDAO();
@@ -473,8 +481,44 @@ public class EnviarDatos {
     }
     //</editor-fold>
 
+    public static void resetBaseDeDatos() {
+        TicketDAO a = new TicketDAO();
+        PlazaDAO b = new PlazaDAO();
+        AbonadoDAO c = new AbonadoDAO();
+        VehiculoDAO d = new VehiculoDAO();
+        try {
+            c.deleteFullPersona();
+            a.deleteTicket();
+            d.deleteVehiculo();
+            b.vaciarParkingCompletamente();
+
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido resetear la base de datos");
+            System.out.println(sqle.getMessage());
+        }
+    }
+
+    public static void restaurarBaseDeDatos(ArrayList<TicketVO> a, ArrayList<PlazaVO> b, ArrayList<AbonadoVO> c, ArrayList<VehiculoVO> d) {
+        TicketDAO e = new TicketDAO();
+        PlazaDAO f = new PlazaDAO();
+        AbonadoDAO g = new AbonadoDAO();
+        VehiculoDAO h = new VehiculoDAO();
+        c.forEach(System.out::println);
+        try {
+            h.insertVehiculo(d);
+            
+            g.insertPersona(c);
+            e.insertTicket(a);
+            f.insertPlaza(b);
+
+        } catch (SQLException sqle) {
+            System.out.println("No se ha podido resetear la base de datos");
+            System.out.println(sqle.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
-     EnviarDatos.vaciarParkingCompletamente();
+        EnviarDatos.vaciarParkingCompletamente();
 
     }
 

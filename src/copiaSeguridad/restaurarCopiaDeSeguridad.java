@@ -11,12 +11,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import modelo.AbonadoVO;
+import modelo.EnviarDatos;
 import modelo.PlazaVO;
+import modelo.TicketVO;
 import modelo.VehiculoVO;
 
 /**
@@ -27,7 +31,7 @@ public class restaurarCopiaDeSeguridad {
 
     public static ArrayList<AbonadoVO> restaurarTablaAbonados() {
         ArrayList<AbonadoVO> abonados = new ArrayList<>();
-        AbonadoVO abonado = new AbonadoVO();
+        AbonadoVO abonado = new AbonadoVO("");
         
         // Fichero a leer
         String idFichero = "./backup/"+restaurarCopiaDeSeguridad.hallarUltimaCarpeta()+"/Abonado.txt";
@@ -46,32 +50,27 @@ public class restaurarCopiaDeSeguridad {
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
                 linea = datosFichero.nextLine();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+              
 
              
 
                 //convert String to LocalDate
                 System.out.println(linea);
                 tokens = linea.split("\\|");
-                   System.out.println(tokens[3]+""+tokens[4]+""+tokens[5]);
-                   String date = tokens[3];
-                   String date1 =tokens[4];
-                   String date2=tokens[5];
-                
-                 LocalDate x = LocalDate.parse(date, formatter);
-                 LocalDate y = LocalDate.parse(date1,formatter);
-                 LocalDate e = LocalDate.parse(date2,formatter);
-                
+                  for(int i = 0; i < tokens.length ; i++){
+                      System.out.println(tokens[i]);
+                  } 
                 abonado.setPk(Integer.parseInt(tokens[0]));
                 abonado.setNombre(tokens[1]);
                 abonado.setTipoDeAbono(tokens[2]);
-                abonado.setFeciniabo(x);
-                abonado.setFecfinabo(y);
-                abonado.setFechaNacimiento(e);
+                abonado.setFeciniabo(LocalDate.parse(tokens[3]));
+                abonado.setFecfinabo(LocalDate.parse(tokens[4]));
+                abonado.setFechaNacimiento(LocalDate.parse(tokens[5]));
                 abonado.setDni(tokens[6]);
                 abonado.setEmail(tokens[7]);
                 abonado.setNumTarjeta(tokens[8]);
                 abonado.setMatricula(tokens[9]);
+                abonado.setDuracion(Integer.parseInt(tokens[10]));
 
             }
             abonados.add(abonado);
@@ -176,6 +175,65 @@ public class restaurarCopiaDeSeguridad {
         }
         return plazas;
     }
+     public static ArrayList<TicketVO> restaurarTablaTickets() {
+        ArrayList<TicketVO> tickets = new ArrayList<>();
+        TicketVO ticket = new TicketVO();
+        
+        // Fichero a leer
+        String idFichero = "./backup/"+restaurarCopiaDeSeguridad.hallarUltimaCarpeta()+"/Ticket.txt";
+
+        // Variables para guardar los datos que se van leyendo
+        String[] tokens;
+        String linea = "";
+
+        System.out.println("Leyendo el fichero: " + idFichero);
+
+        // Inicialización del flujo "datosFichero" en función del archivo llamado "idFichero"
+        // Estructura try-with-resources. Permite cerrar los recursos una vez finalizadas
+        // las operaciones con el archivo
+        try (Scanner datosFichero = new Scanner(new FileReader(idFichero))) {
+
+            // Mientras haya líneas por leer
+            while (datosFichero.hasNextLine()) {
+                linea = datosFichero.nextLine();
+                
+
+             
+
+                //convert String to LocalDate
+                System.out.println(linea);
+                tokens = linea.split("\\|");
+                 
+                
+                 ticket.setCodTicket(Integer.parseInt(tokens[0]));
+                 ticket.setCodPlaza(Integer.parseInt(tokens[1]));
+                 ticket.setMatricula(tokens[2]);
+                 ticket.setFechaEntrada(LocalDate.parse(tokens[3]));
+                 ticket.setImporte(Double.parseDouble(tokens[4]));
+                 ticket.setPin(tokens[5]);
+                 ticket.setHoraEntrada(LocalTime.parse(tokens[6]));
+                 ticket.setHoraSalida(LocalTime.parse(tokens[7]));
+                 ticket.setFechaSalida(LocalDate.parse(tokens[8]));
+          
+
+            }
+            tickets.add(ticket);
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        return tickets;
+    }
+
+     public static void restaurarBaseDeDatos(){
+         ArrayList<AbonadoVO> abonados = restaurarCopiaDeSeguridad.restaurarTablaAbonados();
+         ArrayList<PlazaVO> plazas =  restaurarCopiaDeSeguridad.restaurarTablaPlazas();
+         ArrayList<TicketVO> tickets = restaurarCopiaDeSeguridad.restaurarTablaTickets();
+         ArrayList<VehiculoVO> vehiculos = restaurarCopiaDeSeguridad.restaurarTablaVehiculos();
+         EnviarDatos.resetBaseDeDatos();
+         EnviarDatos.restaurarBaseDeDatos(tickets,plazas,abonados,  vehiculos);
+         
+     }
 
     public static void main(String[] args) {
 //        System.out.println(restaurarCopiaDeSeguridad.restaurarTablaAbonados());

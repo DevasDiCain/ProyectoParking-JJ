@@ -163,7 +163,7 @@ public class TicketVO {
 
     @Override
     public String toString() {
-        return "\n|codTicket=" + codTicket + "| codPlaza=" + codPlaza + "| matricula=" + matricula + "| fecha=" + fechaEntrada + "| importe=" + importe + "| pin=" + pin + "| horaEntrada=" + horaEntrada + "| horaSalida=" + horaSalida+" fechaSalida= "+fechaSalida +"\n";
+        return codTicket + "|" + codPlaza + "|" + matricula + "|" + fechaEntrada + "|" + importe + "|" + pin + "|" + horaEntrada + "|" + horaSalida+"|"+fechaSalida ;
     }
     
     public String infoTickets(){

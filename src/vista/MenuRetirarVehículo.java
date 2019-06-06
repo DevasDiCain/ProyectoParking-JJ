@@ -222,12 +222,12 @@ public class MenuRetirarVehículo extends javax.swing.JFrame implements FocusLis
         x.setCodPlaza(Integer.parseInt(introducirIdentificadorTextField.getText()));
         x.setMatricula(introducirMatriculaTextField.getText());
         x = EnviarDatos.obtenerVehiculoSegunPk(introducirMatriculaTextField.getText());
-        r = EnviarDatos.obtenerTicketSegunMatricula(x.getMatricula());
-        r.setHoraSalida(LocalTime.now());
-        r.setImporte(CalcularPrecio.calcularPrecioTicket(matricula, identificador, pin));
+        
+        
+       
         EnviarDatos.sacarVehiculoPlaza(x.getCodPlaza(), x);
        int ticket = EnviarDatos.obtenerTicketSegunMatricula(matricula).getCodTicket();
-        EnviarDatos.cambiarTicket(ticket, r);
+       
         
         JOptionPane.showMessageDialog(null, "Vehículo con matricula " + x.getMatricula() + " retirado con éxito");
         this.setVisible(false);
