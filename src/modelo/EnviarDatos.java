@@ -505,14 +505,20 @@ public class EnviarDatos {
         VehiculoDAO h = new VehiculoDAO();
         c.forEach(System.out::println);
         try {
-            h.insertVehiculo(d);
             
-            g.insertPersona(c);
-            e.insertTicket(a);
-            f.insertPlaza(b);
+              h.insertVehiculo(d);
+              g.insertPersona(c);
+              e.insertTicket(a);
+              f.insertPlaza(b);
+            
+           
+            
+           
+           
+         
 
         } catch (SQLException sqle) {
-            System.out.println("No se ha podido resetear la base de datos");
+            System.out.println("No se ha podido introducir los datos");
             System.out.println(sqle.getMessage());
         }
     }
