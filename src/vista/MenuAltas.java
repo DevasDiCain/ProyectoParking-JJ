@@ -219,7 +219,11 @@ public class MenuAltas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // DAR DE ALTA
-
+VehiculoVO y = new VehiculoVO();
+        y.setMatricula(MenuAltaVehiculo.getMatricula());
+        y.setTipoVehiculo(MenuAltaVehiculo.getTipoVehiculo());
+        y.setCodPlaza(EnviarDatos.ultimoVehiculo(y));
+        EnviarDatos.insertarVehiculo(y);
         if (comprobacionCorrecta) {
             AbonadoVO registrado = new AbonadoVO();
             VehiculoVO x = new VehiculoVO();
