@@ -7,6 +7,9 @@ package vista;
 
 import copiaSeguridad.crearCopiaDeSeguridad;
 import copiaSeguridad.restaurarCopiaDeSeguridad;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -113,7 +116,11 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
         // Restaurar
         int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?", "Pregunta", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
-            restaurarCopiaDeSeguridad.restaurarBaseDeDatos();
+            try {
+                restaurarCopiaDeSeguridad.restaurarBaseDeDatos();
+            } catch (IOException ex) {
+                Logger.getLogger(MenuCopiaSeguridad.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
