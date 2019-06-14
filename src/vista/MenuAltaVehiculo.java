@@ -14,6 +14,9 @@ import modelo.VehiculoVO;
  */
 public class MenuAltaVehiculo extends javax.swing.JFrame {
 
+    private static String matricula;
+    private static String tipoVehiculo;
+
     /**
      * Creates new form MenuAltaVehiculo
      */
@@ -87,11 +90,13 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // DAR DE ALTA
         new MenuAltas().setVisible(true);
-        VehiculoVO x = new VehiculoVO();
+        matricula = tMatricula.getText();
+        tipoVehiculo = String.valueOf(Tabono.getSelectedItem());
+        /*VehiculoVO x = new VehiculoVO();
         x.setMatricula(tMatricula.getText());
         x.setTipoVehiculo(String.valueOf(Tabono.getSelectedItem()));
         x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
-        EnviarDatos.insertarVehiculo(x);
+        EnviarDatos.insertarVehiculo(x);*/
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -128,6 +133,14 @@ public class MenuAltaVehiculo extends javax.swing.JFrame {
                 new MenuAltaVehiculo().setVisible(true);
             }
         });
+    }
+
+    public static String getMatricula() {
+        return matricula;
+    }
+
+    public static String getTipoVehiculo() {
+        return tipoVehiculo;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
