@@ -93,7 +93,7 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Salir:
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -111,8 +111,10 @@ public class MenuCopiaSeguridad extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Restaurar
-        JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?");
-        restaurarCopiaDeSeguridad.restaurarBaseDeDatos();
+        int reply = JOptionPane.showConfirmDialog(null, "¿Está seguro de que quiere restaurar la base de datos de la aplicación?", "Pregunta", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            restaurarCopiaDeSeguridad.restaurarBaseDeDatos();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
