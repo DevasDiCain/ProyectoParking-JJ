@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
@@ -45,8 +46,13 @@ public class crearCopiaDeSeguridad {
     }
 
     public static String hallarCarpeta() {
+        // Hallará la última carpeta, de un array ordenado (sorted) y la devolverá
         File f = new File("./backup");
         File[] ficheros = f.listFiles();
+        Arrays.sort(ficheros);
+        for (int x = 0; x<ficheros.length;x++){
+            System.out.println("Espacio " + x + " :" + ficheros[x].getName());
+        }
         if (f.exists()) {
             for (File file2 : ficheros) {
                 System.out.println(file2.getName());
@@ -55,7 +61,8 @@ public class crearCopiaDeSeguridad {
         } else {
             System.out.println("El directorio a listar no existe");
         }
-
+        
+        System.out.println("Carpeta:" + (ficheros.length - 1) + ", nombre " + ficheros[ficheros.length - 1].getName());
         return ficheros[ficheros.length - 1].getName();
     }
 
