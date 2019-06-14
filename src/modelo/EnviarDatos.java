@@ -210,8 +210,8 @@ public class EnviarDatos {
         }
         return resultado;
     }
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA TICKET">
     public static void insertarTicket(TicketVO ticket) {
         TicketDAO estandar = new TicketDAO();
@@ -345,8 +345,8 @@ public class EnviarDatos {
         }
         return resultado;
     }
-    //</editor-fold>
 
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="COMUNICACIÓN CON TABLA PLAZA">
     public static void insertarPlaza(PlazaVO plaza) {
         PlazaDAO estandar = new PlazaDAO();
@@ -503,19 +503,22 @@ public class EnviarDatos {
         PlazaDAO f = new PlazaDAO();
         AbonadoDAO g = new AbonadoDAO();
         VehiculoDAO h = new VehiculoDAO();
-        c.forEach(System.out::println);
+        // Si uno de los ficheros está vacío, no lo ejecutará
         try {
-            
-              h.insertVehiculo(d);
-              g.insertPersona(c);
-              e.insertTicket(a);
-              f.insertPlaza(b);
-            
-           
-            
-           
-           
-         
+            if (d != null) {
+                h.insertVehiculo(d);
+            }
+            if (c != null) {
+                g.insertPersona(c);
+            }
+            if (a != null) {
+                e.insertTicket(a);
+            }
+            if (b != null) {
+                for (int x=1; x<45; ++x){
+                    f.updatePlaza(x, b.get(x));
+                }
+            }
 
         } catch (SQLException sqle) {
             System.out.println("No se ha podido introducir los datos");
@@ -525,7 +528,7 @@ public class EnviarDatos {
 
     public static void main(String[] args) {
         EnviarDatos.vaciarParkingCompletamente();
-
+        EnviarDatos.resetBaseDeDatos();
     }
 
 }
