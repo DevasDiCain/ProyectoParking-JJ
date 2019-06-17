@@ -239,7 +239,7 @@ public class VehiculoDAO implements IVehiculo {
 
         int numFilas = 0;
 
-        String sql = "select ifnull(max(codplaza),0) as Ultimo from Plaza where tipoPlaza = ? and ocupado= false";
+        String sql = "select ifnull(max(codplaza),0) as Ultimo from Plaza where tipoPlaza = ? and ocupado= false and reservado = false";
 
         // Sentencia parametrizada
         try (PreparedStatement prest = con.prepareStatement(sql)) {

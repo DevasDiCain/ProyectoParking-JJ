@@ -147,10 +147,12 @@ public class MenuCaducidadAbonos extends javax.swing.JFrame {
         Integer[] y = new Integer[3];
         for (int i = 0; i < x.length; i++) {
             y[i] = Integer.parseInt(x[i]);
+           
         }
         System.out.println(y[1]);
 
         new InfoCaducidadMensual(y[1]).setVisible(true);
+        
     }//GEN-LAST:event_darAltaAbonadoActionPerformed
 
     private void MODIFICACIÓNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICACIÓNActionPerformed

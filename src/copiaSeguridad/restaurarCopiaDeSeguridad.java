@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import modelo.AbonadoVO;
 import modelo.EnviarDatos;
@@ -33,7 +34,6 @@ public class restaurarCopiaDeSeguridad {
     public static ArrayList<AbonadoVO> restaurarTablaAbonados() throws FileNotFoundException, IOException {
 
         ArrayList<AbonadoVO> abonados = new ArrayList<>();
-        AbonadoVO abonado = new AbonadoVO("");
 
         // Fichero a leer
         String idFichero = "./backup/" + restaurarCopiaDeSeguridad.hallarUltimaCarpeta() + "/Abonado.txt";
@@ -57,13 +57,14 @@ public class restaurarCopiaDeSeguridad {
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
                 linea = datosFichero.nextLine();
-
+                AbonadoVO abonado = new AbonadoVO("");
                 //convert String to LocalDate
                 System.out.println(linea);
                 tokens = linea.split("\\|");
                 for (int i = 0; i < tokens.length; i++) {
                     System.out.println(tokens[i]);
                 }
+                
                 abonado.setPk(Integer.parseInt(tokens[0]));
                 abonado.setNombre(tokens[1]);
                 abonado.setTipoDeAbono(tokens[2]);
@@ -75,9 +76,9 @@ public class restaurarCopiaDeSeguridad {
                 abonado.setNumTarjeta(tokens[8]);
                 abonado.setMatricula(tokens[9]);
                 abonado.setDuracion(Integer.parseInt(tokens[10]));
-
+                abonados.add(abonado);
+                System.out.println(abonado.getMatricula());
             }
-            abonados.add(abonado);
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -88,13 +89,15 @@ public class restaurarCopiaDeSeguridad {
     public static String hallarUltimaCarpeta() {
         File f = new File("./backup");
         File[] ficheros = f.listFiles();
-
+        Arrays.sort(ficheros);
+        for (File x : ficheros) {
+            System.out.println(x);
+        }
         return ficheros[ficheros.length - 1].getName();
     }
 
     public static ArrayList<VehiculoVO> restaurarTablaVehiculos() {
         ArrayList<VehiculoVO> vehiculos = new ArrayList<>();
-        VehiculoVO vehiculo = new VehiculoVO();
 
         // Fichero a leer
         String idFichero = "./backup/" + restaurarCopiaDeSeguridad.hallarUltimaCarpeta() + "/Vehiculo.txt";
@@ -113,7 +116,7 @@ public class restaurarCopiaDeSeguridad {
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
                 linea = datosFichero.nextLine();
-
+                VehiculoVO vehiculo = new VehiculoVO();
                 System.out.println(linea);
                 tokens = linea.split("\\|");
 
@@ -122,9 +125,8 @@ public class restaurarCopiaDeSeguridad {
                 vehiculo.setMatricula(tokens[0]);
                 vehiculo.setTipoVehiculo(tokens[1]);
                 vehiculo.setCodPlaza(x);
-
+                vehiculos.add(vehiculo);
             }
-            vehiculos.add(vehiculo);
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -175,7 +177,6 @@ public class restaurarCopiaDeSeguridad {
 
     public static ArrayList<TicketVO> restaurarTablaTickets() {
         ArrayList<TicketVO> tickets = new ArrayList<>();
-        TicketVO ticket = new TicketVO();
 
         // Fichero a leer
         String idFichero = "./backup/" + restaurarCopiaDeSeguridad.hallarUltimaCarpeta() + "/Ticket.txt";
@@ -194,7 +195,7 @@ public class restaurarCopiaDeSeguridad {
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
                 linea = datosFichero.nextLine();
-
+                TicketVO ticket = new TicketVO();
                 //convert String to LocalDate
                 System.out.println(linea);
                 tokens = linea.split("\\|");
@@ -208,9 +209,8 @@ public class restaurarCopiaDeSeguridad {
                 ticket.setHoraEntrada(LocalTime.parse(tokens[6]));
                 ticket.setHoraSalida(LocalTime.parse(tokens[7]));
                 ticket.setFechaSalida(LocalDate.parse(tokens[8]));
-
+                tickets.add(ticket);
             }
-            tickets.add(ticket);
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -219,10 +219,12 @@ public class restaurarCopiaDeSeguridad {
     }
 
     public static void restaurarBaseDeDatos() throws IOException {
-        ArrayList<AbonadoVO> abonados = restaurarCopiaDeSeguridad.restaurarTablaAbonados();
         ArrayList<PlazaVO> plazas = restaurarCopiaDeSeguridad.restaurarTablaPlazas();
-        ArrayList<TicketVO> tickets = restaurarCopiaDeSeguridad.restaurarTablaTickets();
         ArrayList<VehiculoVO> vehiculos = restaurarCopiaDeSeguridad.restaurarTablaVehiculos();
+          ArrayList<TicketVO> tickets = restaurarCopiaDeSeguridad.restaurarTablaTickets();
+        ArrayList<AbonadoVO> abonados = restaurarCopiaDeSeguridad.restaurarTablaAbonados();
+      
+       
         EnviarDatos.resetBaseDeDatos();
         EnviarDatos.restaurarBaseDeDatos(tickets, plazas, abonados, vehiculos);
 

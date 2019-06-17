@@ -505,20 +505,22 @@ public class EnviarDatos {
         VehiculoDAO h = new VehiculoDAO();
         // Si uno de los ficheros está vacío, no lo ejecutará
         try {
-            if (d != null) {
-                h.insertVehiculo(d);
-            }
-            if (c != null) {
-                g.insertPersona(c);
-            }
-            if (a != null) {
-                e.insertTicket(a);
-            }
-            if (b != null) {
+             if (b != null) {
                 for (int x=1; x<45; ++x){
                     f.updatePlaza(x, b.get(x));
                 }
             }
+            if (d != null) {
+                h.insertVehiculo(d);
+            }
+                if (a != null) {
+                e.insertTicket(a);
+            }
+            if (c != null) {
+                g.insertPersona(c);
+            }
+        
+           
 
         } catch (SQLException sqle) {
             System.out.println("No se ha podido introducir los datos");

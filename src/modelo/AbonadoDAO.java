@@ -43,13 +43,14 @@ public class AbonadoDAO implements IAbonado {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 p.setPk(res.getInt("codabonado"));
                 p.setNombre(res.getString("nombre"));
-                p.setTipoDeAbono((res.getString(2)));
+                p.setTipoDeAbono(res.getString("abono"));
                 p.setFeciniabo(res.getDate("feciniabo").toLocalDate());
                 p.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
                 p.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
                 p.setDni(res.getString("dni"));
                 p.setEmail(res.getString("email"));
                 p.setNumTarjeta(res.getString("numTarjeta"));
+                p.setMatricula(res.getString("matricula"));
                 p.setDuracion(res.getInt("duracion"));
 
                 //Añadimos el objeto a la lista
@@ -82,13 +83,14 @@ public class AbonadoDAO implements IAbonado {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 abonado.setPk(res.getInt("codabonado"));
                 abonado.setNombre(res.getString("nombre"));
-                abonado.setTipoDeAbono(res.getString(2));
+                abonado.setTipoDeAbono(res.getString("abono"));
                 abonado.setFeciniabo(res.getDate("feciniabo").toLocalDate());
                 abonado.setFecfinabo(res.getDate("fecfinabo").toLocalDate());
                 abonado.setFechaNacimiento(res.getDate("fecnacimiento").toLocalDate());
                 abonado.setDni(res.getString("dni"));
                 abonado.setEmail(res.getString("email"));
                 abonado.setNumTarjeta(res.getString("numTarjeta"));
+                abonado.setMatricula(res.getString("matricula"));
                 abonado.setDuracion(res.getInt("duracion"));
                 return abonado;
             }

@@ -239,11 +239,11 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void introducirMatriculaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirMatriculaTextFieldActionPerformed
-        
+
     }//GEN-LAST:event_introducirMatriculaTextFieldActionPerformed
 
     private void introducirTipoVehiculoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introducirTipoVehiculoTextFieldActionPerformed
-        
+
 
     }//GEN-LAST:event_introducirTipoVehiculoTextFieldActionPerformed
 
@@ -261,13 +261,18 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
         if (introducirTipoVehiculoTextField.getText().equalsIgnoreCase("turismo") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("caravana") || introducirTipoVehiculoTextField.getText().equalsIgnoreCase("motocicleta") || !introducirMatriculaTextField.equals("") || !introducirMatriculaTextField.equals("Introduzca El Tipo De Vehículo")) {
             VehiculoVO x = new VehiculoVO();
             TicketVO y = new TicketVO();
-            if (introducirMatriculaTextField.getText().length() == 7) {
 
+            if (introducirMatriculaTextField.getText().length() == 7) {
+                
                 x.setMatricula(introducirMatriculaTextField.getText());
                 x.setTipoVehiculo(introducirTipoVehiculoTextField.getText());
-                x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));
-                EnviarDatos.insertarVehiculo(x);
+               
                 
+                if (EnviarDatos.obtenerPlazaSegunPk(EnviarDatos.ultimaPlaza()).isOcupado() || EnviarDatos.obtenerPlazaSegunPk(EnviarDatos.ultimaPlaza()).isReservado()) {
+                    x.setCodPlaza(EnviarDatos.ultimoVehiculo(x) - 1);
+                } else {x.setCodPlaza(EnviarDatos.ultimoVehiculo(x));}
+                EnviarDatos.insertarVehiculo(x);
+
                 y.setCodTicket(EnviarDatos.ultimoTicket());
                 y.setCodPlaza(x.getCodPlaza());
                 y.setFechaEntrada(LocalDate.now());
@@ -278,7 +283,7 @@ public class MenuDepositarVehiculo extends javax.swing.JFrame {
                 y.setImporte(0);
                 y.setFechaSalida(LocalDate.now());
                 EnviarDatos.insertarTicket(y);
-                JOptionPane.showMessageDialog(null, "Su pin es : "+y.getPin()+" guardelo, lo necesitará para extraer su vehículo");
+                JOptionPane.showMessageDialog(null, "Su pin es : " + y.getPin() + " guardelo, lo necesitará para extraer su vehículo");
                 JOptionPane.showMessageDialog(null, "Vehiculo introducido correctamente, Su Plaza es La-->" + x.getCodPlaza());
 
             } else {
